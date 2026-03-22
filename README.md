@@ -76,7 +76,64 @@ This master's thesis builds on that artifact: commits after `ceee509` reflect re
 
 ### Prerequisites
 
-You need a TeX Live installation with `latexmk` and `biber`. On **Debian/Ubuntu**:
+You need a TeX Live installation with `latexmk` and `biber`.
+
+#### macOS
+
+**Option A: Full MacTeX (recommended, ~4 GB)**
+
+This is the easiest option. It installs everything you need in one step, including `latexmk`, `biber`, all fonts, and the TeXShop editor.
+
+```bash
+# Install via Homebrew
+brew install --cask mactex
+
+# IMPORTANT: restart your terminal after installation, or run:
+eval "$(/usr/libexec/path_helper)"
+
+# Verify installation
+latexmk --version
+biber --version
+```
+
+Alternatively, download the installer directly from [tug.org/mactex](https://www.tug.org/mactex/).
+
+**Option B: BasicTeX (lightweight, ~100 MB) + manual packages**
+
+If you prefer a minimal install, use BasicTeX and add the required packages manually:
+
+```bash
+# Install BasicTeX
+brew install --cask basictex
+
+# Restart your terminal, then install required tools and packages
+eval "$(/usr/libexec/path_helper)"
+sudo tlmgr update --self
+sudo tlmgr install \
+  latexmk biber \
+  collection-fontsrecommended \
+  collection-langenglish \
+  collection-langportuguese \
+  biblatex biblatex-abnt \
+  booktabs caption csquotes enumitem etoolbox fancyhdr float \
+  footmisc framed geometry hyperref indentfirst microtype \
+  parskip pgfplots setspace subcaption tcolorbox titlesec \
+  todonotes xcolor xpatch siunitx adjustbox makecell \
+  threeparttable colortbl multirow longtable pdfpages \
+  appendix datetime2 contour pgfgantt beamer \
+  beamertheme-metropolis libertinus sourcecodepro
+```
+
+If you hit a missing `.sty` file during compilation, find and install it with:
+
+```bash
+tlmgr search --global --file missing-file.sty
+sudo tlmgr install package-name
+```
+
+**Recommended editor setup:** [VS Code](https://code.visualstudio.com/) with the [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) extension works well on macOS. After installing MacTeX or BasicTeX, the extension automatically detects `latexmk` and provides build-on-save, PDF preview, and SyncTeX (click PDF to jump to source).
+
+#### Debian / Ubuntu
 
 ```bash
 sudo apt-get update
@@ -98,9 +155,9 @@ sudo apt-get install -y \
   texlive-lang-portuguese
 ```
 
-On **macOS** with [MacTeX](https://www.tug.org/mactex/): install the full MacTeX distribution (all packages above are included).
+#### Windows
 
-On **Windows**: install [TeX Live](https://www.tug.org/texlive/) or [MiKTeX](https://miktex.org/) with the equivalent packages.
+Install [TeX Live](https://www.tug.org/texlive/) (full scheme) or [MiKTeX](https://miktex.org/) with the equivalent packages. Both include `latexmk` and `biber`.
 
 ### Compile
 
