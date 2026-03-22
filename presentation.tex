@@ -1,0 +1,301 @@
+% Defense Presentation — José Gonçalves Lima Neto
+% IME-USP, Computer Science, 2026
+%
+% Based on the IME-USP Beamer template (ccsl-usp/modelo-latex).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT CLASS & PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% aspectratio: 149 = 14:9 (good balance), 169 = 16:9
+\documentclass[
+  xcolor={hyperref,svgnames,x11names,table},
+  hyperref={pdfencoding=unicode,plainpages=false,pdfpagelabels=true,breaklinks=true},
+  brazilian,english,12pt,aspectratio=149,
+]{beamer}
+
+\usepackage{imegoodies}
+\usepackage[slides,hidelinks]{imelooks}
+
+\graphicspath{{figures/},{template/logos/}}
+
+\babeltags{br = brazilian, en = english}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% USER COMMANDS & SECTION RECAPS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Show overview slide at the start of each section
+\AtBeginSection[]{
+  \begin{frame}<beamer>[t]{Overview}
+    \intermezzo
+  \end{frame}
+}
+
+% Custom colored blocks
+\newenvironment{coloredblock}[2]%
+  {
+    \setbeamercolor{block title}{fg=white,bg=#1!80!white}
+    \setbeamercolor{block body}{fg=darkgray,bg=#1!20!white}
+    \setbeamercolor{local structure}{fg=darkgray,bg=#1!20!white}
+    \begin{block}{#2}
+  }
+  {\end{block}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% METADATA & TITLE SLIDE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addbibresource{references.bib}
+
+\title[Evaluating Arch-Stage]{Evaluating and Refining Arch-Stage}
+
+\subtitle{Supporting Architectural Hypotheses\\in Software Engineering Teams}
+
+\author[Lima Neto]{José Gonçalves Lima Neto}
+
+\institute{\textbf{Master's Thesis Defense}\\
+           Graduate Program in Computer Science\\
+           IME -- University of São Paulo}
+%\institute{\textbf{Advisor:} Prof. Dr. Paulo Roberto Miranda Meirelles\\
+%           Graduate Program in Computer Science\\
+%           IME -- University of São Paulo}
+
+\date{December 2026} % TODO: adjust to actual defense date
+
+% Title page background image
+\titlebgimage{\includegraphics[width=\paperwidth,height=\paperheight]{bg-ime}}
+
+% Logos on the title slide footer
+\logos{%
+  \includegraphics[height=.9\baselineskip]{ime-logo}%
+  \quad\quad
+  \raisebox{.15\baselineskip}{\includegraphics[height=.6\baselineskip]{usp-logo}}%
+  \par
+  \hspace{.87\paperwidth}\includegraphics[width=.05\paperwidth]{cc-by}\par
+}
+
+% QR code linking to the thesis repo
+\qrcodeurl{https://github.com/ArchHypo/hypo-stage-masters-thesis}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SLIDES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% ---- Title slide ----
+\maketitle
+
+% ---- QR code slide ----
+\showqrcode
+
+% ---- Overview ----
+\begin{frame}[t]{Overview}
+  \overview
+\end{frame}
+
+
+% ==============================================================================
+\section{Introduction}
+% ==============================================================================
+
+\begin{frame}{Motivation}
+  \begin{itemize}
+    \item Organizations strive for fast flow through autonomous teams
+    \item Architecture decisions often remain centralized in a few experts
+    \item Architectural uncertainty is natural but usually \alert{implicit}
+    \item[]
+    \item Existing derivation methods rely on architects' tacit knowledge
+          (Souza et al., 2019)
+    \item Teams without senior architects lack guidance and tooling
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The Problem}
+  \begin{block}{Gap}
+    No consolidated approach exists for managing architectural uncertainty
+    within the daily engineering workflow of development teams.
+  \end{block}
+
+  \vspace{0.5\baselineskip}
+
+  \begin{itemize}
+    \item ArchHypo (Silva et al., TSE 2025) uses hypotheses engineering
+          to make uncertainty explicit and manageable
+    \item But: manual application has a \alert{steep learning curve}
+          (Finding 9: unanimously hard to learn)
+    \item Process-change resistance (Finding 8) hinders adoption
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Objective}
+  \begin{block}{Thesis Objective}
+    Empirically evaluate and refine \textbf{Arch-Stage}, a support tool for
+    the ArchHypo technique, by applying it with diverse software engineering
+    teams in a real-world organization with a scaled software product.
+  \end{block}
+
+  % TODO: add research questions once finalized
+\end{frame}
+
+
+% ==============================================================================
+\section{Background}
+% ==============================================================================
+
+\begin{frame}{ArchHypo Technique}
+  \begin{enumerate}
+    \item \textbf{Identify} architectural hypotheses (uncertainties)
+    \item \textbf{Assess} each: uncertainty level + impact level
+    \item \textbf{Plan} technical actions (spikes, tracer bullets, triggers)
+    \item \textbf{Execute} plans and \textbf{reassess} iteratively
+  \end{enumerate}
+
+  \vspace{0.5\baselineskip}
+
+  \begin{itemize}
+    \item Prior evaluations: Catch Solve startup (IEEE SW), PropSEP at Jetsoft (TSE)
+    \item Both manual --- no tool support
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Arch-Stage Tool}
+  \begin{itemize}
+    \item Open-source Backstage plugin for ArchHypo
+    \item Hypothesis CRUD, Likert-scale assessment, technical plans
+    \item Visualization: uncertainty vs. impact chart
+    \item Integrates into the Internal Developer Portal workflow
+  \end{itemize}
+
+  \vspace{0.5\baselineskip}
+
+  \begin{block}{Lineage}
+    Initial design \& implementation: undergrad capstone (Corrêa, 2025).\\
+    This thesis: empirical evaluation \& refinement with real teams.
+  \end{block}
+
+  % TODO: add Arch-Stage screenshot here
+  % \includegraphics[width=0.9\textwidth]{arch-stage-screenshot}
+\end{frame}
+
+
+% ==============================================================================
+\section{Related Work}
+% ==============================================================================
+
+\begin{frame}{Related Work}
+  % TODO: fill in as the chapter matures
+  \begin{itemize}
+    \item ADR tools (adr-tools, Log4brains) --- capture decisions, not uncertainties
+    \item ATAM workshops --- heavyweight, not continuous
+    \item IDPs (Backstage, Port, Cortex) --- no native hypothesis support
+    \item[]
+    \item \textbf{Gap:} no existing tool combines hypothesis engineering with
+          developer portal integration
+  \end{itemize}
+\end{frame}
+
+
+% ==============================================================================
+\section{Research Design}
+% ==============================================================================
+
+\begin{frame}{Empirical Approach}
+  \begin{itemize}
+    \item \textbf{Context:} CompanyX, scaled product, multiple teams
+    \item \textbf{Method:} embedded case study, mixed methods
+    \item \textbf{Data sources:}
+    \begin{itemize}
+      \item Arch-Stage artifacts (hypotheses, assessments, plans)
+      \item Questionnaires (usability, perceived value)
+      \item Semi-structured interviews
+    \end{itemize}
+    \item \textbf{Analysis:} thematic coding + descriptive statistics
+  \end{itemize}
+
+  % TODO: add research design diagram
+\end{frame}
+
+
+% ==============================================================================
+\section{Results}
+% ==============================================================================
+
+\begin{frame}{Results}
+  % TODO: fill in after data collection and analysis
+  \begin{center}
+    \textit{(to be presented after the empirical study)}
+  \end{center}
+\end{frame}
+
+
+% ==============================================================================
+\section{Conclusion and Future Work}
+% ==============================================================================
+
+\begin{frame}{Conclusion and Future Work}
+  % TODO: fill in after the study is complete
+  \begin{itemize}
+    \item Summary of contributions
+    \item Limitations
+    \item Future directions
+  \end{itemize}
+\end{frame}
+
+
+% ==============================================================================
+\section{References}
+% ==============================================================================
+
+\begin{frame}[allowframebreaks]{References}
+  \nocite{silva2024tse, silva2024ieeesw, souza2019, correa2025,
+          bass2021, skelton2019, footeYoder1999, richardsFord2020}
+  \printbibliography
+\end{frame}
+
+% ---- Final slide: recap + repo link ----
+\begin{frame}[t]{\insertshorttitle}
+  \overview
+
+  \vspace{1\baselineskip}
+  \bgroup
+  \centering
+    \url{https://github.com/ArchHypo/hypo-stage-masters-thesis}\par
+  \egroup
+\end{frame}
+
+\showqrcode
+
+% ---- Backup slides (not counted in page total) ----
+\appendix
+
+\begin{frame}{Backup: ArchHypo Nine Findings (TSE)}
+  \footnotesize
+  \begin{enumerate}
+    \item Some hypotheses monitored without full resolution until end
+    \item Avoided upfront architectural design; decisions through iterations
+    \item Improved process: safety, transparency, predictability
+    \item Different QAs handled with different creative strategies
+    \item Guideline implementation was the most-used strategy
+    \item Team recognized better architectural decision-making
+    \item Evidence of positive impact on product quality
+    \item \alert{Process-change obstacle}: mixing arch \& functional tasks
+    \item \alert{Unanimously hard to learn}: mapping, articulating, planning
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Backup: Souza et al. Key Findings}
+  \begin{itemize}
+    \item 2575 papers $\rightarrow$ 39 primary studies
+    \item All methods rely on architects' tacit knowledge
+    \item Limited support for inexperienced practitioners
+    \item Weak or absent tool support
+    \item Insufficient empirical evaluation
+  \end{itemize}
+\end{frame}
+
+\end{document}

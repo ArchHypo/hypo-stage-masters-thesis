@@ -9,9 +9,12 @@ Master's thesis in Computer Science at **IME-USP** (Institute of Mathematics and
 | **Program** | Graduate Program in Computer Science — IME-USP |
 | **Year** | 2026 |
 
-## Read the Thesis
+## Read the Documents
 
-The latest compiled PDF is available directly in the repository root: **[thesis.pdf](thesis.pdf)**.
+| Document | Description |
+|---|---|
+| **[thesis.pdf](thesis.pdf)** | Full thesis (latest compiled version) |
+| **[presentation.pdf](presentation.pdf)** | Defense presentation slides (Beamer/IME theme) |
 
 ## About
 
@@ -41,29 +44,35 @@ This master's thesis builds on that artifact: commits after `ceee509` reflect re
 
 ```
 .
-├── thesis.pdf              # Compiled thesis (latest version)
-├── thesis.tex              # Main LaTeX file (entry point)
-├── references.bib          # Bibliography (BibLaTeX format)
-├── chapters/               # Thesis content (author's writing)
-│   ├── abstract.tex        #   Abstract (EN) and Resumo (PT)
-│   ├── 01-introduction.tex #   Chapter 1: Introduction
-│   ├── 02-background.tex   #   Chapter 2: Background
-│   ├── 03-related-work.tex #   Chapter 3: Related Work
-│   └── 04-research-design.tex  Chapter 4: Research Design
-├── figures/                # Thesis figures (add .pdf, .png, .jpg here)
-├── template/               # IME-USP LaTeX template internals (do not edit)
-│   ├── *.sty               #   Style packages
-│   ├── *.bst, *.bbx, ...   #   Bibliography styles
-│   ├── logos/               #   Institutional logos
-│   ├── texlogsieve          #   Log filter tool
-│   └── latexmkrc            #   Template build settings
-├── latexmkrc               # Build config (loads template/latexmkrc)
-├── .github/workflows/      # GitHub Actions CI (auto-builds PDF on push)
+├── thesis.pdf                  # Compiled thesis (latest version)
+├── thesis.tex                  # Thesis entry point
+├── presentation.pdf            # Compiled presentation slides
+├── presentation.tex            # Presentation entry point (Beamer)
+├── references.bib              # Shared bibliography (BibLaTeX format)
+├── chapters/                   # Thesis content (author's writing)
+│   ├── abstract.tex            #   Abstract (EN) and Resumo (PT)
+│   ├── 01-introduction.tex     #   Chapter 1: Introduction
+│   ├── 02-background.tex       #   Chapter 2: Background
+│   ├── 03-related-work.tex     #   Chapter 3: Related Work
+│   ├── 04-research-design.tex  #   Chapter 4: Research Design
+│   ├── 05-results.tex          #   Chapter 5: Results (scaffold)
+│   ├── 06-discussion.tex       #   Chapter 6: Discussion (scaffold)
+│   ├── 07-conclusion.tex       #   Chapter 7: Conclusion (scaffold)
+│   └── appendix-a-instruments.tex  Appendix A: Research Instruments
+├── figures/                    # Thesis figures (.pdf, .png, .jpg)
+├── template/                   # IME-USP LaTeX template internals (do not edit)
+│   ├── *.sty                   #   Style packages (imegoodies, imelooks, etc.)
+│   ├── *.bst, *.bbx, ...      #   Bibliography styles (thesis + beamer)
+│   ├── logos/                  #   Institutional logos (IME, USP, CC-BY)
+│   ├── texlogsieve             #   Log filter tool
+│   └── latexmkrc               #   Template build settings
+├── latexmkrc                   # Build config (loads template/latexmkrc)
+├── .github/workflows/          # GitHub Actions CI (builds both PDFs on push)
 ├── LICENSE
 └── README.md
 ```
 
-## Building the PDF
+## Building the PDFs
 
 ### Prerequisites
 
@@ -98,20 +107,19 @@ On **Windows**: install [TeX Live](https://www.tug.org/texlive/) or [MiKTeX](htt
 From the repository root:
 
 ```bash
+# Build the thesis
 latexmk -pdf thesis.tex
-```
 
-This runs `pdflatex` + `biber` + `makeindex` as many times as needed and produces `thesis.pdf`.
+# Build the presentation
+latexmk -pdf presentation.tex
 
-To clean all build artifacts:
-
-```bash
+# Clean all build artifacts
 latexmk -C
 ```
 
 ### Continuous Integration
 
-Every push to `main` triggers a [GitHub Actions workflow](.github/workflows/latex.yml) that compiles the thesis and uploads the resulting PDF as a downloadable artifact.
+Every push to `main` triggers a [GitHub Actions workflow](.github/workflows/latex.yml) that compiles both the thesis and the presentation, uploading each as a downloadable artifact.
 
 ## License
 

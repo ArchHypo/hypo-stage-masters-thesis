@@ -1,4 +1,4 @@
-name: Build LaTeX Thesis
+name: Build LaTeX Documents
 
 on:
   push:
@@ -26,9 +26,19 @@ jobs:
       - name: Compile thesis
         run: latexmk -pdf thesis.tex
 
-      - name: Upload PDF artifact
+      - name: Compile presentation
+        run: latexmk -pdf presentation.tex
+
+      - name: Upload thesis PDF
         uses: actions/upload-artifact@v4
         with:
           name: thesis-pdf
           path: thesis.pdf
+          retention-days: 30
+
+      - name: Upload presentation PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: presentation-pdf
+          path: presentation.pdf
           retention-days: 30

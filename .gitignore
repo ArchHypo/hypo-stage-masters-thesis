@@ -30,6 +30,7 @@ mkidxhead.ist
 hyperxindy.xdy
 missfont.log
 
-# LaTeX-generated PDFs are ignored except thesis.pdf which is kept
-# in the repo root for easy access.
-# thesis.pdf  ← tracked on purpose
+# LaTeX-generated PDFs are ignored except thesis.pdf and presentation.pdf
+# which are kept in the repo root for easy access.
+# thesis.pdf        ← tracked on purpose
+# presentation.pdf  ← tracked on purpose
