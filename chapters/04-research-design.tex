@@ -1,0 +1,187 @@
+%!TeX root=../thesis.tex
+
+\chapter{Research Design}
+\label{cap:design-pesquisa}
+
+This chapter describes the empirical approach adopted to evaluate and refine the
+Arch-Stage tool. The design follows a mixed-methods strategy aligned with the thesis
+objective: understanding how software engineering teams use a tool for managing
+architectural hypotheses in a real-world setting, and identifying refinements needed
+to improve its practical utility.
+
+% ---------------------------------------------------------------------------
+\section{Empirical Context}
+\label{sec:contexto-empirico}
+
+% TODO: insert anonymized description of the company and product domain.
+The study takes place within \textbf{CompanyX}, an organization that develops and
+operates \textbf{ProductY}, a scaled software product serving
+% TODO: describe domain, approximate size, and user base.
+a significant user base. Multiple software engineering teams collaborate on different
+subsystems of ProductY, each responsible for distinct functional areas but sharing
+cross-cutting architectural concerns such as
+% TODO: list representative quality attributes (e.g., scalability, reliability,
+% observability).
+scalability and reliability.
+
+\paragraph{Teams and participants.}
+% TODO: describe the number of participating teams, team sizes, and experience levels.
+At least two teams are involved in the study, representing varying levels of
+architectural experience---from teams with a senior architect to teams where
+architectural responsibility is distributed informally among developers.
+
+\paragraph{Tool deployment.}
+Arch-Stage was deployed within CompanyX's Backstage instance, making it accessible
+alongside existing developer portal features. Teams were introduced to the ArchHypo
+concepts and the Arch-Stage interface through a short onboarding session before
+beginning their use of the tool.
+% TODO: describe onboarding duration and materials.
+
+% ---------------------------------------------------------------------------
+\section{Research Approach}
+\label{sec:abordagem}
+
+% TODO: decide primary evaluation focus:
+% (a) interaction/usability and team practices with Arch-Stage, or
+% (b) classification and evolution of architectural uncertainties managed via
+%     Arch-Stage,
+% and adjust research questions and analysis plan accordingly.
+
+The research adopts a \textbf{mixed-methods} approach combining qualitative and
+quantitative data sources. This choice is motivated by the exploratory nature of the
+study---there are no prior studies of tool-supported ArchHypo use---and by the need to
+capture both behavioral patterns (how teams use the tool) and perceptual data (how
+teams experience the tool).
+
+The study can be characterized as an \emph{embedded case study} with multiple units of
+analysis (the participating teams), following guidelines from Yin and
+Runeson et al.\ for empirical software engineering research.
+% TODO: add specific methodology references (Yin 2018, Runeson et al. 2012).
+
+The design is informed by the approach taken in the TSE evaluation of
+ArchHypo~\cite{silva2024tse}, in which a participant-observer role was used to collect
+multi-source evidence: Kanban board history, user stories, incident reports, the
+ArchHypo tracking spreadsheet, relevant e-mails, and a questionnaire administered to
+all team members. That study demonstrated the value of combining artifact-based and
+perceptual evidence for understanding both how a technique is applied and how
+participants experience it. The present thesis extends this methodological approach to
+the tool-mediated setting, where Arch-Stage itself becomes both a data source (its
+stored artifacts) and an object of evaluation (its usability and fit).
+
+Critically, the TSE evaluation used manual spreadsheets as its primary tracking medium.
+This thesis evaluates a qualitatively different mode of application: one in which the
+tool scaffolds hypothesis management, potentially reducing the cognitive overhead and
+process-change friction identified in Findings~8 and~9 of that study.
+
+% ---------------------------------------------------------------------------
+\section{Data Sources}
+\label{sec:fontes-dados}
+
+Three primary data sources are planned:
+
+\begin{enumerate}
+  \item \textbf{Arch-Stage artifacts.} The hypotheses, assessments, and technical plans
+  recorded by teams in Arch-Stage constitute the principal data set. For each
+  hypothesis, the following attributes are available: statement, quality attribute,
+  source type, uncertainty rating, impact rating, technical plan items (type,
+  description, target date, status), and lifecycle status changes over time. Unlike the
+  spreadsheet-based data of the TSE study, these artifacts are captured in a structured
+  database, enabling systematic extraction and longitudinal analysis.
+
+  \item \textbf{Questionnaires.} Short questionnaires administered to team members
+  after a defined usage period (e.g., one sprint cycle or one month) to capture
+  perceptions of usability, perceived value, and difficulties encountered.
+  % TODO: define questionnaire instrument (e.g., adapted SUS, TAM, or custom
+  % Likert-scale items).
+
+  \item \textbf{Semi-structured interviews.} Interviews with a subset of participants
+  (e.g., team leads, developers who created hypotheses, developers who did not)
+  to explore themes emerging from the artifact and questionnaire data in greater
+  depth.
+  % TODO: define interview guide topics and participant selection criteria.
+\end{enumerate}
+
+Optionally, the study may include:
+\begin{itemize}
+  \item \textbf{Observation of meetings.} Attending architecture discussions or
+  sprint-planning sessions where Arch-Stage is referenced, to observe how the tool
+  mediates conversation.
+  % TODO: decide whether observation is feasible given access constraints.
+
+  \item \textbf{Usage logs.} If available, server-side logs of Arch-Stage interactions
+  (page views, edits, time spent) could provide objective usage metrics.
+  % TODO: check whether Backstage logging is enabled and data is accessible.
+\end{itemize}
+
+% ---------------------------------------------------------------------------
+\section{Analysis Plan}
+\label{sec:plano-analise}
+
+% TODO: refine this section after finalizing research questions and data sources.
+
+\paragraph{Artifact analysis.}
+Hypotheses and technical plans will be coded thematically to identify recurring types
+of architectural uncertainty (e.g., technology-fit uncertainties, integration
+uncertainties, performance uncertainties) and patterns in how teams formulate and
+resolve them. Uncertainty and impact ratings will be analyzed descriptively
+(distributions, medians) and, if sample size permits, compared across teams.
+
+\paragraph{Questionnaire analysis.}
+Likert-scale responses will be summarized with descriptive statistics. Open-ended
+responses will be coded using the same thematic framework applied to the artifact
+data.
+
+\paragraph{Interview analysis.}
+Interview transcripts will be analyzed using thematic coding, following the six-phase
+approach of Braun and Clarke. Codes will be organized into themes addressing each
+research question (tool usage patterns, needed refinements, types of uncertainty).
+
+\paragraph{Triangulation.}
+Findings from the three data sources will be triangulated to strengthen the validity
+of conclusions. Where artifact data and interview data converge, confidence in the
+finding increases; where they diverge, the divergence itself becomes a finding
+requiring interpretation.
+
+% ---------------------------------------------------------------------------
+\section{Ethical Considerations}
+\label{sec:etica}
+
+% TODO: describe IRB/ethics committee approval status.
+% TODO: describe informed consent process, data anonymization, and data storage.
+All participants will be asked for informed consent before data collection begins.
+Company and product names will be anonymized in all publications. Individual
+participant data (questionnaire responses, interview transcripts) will be stored
+securely and accessible only to the research team.
+
+% ---------------------------------------------------------------------------
+\section{Alignment with Qualification Feedback}
+\label{sec:feedback-quali}
+
+This research design responds to the main feedback received during the author's
+qualification examination~\cite{limaQual2024}:
+
+\begin{itemize}
+  \item \textbf{Narrowed scope}: the study focuses on specific teams and a concrete
+  tool rather than broad surveys of software architecture trends. The qualification
+  committee found the earlier scope---encompassing both a tertiary SMS and a
+  multivocal review as principal contributions---too wide for a master's thesis.
+
+  \item \textbf{Rejection of the ``paradox'' framing}: the ``paradox of SA
+  decision-making'' terminology used in the qualification was judged unproductive by
+  the committee, as it overstated the nature of what is in practice a design
+  trade-off. This thesis does not employ that framing.
+
+  \item \textbf{Limited research questions}: three focused questions replace the
+  earlier, broader set.
+
+  \item \textbf{Concrete artifact}: Arch-Stage serves as the tangible object of
+  evaluation, grounding the research in observable behavior and artifacts. The
+  qualification's proposed questionnaire-based survey was repositioned as contextual
+  motivation rather than a primary contribution.
+
+  \item \textbf{Empirical rigor}: the mixed-methods design, triangulation plan, and
+  explicit ethical considerations aim for a level of rigor appropriate for a master's
+  thesis in empirical software engineering. By modeling the data collection strategy
+  on the TSE study's multi-source approach while extending it to the tool-mediated
+  context, the design offers a coherent methodological lineage.
+\end{itemize}

@@ -1,0 +1,35 @@
+# LaTeX build artifacts
+*.dvi
+*.ps
+*.aux
+*.log
+*.toc
+*.out
+*.bbl
+*.blg
+*.brf
+*.bcf
+*.fls
+*.run.xml
+*.synctex
+*.synctex.gz
+*.fdb_latexmk
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.lop
+*.nav
+*.snm
+*.vrb
+*.(busy)
+*-current
+timestamp
+mkidxhead.ist
+hyperxindy.xdy
+missfont.log
+
+# LaTeX-generated PDFs are ignored except thesis.pdf which is kept
+# in the repo root for easy access.
+# thesis.pdf  ← tracked on purpose

@@ -1,0 +1,175 @@
+% Master's Thesis — José Gonçalves Lima Neto
+% IME-USP, Computer Science, 2026
+%
+% Based on the IME-USP LaTeX template (ccsl-usp/modelo-latex).
+% Template authors: Jesús P. Mena-Chalco, Fabio Kon, Paulo Feofiloff, Nelson Lago.
+% Template licence: MIT. Thesis content: CC-BY 4.0.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT CLASS & PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The LAST language listed becomes the document default.
+% Swapped order: English is now the primary language.
+% Brazilian Portuguese is still loaded (required by IME-USP for the resumo).
+\documentclass[a4paper,12pt,twoside,brazilian,english]{book}
+
+\usepackage{imegoodies}
+\usepackage[thesis]{imelooks}
+
+% Directories where figures are located
+\graphicspath{{figures/},{template/logos/}}
+
+% Quick language-switching commands (\en, \br, \texten{}, \textbr{})
+\babeltags{br = brazilian, en = english}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% METADATA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addbibresource{references.bib}
+
+\babelhyphenation{documentclass latexmk soft-ware clsguide}
+\babelhyphenation[brazilian]{hi-pó-te-ses ar-qui-te-tu-rais}
+\babelhyphenation[english]{Arch-Hypo Arch-Stage}
+
+% ---- Title (English is primary; translated title is the Portuguese version) ----
+\title{Evaluating and Refining Arch-Stage}[Supporting Architectural Hypotheses in Software Engineering Teams]
+\translatedtitle{Avaliação e Refinamento do Arch-Stage}[Apoio a Hipóteses Arquiteturais em Equipes de Engenharia de Software]
+
+\author{José Gonçalves Lima Neto}
+
+\def\profa{Prof\kern.02em.\kern-.07emª\kern.07em}
+\def\dra{Dr\kern-.04em.\kern-.11emª\kern.07em}
+
+\orientador{Prof. Dr. Paulo Roberto Miranda Meirelles}
+
+\banca{
+  Prof. Dr. Paulo Roberto Miranda Meirelles (advisor) -- IME-USP,
+  % TODO: define remaining committee members
+}
+
+\tipotese{
+  mestrado,
+  programa={Computer Science},
+}
+
+\defesa{
+  local={São Paulo},
+  data=2026-12-01, % TODO: adjust defense date
+}
+
+% TODO: uncomment and fill if applicable
+%\apoio{This study was financed in part by \ldots}
+
+\direitos{CC-BY}
+
+\fichacatalografica{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BODY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frontmatter
+\pagestyle{plain}
+\onehalfspacing
+
+\maketitle
+
+%%% Dedication %%%
+\begin{dedicatoria}
+% TODO: add dedication.
+\end{dedicatoria}
+
+\pagenumbering{roman}
+
+%%% Acknowledgments %%%
+\chapter*{Acknowledgments}
+% TODO: write acknowledgments.
+
+%%% Abstract (EN primary, PT secondary — both required by IME-USP) %%%
+\input{chapters/abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LISTS & TOC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+
+\newcommand\disablenewpage[1]{{\let\clearpage\par\let\cleardoublepage\par #1}}
+
+\bgroup
+\raggedbottom
+
+%%% Abbreviations %%%
+\disablenewpage{\chapter*{List of Abbreviations}}
+
+\begin{tabular}{rl}
+   SA       & Software Architecture\\
+   ArchHypo & Architecture Hypothesis (technique)\\
+   IDP      & Internal Developer Portal\\
+   NFR      & Non-Functional Requirements\\
+   QA       & Quality Attribute\\
+   DSR      & Design Science Research\\
+   IME      & Institute of Mathematics and Statistics (Universidade de São Paulo)\\
+   USP      & University of São Paulo\\
+   ADR      & Architecture Decision Record\\
+\end{tabular}
+
+\clearpage
+
+%%% Auto-generated lists %%%
+\disablenewpage{\listoffigures}
+\disablenewpage{\listoftables}
+\disablenewpage{\listof{program}{\programlistname}}
+
+%%% Table of Contents (required) %%%
+\tableofcontents
+
+\egroup
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CHAPTERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mainmatter
+\pagestyle{mainmatter}
+\singlespacing
+
+\input{chapters/01-introduction}
+\input{chapters/02-background}
+\input{chapters/03-related-work}
+\input{chapters/04-research-design}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% APPENDICES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\pagestyle{appendix}
+\appendix
+\addappheadtotoc
+
+% TODO: add appendices as needed
+% \input{chapters/appendix-a}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% BACK MATTER (BIBLIOGRAPHY) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\backmatter
+\pagestyle{backmatter}
+
+\addtocontents{toc}{\vspace{2\baselineskip plus .5\baselineskip minus .5\baselineskip}}
+
+\printbibliography[
+  title=\refname\label{sec:bib},
+  heading=bibintoc,
+]
+
+\printindex
+
+\end{document}

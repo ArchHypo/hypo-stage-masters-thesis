@@ -1,0 +1,134 @@
+%!TeX root=../thesis.tex
+
+\chapter{Related Work}
+\label{cap:trabalhos-relacionados}
+
+This chapter provides a contextual synthesis of literature relevant to the empirical
+evaluation of Arch-Stage. Rather than presenting a standalone systematic review, it
+draws on the author's earlier qualification work---which included a tertiary systematic
+mapping study on software architecture for startups and a multivocal literature review
+on centralization and decentralization of architectural decision-making---and
+repositions those findings as narrative context for the present thesis.
+
+% TODO: this chapter is intentionally concise. Expand specific subsections as the
+% empirical study matures and comparison points become clearer.
+
+\section{Centralization and Decentralization of Architectural Decisions}
+\label{sec:central-decentral}
+
+A recurring theme in both academic and practitioner literature is the tension between
+centralizing architectural authority in a few experienced individuals and distributing
+it across development teams. Organizations pursuing fast flow and team autonomy
+increasingly favor decentralized models, yet several studies report that without
+explicit governance mechanisms, decentralization leads to inconsistent decisions and
+architectural drift.
+
+The author's qualification examination~\cite{limaQual2024} explored this tension
+through two complementary lenses. The first chapter of the qualification presented a
+tertiary systematic mapping study surveying the existing landscape of secondary studies
+on software architecture for startup and scale-up organizations, identifying recurring
+themes in how early-stage teams approach architecture governance under resource and
+time constraints. The second chapter conducted a multivocal literature review that
+synthesized both academic publications and grey literature (practitioner blogs,
+conference talks, and industry reports), covering three interrelated perspectives:
+deriving software architecture from requirements, the emerging socio-technical
+architecture trend (which situates architectural decisions within organizational and
+team structures), and the tension between centralized and decentralized
+decision-making.
+
+The multivocal review surfaced a framing that the qualification termed the ``paradox of
+software architecture decision-making'': industry advocates strongly for decentralized
+decisions to enable team autonomy and fast flow, yet the methods and tools available
+for architectural decision-making depend heavily on the tacit knowledge of experienced
+architects. Decentralization thus risks transferring decision responsibility to
+practitioners who lack the conceptual vocabulary or methodological support to exercise
+it effectively. The qualification committee, however, found this ``paradox'' framing
+ultimately unproductive as a primary research framing: the tension it described
+reflects a recognized design trade-off rather than a genuine logical contradiction, and
+building a thesis around resolving a paradox risked over-extending the scope of the
+contribution. This thesis consequently does not employ that framing; instead, it
+focuses on the concrete, tractable problem of providing tool support for one
+well-defined uncertainty management technique.
+
+The third chapter of the qualification proposed a questionnaire-based research design
+to investigate how software engineering teams actually navigate architectural decisions
+in distributed settings. The proposed questionnaire targeted four dimensions:
+demographic and organizational context, knowledge of modern software architecture
+practices, collaboration and decision-making patterns within and across teams, and
+specific challenges experienced in decentralized architectural decision-making. While
+this research design would have yielded broad survey data, the qualification committee
+assessed the scope as too wide and the proposed SMS and multivocal review as
+insufficient as primary thesis contributions without a concrete artifact or evaluation
+at the center. The present thesis responds to that feedback by reorienting around the
+evaluation and refinement of Arch-Stage, a concrete tool artifact, rather than a
+survey of industry practice.
+
+% TODO: cite specific studies from the original qualification mapping if they
+% strengthen the argument for explicit uncertainty management.
+
+\section{Tool Support for Architectural Decision-Making}
+\label{sec:tool-support}
+
+Several tools and platforms have been proposed to support architectural
+decision-making:
+
+\begin{itemize}
+  \item \textbf{ADR tools} (e.g., adr-tools, Log4brains) focus on recording and
+  versioning Architecture Decision Records (ADRs). They capture the \emph{what} and
+  \emph{why} of decisions but do not model uncertainty, impact, or technical plans for
+  hypotheses that are not yet decisions. ADRs document settled choices; they are not
+  designed to manage the pre-decision state of uncertainty that ArchHypo addresses.
+
+  \item \textbf{Architecture analysis tools} (e.g., ATAM-based workshops, trade-off
+  analysis methods) provide structured evaluation of architectural alternatives but are
+  typically heavyweight, workshop-based activities rather than continuous, team-embedded
+  processes. Their value lies in one-shot or periodic analysis sessions, not in the
+  ongoing, iterative management of uncertainty throughout a product's lifecycle.
+
+  \item \textbf{Internal Developer Portals} such as Backstage, Port, and Cortex offer
+  a catalog-centric view of services and infrastructure. While they improve
+  discoverability and documentation, none of these platforms natively supports
+  hypothesis engineering or architectural uncertainty management. They provide the
+  integration surface that Arch-Stage exploits, but leave the hypothesis engineering
+  layer entirely absent.
+\end{itemize}
+
+Arch-Stage differentiates itself by being explicitly designed around the ArchHypo
+lifecycle: from hypothesis elicitation through assessment, technical planning, and
+resolution. Its integration with Backstage places this lifecycle within the developer's
+daily tooling environment. No existing tool, to the best of the author's knowledge,
+provides this combination.
+
+% TODO: after the empirical study, add a comparison table showing how Arch-Stage
+% results compare with the capabilities and limitations of the tools listed above.
+
+\section{Empirical Studies of Architectural Practices in Industry}
+\label{sec:empirical-studies}
+
+Industry-focused empirical studies on architectural practices remain relatively scarce
+compared with tool proposals and method descriptions. Among the most relevant:
+
+\begin{itemize}
+  \item The ArchHypo evaluations by Silva et al.~\cite{silva2024tse,silva2024ieeesw}
+  constitute the closest antecedents to this work. They demonstrated the value of
+  hypothesis engineering in two distinct settings---a web-testing startup and a
+  mission-critical government budget system---but relied entirely on manual
+  application with no tool support. This thesis introduces the first evaluation of
+  ArchHypo in a tool-mediated setting.
+
+  \item Studies on architectural governance in agile organizations (e.g., the work on
+  SAFe and Spotify-model variants) document how companies structure roles and
+  ceremonies for architecture, but rarely examine explicit uncertainty-management
+  techniques.
+
+  \item The multivocal review conducted during the author's qualification surfaced
+  practitioner reports (blog posts, conference talks, white papers) describing ad-hoc
+  approaches to architectural uncertainty. These reports corroborate the need for
+  structured methods but, being grey literature, carry weaker evidential value.
+\end{itemize}
+
+This thesis contributes to the body of empirical evidence by evaluating a
+tool-supported application of ArchHypo with multiple teams, addressing a gap in both
+the ArchHypo literature (which has not yet studied tool-mediated use) and the broader
+architectural-practices literature (which lacks studies of hypothesis-engineering tools
+in scaled settings).
