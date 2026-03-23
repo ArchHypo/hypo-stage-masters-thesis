@@ -9,6 +9,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        document:
+          - thesis
+          - presentation
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -23,22 +29,12 @@ jobs:
             texlive-bibtex-extra texlive-science texlive-lang-english \
             texlive-lang-portuguese
 
-      - name: Compile thesis
-        run: latexmk -pdf thesis.tex
+      - name: Compile LaTeX document
+        run: latexmk -pdf "${{ matrix.document }}.tex"
 
-      - name: Compile presentation
-        run: latexmk -pdf presentation.tex
-
-      - name: Upload thesis PDF
+      - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
-          name: thesis-pdf
-          path: thesis.pdf
-          retention-days: 30
-
-      - name: Upload presentation PDF
-        uses: actions/upload-artifact@v4
-        with:
-          name: presentation-pdf
-          path: presentation.pdf
+          name: ${{ matrix.document }}-pdf
+          path: ${{ matrix.document }}.pdf
           retention-days: 30
