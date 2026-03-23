@@ -65,3 +65,70 @@
 
 % TODO: include the informed consent form presented to participants.
 % This is required by ethics committees and demonstrates research rigor.
+
+\section{Training Communication}
+\label{apx:training-communication}
+
+The following message was sent to teams before the training session that introduced
+the ArchHypo experiment and the Arch-Stage plugin in Backstage.
+
+\begin{quote}
+\textbf{New Plugin Experiment in Backstage: Hypo Stage --- Practicing the ArchHypo Framework}
+
+Deciding when to make (or delay) a software architecture decision is one of the
+toughest daily challenges in engineering, regardless of the project:
+
+\begin{itemize}
+  \item Deciding too early can lock the system into the wrong path.
+  \item Deciding too late can lead to costly rework and technical debt.
+\end{itemize}
+
+In the middle of this lies something that often remains implicit: uncertainty. We
+deal with requirements that are not yet clear or solutions we are not sure will
+scale or integrate well. This uncertainty is rarely made explicit, and decisions
+often end up being built on unvalidated premises.
+
+To evolve past this dilemma, I am proposing the application of a framework to help
+us identify, evaluate, and manage architectural uncertainties in a structured way.
+We will put this into practice using the Hypo Stage plugin, which I helped develop
+as part of an open-source project. It is already available in our Backstage (in
+production and under a feature flag for our experiment).
+
+This plugin serves as a tool to practice the ArchHypo (Architectural Hypotheses)
+framework: a lightweight approach that applies hypothesis-driven engineering to
+represent uncertainties impacting software architecture. It helps us plan actions
+to reduce uncertainty or impact before "locking in" a decision.
+
+\textbf{What ArchHypo proposes, in short:}
+
+\textbf{Architectural Hypotheses:} Falsifiable statements expressing team beliefs
+about requirements (e.g., quality attributes) or current/candidate solutions. The
+focus is on uncertainties that affect architectural decisions, not just business
+hypotheses.
+
+\textbf{Evaluation:} Each hypothesis is assessed based on its uncertainty level
+(how far we are from proving it true/false) and impact (the consequences and cost
+of being wrong). This helps prioritize and choose treatment tactics.
+
+\textbf{Technical Plan:} For each hypothesis, the team defines actions to either
+reduce uncertainty (e.g., spikes, experiments, architectural triggers, metrics) or
+reduce impact (e.g., modularity, flexibility, isolation of the affected part),
+allowing us to delay decisions more safely.
+
+\textbf{Iterative Cycle:} Identify, evaluate, plan, execute, and reassess. The
+process is continuous; as new uncertainties emerge, plans are adjusted over time.
+
+The Hypo Stage plugin in Backstage allows you to register hypotheses, link them to
+quality attributes, record uncertainty/impact assessments, and maintain technical
+plans with dates and progress tracking --- all integrated into our catalog and
+workflow.
+
+\textbf{Want to better understand the problem, the framework, and how to use the plugin?}
+
+This Week Day, Calendar Date, at HH:MM during the Meeting Agenda, I will be leading
+a session on this topic. We will discuss why finding the right moment for
+architectural decisions is so difficult and how ArchHypo can help.
+
+I am looking forward to seeing you there to discuss this experiment and how to use
+Hypo Stage in our daily routine.
+\end{quote}
