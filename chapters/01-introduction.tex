@@ -1,179 +1,111 @@
 %!TeX root=../thesis.tex
 
 \chapter{Introduction}
-\label{cap:introducao}
+\label{ch:intro}
 
-Software engineering organizations increasingly strive for fast value delivery through
-autonomous, empowered teams. Concepts such as Team Topologies and DevOps promote
-decentralized ownership and rapid feedback loops. Yet architecture decisions---those
-that constrain the structure and quality attributes of a system---often remain
-centralized in a handful of experienced practitioners. When requirements evolve
-continuously, as they do in scaled products, teams face a tension between speed and
-structural integrity: either they perform extensive upfront design that slows delivery
-or they allow the system to drift toward what Foote and Yoder termed a ``Big Ball of
-Mud,'' sacrificing long-term sustainability for short-term velocity~\cite{footeYoder1999}.
+Software architecture (SA) plays a central role in the development and evolution of software-intensive systems. As firstly conceived by \cite{perryWolf1992}, the SA concept structures the system into elements and relations that form the basis of the system's organization as it must convey cohenrence, scalability, and maintainability for the relaying software over time. 
+Despite the ever-changing practices in the modern era of software development, SA still provides the basis for analyzing the multiple quality attributes of nowadays software systems as it guides technical decisions that must be made throughout the development process over time via a diverse set of archictetual methodologies as the ones systematically mapped by \cite{souza2019}. 
+In organizations that rely on software as a core part of their business, architecture is not just a simple one-time design artifact, but a continuous decision-making process that must accommodate changing requirements, evolving technologies, and critical organizational constraints \cite{silva2025archhypo}.
 
-Understanding why this tension is so persistent requires acknowledging the organizational
-pressures that teams routinely face. Foote and Yoder identify several forces that push
-teams toward expedient, unstructured growth rather than deliberate design: tight delivery
-schedules that preclude architectural reflection, heterogeneous experience levels within
-teams, the compounding complexity introduced by rapid change, and cost constraints that
-make dedicated architectural effort difficult to justify in the short term. These pressures
-are not pathological---they are endemic to competitive software development---and any
-practical approach to managing architectural uncertainty must operate within them.
+In recent years, agile and continuous development practices have intensified this fast-paced pressure. Teams are expected to deliver more features in shorter cycles while preserving scalability, performance, and other quality attributes of their systems that continue to grow in size and complexity \cite{silva2025archhypo,silva2024using}. 
+In such environments, architecture decisions are frequently made under uncertainty: solutions or requirements may be incomplete or unstable, the impact of technology choices may not be fully understood, and the behavior of the system under realistic workloads may only become visible after deployment \cite{silva2025archhypo}. Despite this, architectural uncertainties often remain implicit and unmanaged, and decisions tend to rely on the tacit knowledge and intuition of a small group of experienced architects as oberseved by \cite{souza2019}.
 
-Software architecture itself has been defined in multiple ways, reflecting how the
-discipline has matured. Perry and Wolf's foundational 1992 account introduced a tripartite
-model in which architecture is constituted by elements (the processing, data, and
-connecting components), form (the weighted relationships among them), and rationale (the
-constraints that justify the chosen structure)~\cite{perryWolf1992}. This model
-established that architecture is not merely a set of structural choices but an expression
-of reasoning under constraints. Decades later, Richards and Ford offered a more
-practitioner-oriented definition: software architecture encompasses the structure of a
-system together with the characteristics the system must support, the principles and
-decisions that govern its design, and the underlying design decisions
-themselves~\cite{richardsFord2020}. Both perspectives converge on the view that
-architectural decisions are inherently bound to uncertainty---uncertainty about which
-quality characteristics will matter most, which structural choices will best satisfy
-them, and how the constraints will evolve.
+At the same time, many organizations seek to organize themselves around autonomous, cross-functional teams responsible for end-to-end delivery of features. 
+Recent industry reports, such as the 2024 InfoQ Software Architecture and Design Trends Report \cite{infoq2024trends}, highlight socio-technical architecture as an emerging trend that emphasizes the co-design of technical and organizational structures, and the importance of considering how team boundaries and communication patterns shape system architectures. In this view, architecture work is distributed across teams rather than centralized in a separate function or role. Moreover, in these scenarios, the Conway's Law is treated as a design constraint to be intentionally leveraged rather than an accident to be ignored \cite{infoq2024trends}. 
+However, when architecture decisions depend on implicit assumptions held by a few experts in the organization, this distribution becomes difficult in practice. Less experienced team members may struggle to participate meaningfully in architectural discussions, and teams may find it hard to reason about the risks and trade-offs of alternative solutions even when they are applying anyone of thewell-known and validated architectural methodologies mapped by \cite{souza2019}.
+This challenge reveals the case of the architectural uncertainty management, which still is a critical aspect of the architecture work, but is often neglected or poorly supported in practice by the available tools and methodologies.
 
-Architectural uncertainty is a natural consequence of operating in environments where
-business requirements, technology options, and quality-attribute trade-offs are only
-partially known at any point in time. Despite its pervasiveness, this uncertainty
-usually stays implicit. Existing methods for deriving and managing software architecture
-depend heavily on the tacit knowledge of experienced architects, offering limited
-guidance to less-experienced team members~\cite{souza2019}. The systematic mapping by
-Souza et al.\ analyzed 39 primary studies on architectural derivation methods and
-concluded that every method relied on architects' personal experience for its core
-decisions, with tool support being either absent or only partially effective. This
-reliance creates a bottleneck: when architectural expertise is scarce, teams either
-make uninformed decisions or wait for overloaded experts, both of which degrade
-delivery flow.
+\section{Architectural Uncertainty and Hypotheses Engineering}
 
-\section{Narrowing the Scope}
-\label{sec:scope}
+Uncertainty in architecture decisions stems from limited knowledge about requirements, future usage scenarios, and the properties of candidate solutions as reviewed in \cite{silva2025archhypo}. Traditional risk management techniques assume that relevant events and their probabilities are known or can be estimated, which is not always the case when dealing with evolving systems and emerging technologies \cite{silva2025archhypo}. A complementary perspective is to acknowledge uncertainty explicitly and as an inevitable aspect of the architecture work, and therefore, to manage it as a first-class concern during the architecture work as proposed in \cite{silva2025archhypo}.
 
-This thesis does not attempt to address software architecture management in general.
-Instead, it focuses specifically on \textbf{software engineering teams working on a
-scaled software product} within a single real-world organization. The target problem
-is the lack of explicit, tool-supported management of architecture-related
-uncertainties that could enable more shared and decentralized decision-making within
-and across these teams. By restricting scope to concrete teams and a tangible tool,
-the work responds directly to feedback received during the author's qualification
-examination, which recommended narrowing the original research agenda from broad
-surveys of centralization and decentralization in software architecture to a focused
-empirical contribution centered on a specific artifact.
+In this regard, Hypotheses Engineering has emerged as an approach to manage uncertainty in software development by treating assumptions as explicit, falsifiable hypotheses that can be prioritized and tested through experiments \cite{silva2025archhypo,silva2024using}. In this context, ArchHypo is the technique that adapts hypotheses engineering to software architecture. 
+It proposes that teams identify \emph{architectural hypotheses} --- statements capturing uncertainties that may affect architectural decisions --- assess each hypothesis by its uncertainty level and impact, and define a technical plan for handling it \cite{silva2025archhypo}.
 
-\section{ArchHypo and Arch-Stage}
-\label{sec:archhypo-archstage}
+The technical plan may include actions to reduce uncertainty, such as experiments, architectural spikes, or tracer bullets, and actions to reduce the impact of potential changes, such as modularization or flexible deployment strategies \cite{silva2025archhypo}. By iteratively updating hypotheses and technical plans over time, ArchHypo aims to support a more deliberate and distributed approach to architectural decision-making, allowing teams to postpone irreversible decisions when justified and to focus their efforts on the most critical uncertainties \cite{silva2025archhypo,silva2024using}.
 
-The ArchHypo technique, proposed by Silva et al., reframes software architecture as a
-collection of testable hypotheses rather than a fixed set of design
-decisions~\cite{silva2024tse,silva2024ieeesw}. Each architectural hypothesis captures
-an uncertainty---for instance, whether a chosen database technology will meet
-scalability demands---along with an assessment of its uncertainty level and potential
-impact. Teams then formulate technical plans, such as architectural spikes, tracer
-bullets, or triggers, to reduce uncertainty or defer decisions to a ``responsible
-moment'' when more evidence is available.
+Empirical studies have started to explore how ArchHypo works in practice. An experience report in a software start-up describes how the technique helped the founder identify and prioritize architectural uncertainties related to availability, usability, and scalability over a ten-month period, guiding the evolution of the product and avoiding premature investments in infrastructure \cite{silva2024using}. A design science study in a mission-critical public-sector system shows that integrating ArchHypo into the development process enabled the team to distribute architectural work across iterations and to make better-informed decisions in the face of changing requirements \cite{silva2025archhypo}. 
+At the same time, both studies report that the technique introduces a non-trivial learning curve and requires adjustments to existing processes, which might pose a challenge to its adoption by the team as reported in \cite{silva2025archhypo,silva2024using}.
 
-ArchHypo was developed using a Design Science Research (DSR) methodology and grew out
-of patterns for agile architecture that were initially disseminated at software
-engineering conferences and through corporate training programs~\cite{silva2024ieeesw}.
-The technique thus carries both a theoretical grounding in DSR and a practical lineage
-in agile community practice.
+\section{From Requirements to Architecture and the Role of Tool Support}
 
-ArchHypo has been evaluated in two primary empirical settings. The first evaluation,
-reported in an IEEE Software article~\cite{silva2024ieeesw}, examined the Catch Solve
-startup---a company offering web testing and monitoring services---over a ten-month
-observation period. Four hypotheses were managed, addressing availability, reusability
-of test templates, usability, and scalability of virtual machines. This constituted the
-first documented application of ArchHypo in a real operational environment. The study
-demonstrated that making architectural uncertainty explicit guided decisions on when to
-act versus when to defer, but relied entirely on manual tracking.
+The challenges of managing architectural uncertainty are closely related to the long-standing problem of deriving architectural models from requirements specifications. 
+A systematic mapping study by \cite{souza2019} reviewed 39 methods for this derivation and concluded that existing approaches still rely heavily on the tacit knowledge of architects, provide limited support for less experienced practitioners, and often lack explicit evaluation mechanisms. 
+Many methods describe high-level processes or frameworks, but offer little guidance on how to operationalize them in everyday practice as reported in \cite{souza2019}.
 
-The second, more comprehensive evaluation, reported in the IEEE Transactions on Software
-Engineering~\cite{silva2024tse}, took place within Jetsoft, a Brazilian software
-development company, and focused on PropSEP, a mission-critical budget proposal system
-for the Planning and Management Secretariat of the State of São Paulo. The system
-processed approved budget figures on the order of 317~billion~BRL (approximately
-60~billion~USD), underscoring the high stakes of its architectural decisions. The
-evaluation ran from May to August 2022, spanning six sprints of seven business days
-each, and involved eight team members (P1--P8). Ten architectural hypotheses were
-identified, spanning six quality attributes: performance, security, reliability,
-flexibility, usability, and team productivity. This evaluation produced nine findings
-(detailed in Chapter~\ref{cap:fundamentacao}) that collectively demonstrate ArchHypo's
-value while surfacing the adoption barriers that motivate the present thesis.
+The same study highlighted gaps in tool support. A significant portion of the methods did not include any supporting tool, and when tools were present, they tended to address only parts of the process as also reported in \cite{souza2019}. 
+The authors called for more automation, better mechanisms to capture and reuse architectural knowledge, and empirical validation of tools in realistic settings. 
+These findings resonate with the observations from ArchHypo studies: while the technique provides a structured way to make architectural uncertainties explicit and to plan actions, applying it in practice is highly demanding without adequate supportting tool.
 
-Of particular relevance to the present work are two findings from the TSE
-evaluation~\cite{silva2024tse}. Finding~8 identified that changes in the team's way of
-working constituted a significant obstacle: mixing architectural and functional tasks,
-difficulty estimating hypothesis-related work, and the perception that the extra effort
-was not directly tied to product delivery all created friction. Finding~9, which was
-unanimous across all eight participants, was that the technique was hard to learn. Team
-members struggled to map architectural concerns to the hypothesis format, to define
-appropriate technical plan actions, and to articulate the assumptions underlying a
-hypothesis. After the initial workshop, no participant felt ready to apply ArchHypo
-independently without ongoing support.
+Grounded in these studies' insights, \cite{correa2025} developed the Arch-Stage, a support tool designed to help teams apply the ArchHypo technique in practice.
+Up to a specific point in its history, the work focused on designing and implementing the core functionality for enabling ArchHypo capabilities, such as representing architectural hypotheses, recording their uncertainty and impact assessments, and managing associated technical plans. \footnote{The first version of Arch-Stage and the corresponding source code history up to commit \texttt{ceee509776508081ebdd473c2c4f710b8ef55947} document the initial design and implementation of Arch-Stage proposed by \cite{correa2025}.} 
+The work also discussed initial design decisions and limitations, including usability aspects and open questions about how the tool would fit into different team workflows.
+A more detailed description of Arch-Stage and the contributions by \cite{correa2025} are presented in Chapter~\ref{ch:background}.
 
-Arch-Stage (originally named HypoStage) was conceived as a direct response to this
-tooling gap. Developed as a Backstage Internal Developer Portal plugin in an
-undergraduate capstone project supervised by the author of this thesis, Arch-Stage
-provides structured interfaces for creating and editing hypotheses, assessing
-uncertainty and impact on Likert scales, defining technical plans, and visualizing the
-portfolio of architectural
-hypotheses~\cite{correa2025}.\footnote{The initial design and implementation of
-Arch-Stage, up to commit \texttt{ceee509}, is the contribution of Pedro Henrique
-Mariano Corrêa's capstone project. Subsequent refinements reflect the author's
-empirical use with real teams.} By embedding these capabilities within an IDP, the
-tool integrates hypothesis management into the daily engineering workflow rather than
-keeping it as a separate, easily forgotten activity.
+\section{Problem Statement}
 
-Neither the Catch Solve nor the Jetsoft evaluation involved any tool-mediated support
-for ArchHypo; both relied exclusively on manual means such as spreadsheets, meetings,
-and informal documentation. This thesis therefore represents a distinct contribution:
-an empirical evaluation of ArchHypo in its first tool-supported deployment with real
-teams.
+When reviewed in intersection, these studies outline a clear problem. 
+On the one hand, modern software organizations need to manage architectural uncertainty in a way that supports continuous evolution and involves the broader development team \cite{silva2025archhypo,silva2024using,infoq2024trends}. 
+On the other hand, empirical evidence and systematic mapping studies indicate that:
 
-\section{Objective}
-\label{sec:objetivo}
+\begin{itemize}
+  \item Methods for deriving and evolving architectures from requirements still depend strongly on architects' tacit knowledge and lack comprehensive tool support as reported in \cite{souza2019}.
+  \item ArchHypo offers a promising structure for handling architectural uncertainty, but teams perceive the technique as hard to learn and requiring process changes, especially without specialized support as reported in \cite{silva2025archhypo,silva2024using}.
+  \item Arch-Stage provides an initial implementation of tool support for ArchHypo, but its impact on real software engineering teams and the refinements needed for effective use in industry remain unknown as reported in \cite{correa2025}.
+\end{itemize}
 
-The objective of this work is to empirically evaluate and refine the Arch-Stage tool,
-a support tool for the ArchHypo technique, by applying it with diverse software
-engineering teams in a real-world organization with a scaled software product,
-assessing how it supports managing architectural uncertainty and informing its
-improvement.
+In this context, there is a need to understand how software engineering teams, with diversed roles, tenures and responsibilities, interact with a tool like Arch-Stage when working on their products and services. By forging this path, we seek to gain an understanding of what sorts of architectural uncertainties they manage through, and which aspects of the Arch-Stage tool and its integration into the development process still require refinement.
+Addressing these concerns can contribute both to the practical adoption of ArchHypo via Arch-Stage tool and to the broader discussion on how to support teams in sharing architectural responsibilities for accelerating adoption of the socio-technical architecture paradigm mapped in \cite{infoq2024trends}.
+
+\section{Objectives}
+
+The overall objective of this present work is to empirically evaluate and refine the Arch-Stage tool, a support tool for the ArchHypo technique from \cite{correa2025}, by applying it with diverse software engineering teams in a real-world organization that maintains a scaled software product in Latin America. 
+More specifically, this work aims to:
+
+\begin{itemize}
+  \item Investigate how software engineering teams appropriate and use Arch-Stage and ArchHypo in their day-to-day activities when working on an existing, scaled product.
+  \item Derive and implement refinements to Arch-Stage and its usage guidelines based on empirical findings, with the goal of improving its suitability for supporting architectural work in teams.
+  \item Characterize the architectural uncertainties that teams make explicit and manage through Arch-Stage, and how these uncertainties evolve over time.
+  \item Identify benefits and challenges perceived by team members regarding the use of Arch-Stage, including its learning curve, usability, and fit with existing practices.
+\end{itemize}
+
+These objectives deliberately build on, rather than replicate, the previous studies' contributions in the ArchHypo research line. 
+While the \cite{correa2025} focused on designing and implementing Arch-Stage, this work treats the tool as an existing artifact and concentrates on its evaluation and evolution in an industrial context.
 
 \section{Research Questions}
-\label{sec:research-questions}
 
-% TODO: refine and finalize research questions after deciding whether the primary
-% focus is (a) interaction/usability with Arch-Stage and ArchHypo or
-% (b) patterns of architectural uncertainties managed using the tool.
-
-The following research questions guide this investigation:
+To achieve the above objectives, this work is guided by the following research questions. At this stage, the exact emphasis between tool interaction and uncertainty patterns is still under refinement; therefore, the questions are formulated to accommodate both perspectives, and later chapters will make their final scope explicit.
 
 \begin{description}
-  \item[RQ1] How do software engineering teams use Arch-Stage to identify and manage
-  architectural hypotheses in practice?
-  % TODO: consider splitting into sub-questions on identification vs. management.
-
-  \item[RQ2] What refinements to Arch-Stage are needed to better support teams with
-  varying levels of architectural experience?
-  % TODO: decide whether to scope this to usability, workflow fit, or feature gaps.
-
-  \item[RQ3] What types of architectural uncertainties do teams surface when using
-  Arch-Stage, and how do these evolve over time?
-  % TODO: this RQ may be secondary depending on the chosen evaluation focus.
+  \item[RQ1:] How do software engineering teams use Arch-Stage and the ArchHypo technique when working on a scaled software product in a real-world organization?
+  \item[RQ2:] Which refinements to Arch-Stage and its usage guidelines emerge from the empirical study, and how do they address the identified challenges?
+  \item[RQ3:] What types of architectural uncertainties do these teams identify, record, and manage using Arch-Stage over the course of their work?
+  \item[RQ4:] What benefits and challenges do team members perceive in using Arch-Stage to support architectural decision-making and uncertainty management?
 \end{description}
 
-\section{Thesis Structure}
-\label{sec:estrutura}
+As the empirical design is detailed in Chapter~\ref{ch:method}, these questions may be operationalized with different emphases --- for example, with RQ1 and RQ3 focusing more strongly on interaction and process, and RQ2 providing a descriptive view of uncertainty patterns --- to accommodate the different research questions' emphases.
 
-The remainder of this thesis is organized as follows. Chapter~\ref{cap:fundamentacao}
-presents the background on software architecture uncertainty, hypotheses engineering,
-ArchHypo, the Arch-Stage tool, and the gap in tool support for architectural
-derivation. Chapter~\ref{cap:trabalhos-relacionados} provides a contextual synthesis
-of related work, drawing on the author's earlier mapping and multivocal review
-efforts. Chapter~\ref{cap:design-pesquisa} describes the research design, including
-the empirical context, data sources, and analysis approach.
-% TODO: add references to results and conclusion chapters when they are written.
+\section{Contributions}
+
+By answering its set of research questions, this work attempts to make the following contributions:
+
+\begin{itemize}
+  \item An empirical account of how multiple software engineering teams in a real organization use a tool-supported implementation of ArchHypo (via Arch-Stage tool) while working on a scaled software product, including observed practices, adaptations, and obstacles as reported in \cite{correa2025}.
+  \item A set of empirically grounded refinements to the Arch-Stage tool and its usage guidelines, aimed at reducing the learning curve, improving usability, and better integrating the technique into team workflows as reported in \cite{correa2025}.
+  \item A characterization of architectural uncertainties managed by these teams, describing their sources, quality attributes, and evolution, as captured through Arch-Stage as reported in \cite{correa2025}.
+  \item Reflections on the implications of these findings for supporting distributed architectural work in agile and continuous development settings, connecting the ArchHypo experience to broader concerns about tacit knowledge and tool support in software architecture as reported in \cite{souza2019,infoq2024trends}.
+\end{itemize}
+
+\section{Research Structure}
+
+The remainder of this work is organized as follows.
+
+Chapter~\ref{ch:background} presents the background and related work. It introduces key concepts in software architecture and architectural uncertainty, summarizes the ArchHypo technique and previous empirical studies about it, describes the initial design of the Arch-Stage tool and the undergraduate thesis that developed it, and revisits the main findings from systematic studies on deriving architecture from requirements and on tool support in this area by \cite{souza2019}.
+
+Chapter~\ref{ch:method} details the research design and methods adopted in this dissertation. It describes the industrial context in which the study was conducted, the participating teams and their product, the data collection instruments and procedures, and the analysis methods used to answer the research questions.
+
+The chapter reporting empirical results presents how teams used Arch-Stage and ArchHypo in practice, the architectural hypotheses and uncertainties they managed, and the perceived benefits and challenges from the perspective of different roles.
+
+The chapter discussing refinements details the changes made to Arch-Stage and its usage guidelines based on empirical findings. It explains the rationale for the changes, illustrates how they address specific issues observed in the field, and reflects on remaining limitations and opportunities for future improvement.
+
+Finally, the conclusion chapter summarizes the main contributions, discusses implications for practitioners and researchers, and outlines directions for future work on tool support for architectural uncertainty management and distributed architecture decision-making.
