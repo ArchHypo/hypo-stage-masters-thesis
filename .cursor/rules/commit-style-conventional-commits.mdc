@@ -1,0 +1,41 @@
+---
+description: Enforce Conventional Commits for all commit messages
+alwaysApply: true
+---
+
+# Conventional Commit Style
+
+Follow the [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) format for every git commit message.
+
+## Required format
+
+`<type>[optional scope]: <description>`
+
+Optional body and footers may be added after a blank line.
+
+## Allowed types
+
+- `feat`: new feature
+- `fix`: bug fix
+- `docs`: documentation only
+- `style`: formatting only (no behavior changes)
+- `refactor`: code change without behavior change
+- `perf`: performance improvement
+- `test`: tests added/updated
+- `build`: build/dependency changes
+- `ci`: CI/CD workflow changes
+- `chore`: maintenance tasks
+- `revert`: revert a previous commit
+
+## Rules
+
+- Use lowercase type and scope.
+- Keep description short, imperative, and specific.
+- Do not end the subject line with a period.
+- Include `BREAKING CHANGE: ...` footer when applicable (or use `!` before `:`).
+
+## Examples
+
+- `feat(ci): build thesis and presentation via matrix`
+- `fix(bib): remove duplicate souza citation key`
+- `docs(readme): clarify latex build prerequisites`
