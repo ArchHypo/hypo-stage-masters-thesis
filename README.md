@@ -1,4 +1,4 @@
-# Evaluating and Refining Hypo-Stage: Supporting Architectural Hypotheses in Software Engineering Teams
+# Hypo-Stage: An Empirical Study of Tool-Supported Architectural Hypothesis Engineering in Industrial Software Teams
 
 Master's thesis in Computer Science at **IME-USP** (Institute of Mathematics and Statistics, University of São Paulo).
 
