@@ -1,76 +1,128 @@
 %!TeX root=../thesis.tex
 
 \chapter{Related Work}
-\label{cap:trabalhos-relacionados}
+\label{cap:related-work}
 
-This chapter provides a contextual synthesis of literature relevant to the empirical
-evaluation of Arch-Stage. Rather than presenting a standalone systematic review, it
-draws on the author's earlier qualification work---which included a tertiary systematic
+This chapter synthesizes the literature relevant to the empirical evaluation of the Hypo-Stage tool. 
+Rather than presenting a standalone systematic review, it draws on the author's earlier exploratory work --- which included a tertiary systematic
 mapping study on software architecture for startups and a multivocal literature review
-on centralization and decentralization of architectural decision-making---and
-repositions those findings as narrative context for the present thesis.
+on centralization and decentralization of architectural decision-making --- and
+repositions those findings as narrative context for this work. The chapter also
+incorporates references from the grey literature. Such sources
+are explicitly identified as relevant, despite having weaker evidential
+weight than peer-reviewed publications, because they often capture industry trends and real
+organizational experience more rapidly than academic publication cycles allow.
 
-% TODO: this chapter is intentionally concise. Expand specific subsections as the
-% empirical study matures and comparison points become clearer.
-
+% ---------------------------------------------------------------------------
 \section{Centralization and Decentralization of Architectural Decisions}
 \label{sec:central-decentral}
 
-A recurring theme in both academic and practitioner literature is the tension between
-centralizing architectural authority in a few experienced individuals and distributing
-it across development teams. Organizations pursuing fast flow and team autonomy
-increasingly favor decentralized models, yet several studies report that without
-explicit governance mechanisms, decentralization leads to inconsistent decisions and
-architectural drift.
+A recurring theme in both academic and gray literature is the tension between
+centralizing architectural authority in a few experienced individuals versus distributing it
+across development teams. Organizations pursuing fast flow and team autonomy
+increasingly favor decentralized models as observed by ~\cite{salameh2021architecture, deDiana2011arch},
+yet several studies report that without explicit governance mechanisms, decentralization
+leads to inconsistent decisions and architectural drift as seen in the work of ~\cite{silveiraNeto2025agile, dasanayake2017collaborative, deDiana2011arch}.
 
-The author's qualification examination explored this tension
-through two complementary lenses. The first chapter of the qualification presented a
-tertiary systematic mapping study surveying the existing landscape of secondary studies
-on software architecture for startup and scale-up organizations, identifying recurring
-themes in how early-stage teams approach architecture governance under resource and
-time constraints. The second chapter conducted a multivocal literature review that
-synthesized both academic publications and grey literature (practitioner blogs,
-conference talks, and industry reports), covering three interrelated perspectives:
-deriving software architecture from requirements, the emerging socio-technical
-architecture trend (which situates architectural decisions within organizational and
-team structures), and the tension between centralized and decentralized
-decision-making.
+The author's preliminar exploratory work explored this tension through two complementary
+lenses. Firstly, the author conducted a tertiary systematic mapping study surveying the existing landscape of secondary studies on software architecture for
+startup and scale-up organizations, identifying recurring themes in how early-stage
+teams approach architecture governance under resource and time constraints. For the second lens, the author 
+performed a multivocal literature review that synthesized both academic
+publications and grey literature (practitioner blogs, conference talks, and industry
+reports), covering three interrelated perspectives: deriving software architecture from
+requirements, the emerging socio-technical architecture trend (which situates
+architectural decisions within organizational and team structures), and the tension
+between centralized and decentralized decision-making.
 
-The multivocal review surfaced a framing that the qualification termed the ``paradox of
-software architecture decision-making'': industry advocates strongly for decentralized
-decisions to enable team autonomy and fast flow, yet the methods and tools available
+The multivocal review surfaced a framing where the industry advocates strongly for decentralized
+decisions to enable team autonomy and fast flow \cite{skelton2019}, yet the methods and tools available
 for architectural decision-making depend heavily on the tacit knowledge of experienced
-architects. Decentralization thus risks transferring decision responsibility to
+architects as observed by \cite{souza2019}. Decentralization thus risks transferring decision responsibility to
 practitioners who lack the conceptual vocabulary or methodological support to exercise
-it effectively. The qualification committee, however, found this ``paradox'' framing
-ultimately unproductive as a primary research framing: the tension it described
-reflects a recognized design trade-off rather than a genuine logical contradiction, and
-building a thesis around resolving a paradox risked over-extending the scope of the
-contribution. This thesis consequently does not employ that framing; instead, it
-focuses on the concrete, tractable problem of providing tool support for one
-well-defined uncertainty management technique.
+it effectively. However, the author recognized that this tension reflects a recognized design trade-off 
+rather than a genuine logical contradiction, and building this work around resolving this tension presented a risk of over-extending the scope of this work's contribution.
+For this reason, this present work consequently does not employ that framing; instead, it focuses on the
+concrete, tractable problem of providing tool support for one well-defined uncertainty
+management technique.
 
-The third chapter of the qualification proposed a questionnaire-based research design
-to investigate how software engineering teams actually navigate architectural decisions
-in distributed settings. The proposed questionnaire targeted four dimensions:
-demographic and organizational context, knowledge of modern software architecture
-practices, collaboration and decision-making patterns within and across teams, and
-specific challenges experienced in decentralized architectural decision-making. While
-this research design would have yielded broad survey data, the qualification committee
-assessed the scope as too wide and the proposed SMS and multivocal review as
-insufficient as primary thesis contributions without a concrete artifact or evaluation
-at the center. The present thesis responds to that feedback by reorienting around the
-evaluation and refinement of Arch-Stage, a concrete tool artifact, rather than a
-survey of industry practice.
+% ---------------------------------------------------------------------------
+\section{Socio-Technical Architecture}
+\label{sec:sociotechnical}
 
-% TODO: cite specific studies from the original qualification mapping if they
-% strengthen the argument for explicit uncertainty management.
+A significant body of work, both academic and practitioner-oriented, frames
+architectural decision-making not merely as a technical concern but as a
+\emph{socio-technical} one --- shaped by the organizational structure,
+communication patterns, and cognitive constraints of the teams
+involved, as observed in ~\cite{tang2017human, razavian2019empirical, herbsleb1999splitting}.
+This framing is directly relevant to the motivation for the Hypo-Stage tool,
+because tool-embedded scaffolding does not only lower the technical cost of
+applying the ArchHypo technique, but it also contributes to changing the social
+dynamics of how architectural uncertainty is surfaced and addressed within a
+team ~\cite{borowa2023rationales, razavian2019empirical}.
 
+\subsection{Conway's Law and Its Implications}
+\label{subsec:conways-law}
+
+The foundational observation underlying the socio-technical framing is Conway's
+Law ~\cite{conway1968}: ``Any organization that designs a system (defined broadly) will
+produce a design whose structure is a copy of the organization's communication
+structure.'' Conway's Law implies that architectural decisions cannot be analyzed in
+isolation from the organizational and team structure in which they are made. Considering that perspective, 
+this work also supports the idea that team boundaries become architectural boundaries.
+
+~\cite{skelton2019} extended this insight into an actionable framework
+with the concept of the \emph{Inverse Conway Maneuver}: rather than allowing the
+organization's structure to passively determine the architecture, teams should
+deliberately design team topologies to produce the target architecture. In practical
+terms, this means that architectural governance --- including how uncertainty is managed
+and who is empowered to make decisions --- must be considered a design decision with
+organizational as well as technical consequences.
+
+\subsection{Socio-Technical Architecture as an Industry Trend}
+\label{subsec:sociotechnical-trend}
+
+The InfoQ Software Architecture and Design Trends Report for 2024 by ~\cite{infoq2024trends}
+identified \emph{socio-technical architecture} as a distinct ``Early Adopter'' trend,
+explicitly describing it as replacing the earlier framing of ``architecture as a team
+sport.'' The report notes that the trend encompasses two related ideas: on one side,
+the evolving role of architects as mentors and technical leaders rather than sole
+decision-makers; on the other, the growing recognition --- driven in part by the
+dissemination of Team Topologies~\cite{skelton2019} --- that the design of a system
+must consider all the people who build, support, and maintain it ~\cite{infoq2024trends}.
+
+It is important to note that InfoQ is a practitioner-oriented publication, not a
+peer-reviewed academic venue. The Trends Report reflects the editorial judgment of an
+experienced editorial board drawing on community submissions, conference talks, and
+practitioner case studies. As grey literature, its findings carry weaker evidential
+weight than systematic empirical studies; nonetheless, they are valuable as an indicator
+of what concepts are gaining traction in industrial practice and what challenges
+practitioners are actively facing, as observed in ~\cite{infoq2024trends}.
+
+In a related InfoQ article, ~\cite{infoq2025empowering} described
+a transformation journey at a software organization adopting Team Topologies and
+decentralized architectural decision-making. Their account illustrates several
+socio-technical dynamics that are directly relevant to this work: the initial disbelief
+of teams that they are actually empowered to make architectural decisions, the flood of
+decisions that follows once empowerment is accepted, the consequences teams face when
+decisions have unforeseen cross-boundary impacts, and the eventual self-correction as
+teams develop peer accountability mechanisms. All four phases are driven by social
+factors at least as much as technical ones.
+
+A further grey-literature source relevant to this work is the InfoQ article by ~\cite{infoq2025decentralized}, which argues that ``distributed architecture is
+more social than technical.'' Tibbitts draws on Andrew Harmel-Law's concept of the
+Architecture Advice Process --- in which any team can make
+any architectural decision as long as it has looked for advice from the affected parties and
+documented the decision in an ADR. This approach is presented as a mechanism for replacing permission-seeking
+with advice-seeking. The social shift from ``who approves this?'' to ``who should I talk
+to before we do this?'' is presented as a cultural unlock that enables decentralized
+governance without sacrificing coherence.
+
+% ---------------------------------------------------------------------------
 \section{Tool Support for Architectural Decision-Making}
 \label{sec:tool-support}
 
-Several tools and platforms have been proposed to support architectural
-decision-making:
+Along with the author's exploratory research, several tools and platforms have been proposed to support architectural decision-making:
 
 \begin{itemize}
   \item \textbf{ADR tools} (e.g., adr-tools, Log4brains) focus on recording and
@@ -81,9 +133,10 @@ decision-making:
 
   \item \textbf{Architecture analysis tools} (e.g., ATAM-based workshops, trade-off
   analysis methods) provide structured evaluation of architectural alternatives but are
-  typically heavyweight, workshop-based activities rather than continuous, team-embedded
-  processes. Their value lies in one-shot or periodic analysis sessions, not in the
-  ongoing, iterative management of uncertainty throughout a product's lifecycle.
+  typically heavyweight, workshop-based activities rather than continuous,
+  team-embedded processes. Their value lies in one-shot or periodic analysis sessions,
+  not in the ongoing, iterative management of uncertainty throughout a product's
+  lifecycle.
 
   \item \textbf{Internal Developer Portals} such as Backstage, Port, and Cortex offer
   a catalog-centric view of services and infrastructure. While they improve
@@ -93,15 +146,13 @@ decision-making:
   layer entirely absent.
 \end{itemize}
 
-Arch-Stage differentiates itself by being explicitly designed around the ArchHypo
+Hypo-Stage differentiates itself by being explicitly designed around the ArchHypo
 lifecycle: from hypothesis elicitation through assessment, technical planning, and
 resolution. Its integration with Backstage places this lifecycle within the developer's
 daily tooling environment. No existing tool, to the best of the author's knowledge,
 provides this combination.
 
-% TODO: after the empirical study, add a comparison table showing how Arch-Stage
-% results compare with the capabilities and limitations of the tools listed above.
-
+% ---------------------------------------------------------------------------
 \section{Empirical Studies of Architectural Practices in Industry}
 \label{sec:empirical-studies}
 
@@ -109,26 +160,24 @@ Industry-focused empirical studies on architectural practices remain relatively 
 compared with tool proposals and method descriptions. Among the most relevant:
 
 \begin{itemize}
-  \item The ArchHypo evaluations by Silva et al.~\cite{silva2024tse,silva2024ieeesw}
+  \item The ArchHypo evaluations by ~\cite{silva2024tse,silva2024ieeesw}
   constitute the closest antecedents to this work. They demonstrated the value of
-  hypothesis engineering in two distinct settings---a web-testing startup and a
-  mission-critical government budget system---but relied entirely on manual
-  application with no tool support. This thesis introduces the first evaluation of
-  ArchHypo in a tool-mediated setting.
+  hypothesis engineering in two distinct settings --- a web-testing startup and a
+  mission-critical government budget system --- but relied entirely on manual application
+  with no tool support. This work introduces the first evaluation of ArchHypo in a
+  tool-mediated setting.
 
   \item Studies on architectural governance in agile organizations (e.g., the work on
   SAFe and Spotify-model variants) document how companies structure roles and
   ceremonies for architecture, but rarely examine explicit uncertainty-management
   techniques.
 
-  \item The multivocal review conducted during the author's qualification surfaced
+  \item The multivocal review conducted during the author's exploratory research surfaced
   practitioner reports (blog posts, conference talks, white papers) describing ad-hoc
   approaches to architectural uncertainty. These reports corroborate the need for
   structured methods but, being grey literature, carry weaker evidential value.
 \end{itemize}
 
-This thesis contributes to the body of empirical evidence by evaluating a
-tool-supported application of ArchHypo with multiple teams, addressing a gap in both
-the ArchHypo literature (which has not yet studied tool-mediated use) and the broader
-architectural-practices literature (which lacks studies of hypothesis-engineering tools
-in scaled settings).
+Based on the findings of these related studies, this present work contributes to the body of empirical evidence by evaluating a
+tool-supported application of ArchHypo with multiple teams, addressing a gap in both the ArchHypo literature (which has not yet studied tool-mediated use) and the broader
+architectural-practices literature (which lacks studies of hypothesis-engineering tools in scaled settings).
