@@ -2,6 +2,7 @@
 
 \chapter{Research Design}
 \label{ch:method}
+\label{chap:research-design}
 
 This chapter describes and justifies the research design adopted in this work.
 It covers the adopted research strategy along with the conceptual framework created to fullfill the research
@@ -12,7 +13,7 @@ The chapter concludes with notes on the ethical considerations that governed the
 \section{Research Strategy}
 % ---------------------------------------------------------------------------
 
-The objective of this work was to empirically evaluate and refine Arch-Stage,
+The objective of this work was to empirically evaluate and refine Hypo-Stage,
 a support tool for the ArchHypo technique, by applying it with multiple software
 engineering teams in a real-world organizational setting. Answering the research
 questions posed in Chapter~\ref{ch:intro} requires understanding not only \emph{what}
@@ -24,7 +25,7 @@ Within flexible designs, the study follows a \textbf{multiple case study strateg
 A case study is defined by them as an empirical investigation of a particular contemporary
 phenomenon within its real-life context, using multiple sources of evidence and where
 the boundary between phenomenon and context is not clearly distinct. This definition
-fits the present work precisely: the phenomenon under study is the use of Arch-Stage
+fits the present work precisely: the phenomenon under study is the use of Hypo-Stage
 by a software engineering team, and its context --- the organizational, technical, and
 social environment in which the team operates --- is both relevant and inseparable
 from the phenomenon itself. A purely experimental design, which would require
@@ -42,7 +43,7 @@ difficulties, and refinements can be examined and cross-validated. As \cite{robs
 experiments where each case either replicates findings or provides theoretically predicted contrast --- both strengthening the analytic basis for generalization.
 
 Beyond its descriptive and explanatory purposes, the study also has an
-\textbf{evaluative purpose}: it seeks to assess the worth and fitness of Arch-Stage
+\textbf{evaluative purpose}: it seeks to assess the worth and fitness of Hypo-Stage
 as a practical tool for managing architectural uncertainty in software engineering
 teams. \cite{robson2016} distinguish between \emph{formative evaluation}, which
 aims at understanding and improving an ongoing program or intervention, and
@@ -79,8 +80,8 @@ Figure~\ref{fig:conceptual-framework} describes the framework.
   \label{fig:conceptual-framework}
 \end{figure}
 
-The central piece is the \emph{Arch-Stage Tool Usage}, understood as the practices through which
-team members appropriate and practice the ArchHypo technique via Arch-Stage: creating
+The central piece is the \emph{Hypo-Stage Tool Usage}, understood as the practices through which
+team members appropriate and practice the ArchHypo technique via Hypo-Stage: creating
 and editing architectural hypotheses, assessing uncertainty levels and impact,
 defining and tracking technical plans, and revisiting hypotheses over successive
 sprint cycles \cite{silva2024tse}. The tool usage is conditioned by two sets of
@@ -88,10 +89,10 @@ contextual factors: the \emph{team context} (composition, experience profile, sc
 work, and familiarity with architectural concerns) and the \emph{organizational
 context} (the company's development platform, the role of Backstage as the delivery
 portal, and the scaled product being developed). The tool usage produces two observable
-streams: the \emph{artifacts} recorded in Arch-Stage (hypotheses, assessments,
+streams: the \emph{artifacts} recorded in Hypo-Stage (hypotheses, assessments,
 technical plans, and their evolution over time) and the \emph{experiment observations}
 of team members (benefits, difficulties, and adaptation strategies). These streams
-feed the \emph{Arch-Stage Tool Refinements} --- changes made to Arch-Stage and its usage
+feed the \emph{Hypo-Stage Tool Refinements} --- changes made to Hypo-Stage and its usage
 guidelines --- which in turn modify subsequent tool usage, forming an iterative cycle.
 This framework is consistent with the formative evaluation and action research elements of the design, and directly links each element to the research questions (RQ1--RQ4) stated in Chapter~\ref{ch:intro}.
 
@@ -101,11 +102,11 @@ This framework is consistent with the formative evaluation and action research e
 
 The study was conducted within a technology organization that operates
 large-scale software products across Latin America and employs over 500 software
-engineers. The organization is an intensive user of Backstage, an open-source
+engineers. The organization is an intensive user of Backstage\footnote{\url{https://github.com/backstage/backstage}}, an open-source
 developer portal, which serves as the central platform for internal tooling,
 documentation, and engineering workflows. The availability of this platform was an
-enabling condition for the study: Arch-Stage was deployed as a Backstage plugin, so its adoption is conditioned by the availability of that platform.
-The Arch-Stage tool was deployed directly in the company's production environment, integrated with the same catalog and workflow interface that engineers use daily, reducing adoption friction considerably. 
+enabling condition for the study: Hypo-Stage was deployed as a Backstage plugin, so its adoption is conditioned by the availability of that platform.
+The Hypo-Stage tool was deployed directly in the company's production environment, integrated with the same catalog and workflow interface that engineers use daily, reducing adoption friction considerably. 
 This allowed the researcher to observe the tool usage in a naturalistic setting, with minimal interference from the researcher.
 
 \subsection{Case Selection}
@@ -135,11 +136,32 @@ can be analytically compared.
 \end{description}
 
 The two cases represent a \emph{literal replication} in so far as both teams face
-the same intervention (use of Arch-Stage and ArchHypo) and a \emph{theoretical
+the same intervention (use of Hypo-Stage and ArchHypo) and a \emph{theoretical
 replication} in that their different scopes and compositions should, theoretically,
 lead to different experiences of architectural uncertainty and different challenges
 in adopting a hypothesis-driven approach \cite{robson2016,yin2009}. This contrast
 strengthens the analytic basis for identifying which findings are context-independent and which are conditioned by team type.
+
+\begin{table}[htbp]
+\centering
+\caption{Case comparison: Team 1 (Product) and Team 2 (Platform).}
+\label{tab:case-comparison}
+\begin{tabular}{p{0.30\linewidth} p{0.32\linewidth} p{0.32\linewidth}}
+\toprule
+\textbf{Dimension} & \textbf{Team 1 --- Product Team} & \textbf{Team 2 --- Platform Team} \\
+\midrule
+Size & 12 engineers (5 senior, 7 mid-level). & 4 engineers (2 senior, 2 mid-level). \\
+\midrule
+Scope & Bounded product domain; new features with direct business and user impact. & Broad-scope internal tooling supporting all engineers in the organization. \\
+\midrule
+Architectural concerns & Supporting new features reliably at scale; preserving existing quality attributes. & Horizontal decisions affecting build, deploy, and operate practices organization-wide. \\
+\midrule
+Uncertainty profile (expected) & Moderate uncertainty, high proximity to user feedback. & Higher uncertainty about usage patterns; high cross-team impact of decisions. \\
+\midrule
+Replication logic & Literal replication --- same intervention (Hypo-Stage + ArchHypo). & Theoretical replication --- different scope and composition expected to surface different challenges. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 % ---------------------------------------------------------------------------
 \section{Researcher's Role}
@@ -150,7 +172,7 @@ Throughout the study, the researcher occupied the dual role of
 The researcher is an employee of the organization in which the study was conducted, which makes this an instance of \emph{insider research}.
 This position provided privileged access to the teams, their work context, and their daily practices, which would have been substantially harder to
 obtain as an external investigator. It also allowed the researcher to introduce
-Arch-Stage into the company's infrastructure in a credible and practically feasible
+Hypo-Stage into the company's infrastructure in a credible and practically feasible
 way.
 
 \cite{robson2016} acknowledge that insider research raises specific concerns
@@ -160,7 +182,7 @@ Section~\ref{sec:trustworthiness}. It is important to note that, while the resea
 served as facilitator during training sessions and provided assistance on request
 throughout the observation period, he did not direct the teams in \emph{which}
 architectural uncertainties to address or \emph{how} to formulate specific
-hypotheses. The content of the work produced by the teams in Arch-Stage reflects
+hypotheses. The content of the work produced by the teams in Hypo-Stage reflects
 their own judgments and priorities.
 
 % ---------------------------------------------------------------------------
@@ -175,7 +197,7 @@ session led by the researcher. The session covered:
 \begin{itemize}
   \item[(i)] The conceptual foundations of hypotheses engineering and the ArchHypo technique, including the distinction between architectural hypotheses, uncertainty levels, impact assessment, and technical plans.
   \item[(ii)] The context and motivation of the research, including the broader challenge of making architectural uncertainties explicit in teams working on scaled products.
-  \item[(iii)] A live demonstration of Arch-Stage running in the company's Backstage instance, illustrating how to create and manage hypotheses within the tool. Teams were given written communication prior to the meeting (Appendix~\ref{apx:training-communication}) --- including an illustration of the ArchHypo big picture (Figure~\ref{fig:archhypo-overview}) --- so that they could arrive at the session with some prior exposure to the key concepts.
+  \item[(iii)] A live demonstration of Hypo-Stage running in the company's Backstage instance, illustrating how to create and manage hypotheses within the tool. Teams were given written communication prior to the meeting (Appendix~\ref{apx:training-communication}) --- including an illustration of the ArchHypo big picture (Figure~\ref{fig:archhypo-overview}) --- so that they could arrive at the session with some prior exposure to the key concepts.
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -191,7 +213,7 @@ session led by the researcher. The session covered:
 \subsection{Observation Period}
 
 Following the training session, each team entered a two-sprint observation period of
-approximately four weeks, during which they were invited to use Arch-Stage to
+approximately four weeks, during which they were invited to use Hypo-Stage to
 register and manage any architectural uncertainties that arose in the course of their
 regular development work. No constraints were imposed on the type, number, or
 formulation of hypotheses, nor on when to create them during the sprints. It is intrisic to the nature of the organization in which the experience was conducted that the teams are free to adjust their agile practices to their own needs. Thefore, in contrast to \cite{silva2024tse}, the teams were not required to create hypotheses during the sprints, but rather to use the tools whenever they deemed necessary.
@@ -211,7 +233,7 @@ request. Support was of two distinct types:
     originated from the tool itself --- a usability problem, a missing feature, or a
     mismatch between the tool's behavior and the expected workflow --- the researcher
     logged this as a tool improvement candidate and, as a matter of priority,
-    implemented and deployed an updated version of Arch-Stage as quickly as
+    implemented and deployed an updated version of Hypo-Stage as quickly as
     practicable. This was done to ensure that tool limitations would not persistently
     obstruct teams' ability to practice ArchHypo, and to allow subsequent
     observations to reflect a more refined version of the tool.
@@ -220,11 +242,28 @@ request. Support was of two distinct types:
 This second type of support operationalizes the \emph{action research cycle} within
 the study: difficulty observed $\rightarrow$ refinement designed $\rightarrow$
 updated tool deployed $\rightarrow$ use and observation resumed. Each refinement
-cycle is documented in Chapter~\ref{ch:refinements}.
+cycle is documented in Section~\ref{sec:refinements}.
 
 % ---------------------------------------------------------------------------
 \section{Data Collection}
 % ---------------------------------------------------------------------------
+
+\begin{table}[htbp]
+\centering
+\caption{Data collection instruments, sources, and research questions addressed.}
+\label{tab:data-collection}
+\begin{tabular}{p{0.25\linewidth} p{0.28\linewidth} p{0.20\linewidth} p{0.19\linewidth}}
+\toprule
+\textbf{Instrument} & \textbf{Data Produced} & \textbf{Collection Timing} & \textbf{RQs Addressed} \\
+\midrule
+Participant observation (field notes) & Reactions, use patterns, informal commentary, support requests. & Continuous during observation period. & RQ1, RQ4 \\
+\midrule
+Artifact analysis (Hypo-Stage records) & Hypotheses, assessments, technical plans, lifecycle transitions. & End of observation period. & RQ1, RQ3 \\
+\midrule
+Open-ended active listening sessions & Perceived usefulness, difficulties, suggestions, overall assessment. & End of observation period. & RQ2, RQ4 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 Following the multiple data source approach recommended for case studies by
 \cite{robson2016,yin2009}, data were collected through three complementary channels:
@@ -238,7 +277,7 @@ covered:
 \begin{itemize}
   \item[(i)] Team members' reactions and difficulties during and after the training
   session;
-  \item[(ii)] Patterns of use (or non-use) of Arch-Stage during the sprint;
+  \item[(ii)] Patterns of use (or non-use) of Hypo-Stage during the sprint;
   \item[(iii)] Interactions in which team members requested conceptual or tool support;
   \item[(iv)] Informal commentary about the fit of ArchHypo with existing practices.
 \end{itemize}
@@ -247,7 +286,7 @@ Following \cite{robson2016}'s guidance on participant observation, field notes w
 
 \subsection{Artifact Analysis}
 
-The hypotheses, assessments, and technical plans created by each team in Arch-Stage
+The hypotheses, assessments, and technical plans created by each team in Hypo-Stage
 constitute a documentary record of how they used the tool over the observation period.
 These artifacts were collected at the end of the observation period and analysed to
 characterize:
@@ -265,7 +304,7 @@ The content analysis of documentary record is a recognized data collection metho
 
 In addition to informal interactions arising from support requests, the researcher
 conducted brief open-ended active listening sessions with team members at the end of the
-observation period, inviting them to reflect on their experience of using Arch-Stage
+observation period, inviting them to reflect on their experience of using Hypo-Stage
 and ArchHypo. These conversations followed a semi-structured format, covering the
 perceived usefulness of the technique, the difficulties encountered, the changes they
 would suggest to the tool or its integration into their workflow, and their overall
@@ -293,7 +332,7 @@ refinements}. Third, patterns within and across the two cases were compared to
 identify what was common to both teams and what appeared specific to the product or
 platform context.
 
-The artifact data from Arch-Stage were also summarized descriptively (number of
+The artifact data from Hypo-Stage were also summarized descriptively (number of
 hypotheses per team, quality attributes addressed, evolution across sprints) to
 complement and illustrate the qualitative findings. The use of these summary
 statistics is consistent with \cite{robson2016}'s observation that flexible designs
@@ -303,6 +342,25 @@ can include small amounts of quantitative data without becoming multistrategy de
 \section{Establishing Trustworthiness}
 \label{sec:trustworthiness}
 % ---------------------------------------------------------------------------
+
+\begin{table}[htbp]
+\centering
+\caption{Trustworthiness criteria and strategies applied in this study \citep{robson2016}.}
+\label{tab:trustworthiness}
+\begin{tabular}{p{0.20\linewidth} p{0.35\linewidth} p{0.37\linewidth}}
+\toprule
+\textbf{Criterion} & \textbf{Meaning} & \textbf{Strategy Applied} \\
+\midrule
+Credibility & Internal validity; do findings accurately represent participants' realities? & Prolonged engagement (4 weeks); triangulation across three data sources; member checking. \\
+\midrule
+Transferability & Degree to which findings may inform other settings. & Thick description of context; analytic (not statistical) generalization claimed. \\
+\midrule
+Dependability & Reliability and consistency of the research process. & Audit trail: dated field notes, systematic artifact extraction, commits linked to each refinement. \\
+\midrule
+Confirmability & Degree to which findings reflect data rather than researcher bias. & Explicit role separation; active search for disconfirming evidence; all claims grounded in specific observations or artifacts. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 The trustworthiness of findings from flexible design research is discussed by \cite{robson2016} in terms of \emph{credibility}, \emph{transferability},
 \emph{dependability}, and \emph{confirmability} \cite{robson2016}. Each is addressed
@@ -319,7 +377,7 @@ through:
 \textbf{Transferability} --- the degree to which the findings may inform other
 settings --- is constrained by the specifics of the organizational context (a large
 technology company in Latin America with an established Backstage platform) and the
-tool (Arch-Stage). The study does not claim statistical generalization. Rather, it
+tool (Hypo-Stage). The study does not claim statistical generalization. Rather, it
 offers analytic generalization \cite{robson2016,yin2009}: the patterns of use,
 difficulties, and refinements documented here provide a theoretically informed
 account that researchers and practitioners can assess for relevance to their own
@@ -329,7 +387,7 @@ contexts.
 by maintaining an audit trail: field notes were dated and linked to specific events,
 artifact data were extracted and stored systematically, and each tool refinement was
 documented with its triggering observation and the corresponding commit in the
-Arch-Stage repository.
+Hypo-Stage repository.
 
 \textbf{Confirmability} --- the degree to which findings reflect the data rather
 than researcher bias --- was addressed by: 
@@ -337,7 +395,7 @@ than researcher bias --- was addressed by:
 \begin{itemize}
   \item[(i)] Explicitly distinguishing between the researcher's facilitation role (which involved helping teams understand the technique) and his investigator role (which required non-directive observation of how they used it);
   \item[(ii)] Seeking disconfirming evidence, that is, noting instances where teams found value in the tool or the technique as readily as instances of difficulty;
-  \item[(iii)] Grounding all claims in specific observations, artifacts, or conversation excerpts, reported in Chapter~\ref{ch:results}.
+  \item[(iii)] Grounding all claims in specific observations, artifacts, or conversation excerpts, reported in Chapter~\ref{chap:results} (including Section~\ref{sec:refinements} where refinements are documented).
 \end{itemize}
 
 % ---------------------------------------------------------------------------
@@ -345,7 +403,7 @@ than researcher bias --- was addressed by:
 % ---------------------------------------------------------------------------
 
 The study raises ethical considerations associated with insider research, as discussed
-by \cite{robson2016}. Participation was voluntary: team members were informed of the research objectives, were free to use Arch-Stage as much or as little as they chose, 
+by \cite{robson2016}. Participation was voluntary: team members were informed of the research objectives, were free to use Hypo-Stage as much or as little as they chose, 
 and were invited but not required to engage in active listening sessions. No personal performance data were collected or reported; all analysis
 pertains to team-level patterns and tool-level observations. The organization in which the study was conducted and the teams involved are anonymized in reporting.
 As no sensitive personal data were collected, no ethical review was required for this study.

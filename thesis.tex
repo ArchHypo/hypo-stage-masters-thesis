@@ -33,11 +33,11 @@
 
 \babelhyphenation{documentclass latexmk soft-ware clsguide}
 \babelhyphenation[brazilian]{hi-pó-te-ses ar-qui-te-tu-rais}
-\babelhyphenation[english]{Arch-Hypo Arch-Stage}
+\babelhyphenation[english]{Arch-Hypo Hypo-Stage}
 
 % ---- Title (English primary; translated title is the Portuguese version) ----
-\title{Evaluating and Refining Arch-Stage}[Supporting Architectural Hypotheses in Software Engineering Teams]
-\translatedtitle{Avaliação e Refinamento do Arch-Stage}[Apoio a Hipóteses Arquiteturais em Equipes de Engenharia de Software]
+\title{Evaluating and Refining Hypo-Stage}[Supporting Architectural Hypotheses in Software Engineering Teams]
+\translatedtitle{Avaliação e Refinamento do Hypo-Stage}[Apoio a Hipóteses Arquiteturais em Equipes de Engenharia de Software]
 
 \author{José Gonçalves Lima Neto}
 
@@ -157,7 +157,16 @@
 %%% Auto-generated lists %%%
 \disablenewpage{\listoffigures}
 \disablenewpage{\listoftables}
-\disablenewpage{\listof{program}{\programlistname}}
+%%% List of software programs (repositories central to this thesis) %%%
+\disablenewpage{\chapter*{\programlistname}}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{\programlistname}
+
+\noindent\textbf{Hypo-Stage} --- open-source Backstage plugin that operationalizes the ArchHypo technique for hypothesis management; empirical artifact of this thesis. Repository: \url{https://github.com/ArchHypo/hypo-stage}.
+
+\par\vspace{\baselineskip}
+\noindent\textbf{Backstage} --- open-source framework for Internal Developer Portals (CNCF); organizational platform in which Hypo-Stage is deployed in this study. Repository: \url{https://github.com/backstage/backstage}.
 
 %%% Table of Contents (required) %%%
 \tableofcontents
@@ -176,7 +185,6 @@
 \input{chapters/03-related-work}
 \input{chapters/04-research-design}
 \input{chapters/05-results}
-\input{chapters/06-refinements}
 \input{chapters/07-conclusion}
 
 
