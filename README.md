@@ -55,9 +55,9 @@ This master's thesis builds on that artifact: commits after `ceee509` reflect re
 │   ├── 02-background.tex       #   Chapter 2: Background
 │   ├── 03-related-work.tex     #   Chapter 3: Related Work
 │   ├── 04-research-design.tex  #   Chapter 4: Research Design
-│   ├── 05-results.tex          #   Chapter 5: Results (scaffold)
-│   ├── 06-discussion.tex       #   Chapter 6: Discussion (scaffold)
-│   ├── 07-conclusion.tex       #   Chapter 7: Conclusion (scaffold)
+│   ├── 05-results.tex          #   Chapter 5: Results and Refinements (merged)
+│   ├── 06-discussion.tex       #   Optional scaffold (omitted from thesis.tex)
+│   ├── 07-conclusion.tex       #   Chapter 6 in PDF: Conclusion
 │   └── appendix-a-instruments.tex  Appendix A: Research Instruments
 ├── figures/                    # Thesis figures (.pdf, .png, .jpg)
 ├── template/                   # IME-USP LaTeX template internals (do not edit)
