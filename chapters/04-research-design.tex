@@ -2,6 +2,7 @@
 
 \chapter{Research Design}
 \label{ch:method}
+\label{chap:research-design}
 
 This chapter describes and justifies the research design adopted in this work.
 It covers the adopted research strategy along with the conceptual framework created to fullfill the research
@@ -141,6 +142,27 @@ lead to different experiences of architectural uncertainty and different challen
 in adopting a hypothesis-driven approach \cite{robson2016,yin2009}. This contrast
 strengthens the analytic basis for identifying which findings are context-independent and which are conditioned by team type.
 
+\begin{table}[htbp]
+\centering
+\caption{Case comparison: Team 1 (Product) and Team 2 (Platform).}
+\label{tab:case-comparison}
+\begin{tabular}{p{0.30\linewidth} p{0.32\linewidth} p{0.32\linewidth}}
+\toprule
+\textbf{Dimension} & \textbf{Team 1 --- Product Team} & \textbf{Team 2 --- Platform Team} \\
+\midrule
+Size & 12 engineers (5 senior, 7 mid-level). & 4 engineers (2 senior, 2 mid-level). \\
+\midrule
+Scope & Bounded product domain; new features with direct business and user impact. & Broad-scope internal tooling supporting all engineers in the organization. \\
+\midrule
+Architectural concerns & Supporting new features reliably at scale; preserving existing quality attributes. & Horizontal decisions affecting build, deploy, and operate practices organization-wide. \\
+\midrule
+Uncertainty profile (expected) & Moderate uncertainty, high proximity to user feedback. & Higher uncertainty about usage patterns; high cross-team impact of decisions. \\
+\midrule
+Replication logic & Literal replication --- same intervention (Arch-Stage + ArchHypo). & Theoretical replication --- different scope and composition expected to surface different challenges. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 % ---------------------------------------------------------------------------
 \section{Researcher's Role}
 % ---------------------------------------------------------------------------
@@ -220,11 +242,28 @@ request. Support was of two distinct types:
 This second type of support operationalizes the \emph{action research cycle} within
 the study: difficulty observed $\rightarrow$ refinement designed $\rightarrow$
 updated tool deployed $\rightarrow$ use and observation resumed. Each refinement
-cycle is documented in Chapter~\ref{ch:refinements}.
+cycle is documented in Section~\ref{sec:refinements}.
 
 % ---------------------------------------------------------------------------
 \section{Data Collection}
 % ---------------------------------------------------------------------------
+
+\begin{table}[htbp]
+\centering
+\caption{Data collection instruments, sources, and research questions addressed.}
+\label{tab:data-collection}
+\begin{tabular}{p{0.25\linewidth} p{0.28\linewidth} p{0.20\linewidth} p{0.19\linewidth}}
+\toprule
+\textbf{Instrument} & \textbf{Data Produced} & \textbf{Collection Timing} & \textbf{RQs Addressed} \\
+\midrule
+Participant observation (field notes) & Reactions, use patterns, informal commentary, support requests. & Continuous during observation period. & RQ1, RQ4 \\
+\midrule
+Artifact analysis (Arch-Stage records) & Hypotheses, assessments, technical plans, lifecycle transitions. & End of observation period. & RQ1, RQ3 \\
+\midrule
+Open-ended active listening sessions & Perceived usefulness, difficulties, suggestions, overall assessment. & End of observation period. & RQ2, RQ4 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 Following the multiple data source approach recommended for case studies by
 \cite{robson2016,yin2009}, data were collected through three complementary channels:
@@ -303,6 +342,25 @@ can include small amounts of quantitative data without becoming multistrategy de
 \section{Establishing Trustworthiness}
 \label{sec:trustworthiness}
 % ---------------------------------------------------------------------------
+
+\begin{table}[htbp]
+\centering
+\caption{Trustworthiness criteria and strategies applied in this study \citep{robson2016}.}
+\label{tab:trustworthiness}
+\begin{tabular}{p{0.20\linewidth} p{0.35\linewidth} p{0.37\linewidth}}
+\toprule
+\textbf{Criterion} & \textbf{Meaning} & \textbf{Strategy Applied} \\
+\midrule
+Credibility & Internal validity; do findings accurately represent participants' realities? & Prolonged engagement (4 weeks); triangulation across three data sources; member checking. \\
+\midrule
+Transferability & Degree to which findings may inform other settings. & Thick description of context; analytic (not statistical) generalization claimed. \\
+\midrule
+Dependability & Reliability and consistency of the research process. & Audit trail: dated field notes, systematic artifact extraction, commits linked to each refinement. \\
+\midrule
+Confirmability & Degree to which findings reflect data rather than researcher bias. & Explicit role separation; active search for disconfirming evidence; all claims grounded in specific observations or artifacts. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 The trustworthiness of findings from flexible design research is discussed by \cite{robson2016} in terms of \emph{credibility}, \emph{transferability},
 \emph{dependability}, and \emph{confirmability} \cite{robson2016}. Each is addressed

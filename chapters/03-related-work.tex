@@ -2,6 +2,7 @@
 
 \chapter{Related Work}
 \label{cap:related-work}
+\label{chap:related-work}
 
 This chapter synthesizes the literature relevant to the empirical evaluation of the Hypo-Stage tool. 
 Rather than presenting a standalone systematic review, it draws on the author's earlier exploratory work --- which included a tertiary systematic
@@ -151,6 +152,25 @@ lifecycle: from hypothesis elicitation through assessment, technical planning, a
 resolution. Its integration with Backstage places this lifecycle within the developer's
 daily tooling environment. No existing tool, to the best of the author's knowledge,
 provides this combination.
+
+\begin{table}[htbp]
+\centering
+\caption{Comparison of tools relevant to architectural decision-making support.}
+\label{tab:tools-comparison}
+\begin{tabular}{p{0.20\linewidth} p{0.16\linewidth} p{0.14\linewidth} p{0.14\linewidth} p{0.14\linewidth} p{0.14\linewidth}}
+\toprule
+\textbf{Tool / Platform} & \textbf{Primary Purpose} & \textbf{Models Uncertainty} & \textbf{Technical Plans} & \textbf{Lifecycle Tracking} & \textbf{Team-Embedded} \\
+\midrule
+ADR tools (adr-tools, Log4brains) & Record settled decisions. & No & No & Partial & No \\
+\midrule
+ATAM / Trade-off workshops & Evaluate architectural alternatives. & Partial & No & No & No \\
+\midrule
+IDPs (Backstage, Port, Cortex) & Developer portal; catalog; documentation. & No & No & No & Yes \\
+\midrule
+Arch-Stage (this work) & Support ArchHypo hypothesis engineering. & Yes & Yes & Yes & Yes (via Backstage) \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 % ---------------------------------------------------------------------------
 \section{Empirical Studies of Architectural Practices in Industry}

@@ -40,7 +40,7 @@ These findings resonate with the observations from ArchHypo studies: while the t
 Grounded in these studies' insights, \cite{correa2025} developed the Arch-Stage, a support tool designed to help teams apply the ArchHypo technique in practice.
 Up to a specific point in its history, the work focused on designing and implementing the core functionality for enabling ArchHypo capabilities, such as representing architectural hypotheses, recording their uncertainty and impact assessments, and managing associated technical plans. \footnote{The first version of Arch-Stage and the corresponding source code history up to commit \texttt{ceee509776508081ebdd473c2c4f710b8ef55947} document the initial design and implementation of Arch-Stage proposed by \cite{correa2025}.} 
 The work also discussed initial design decisions and limitations, including usability aspects and open questions about how the tool would fit into different team workflows.
-A more detailed description of Arch-Stage and the contributions by \cite{correa2025} are presented in Chapter~\ref{ch:background}.
+A more detailed description of Arch-Stage and the contributions by \cite{correa2025} are presented in Chapter~\ref{chap:background}.
 
 \section{Problem Statement}
 
@@ -83,7 +83,26 @@ To achieve the above objectives, this work is guided by the following research q
   \item[RQ4:] What benefits and challenges do team members perceive in using Arch-Stage to support architectural decision-making and uncertainty management?
 \end{description}
 
-As the empirical design is detailed in Chapter~\ref{ch:method}, these questions may be operationalized with different emphases --- for example, with RQ1 and RQ3 focusing more strongly on interaction and process, and RQ2 providing a descriptive view of uncertainty patterns --- to accommodate the different research questions' emphases.
+As the empirical design is detailed in Chapter~\ref{chap:research-design}, these questions may be operationalized with different emphases --- for example, with RQ1 and RQ3 focusing more strongly on interaction and process, and RQ2 providing a descriptive view of uncertainty patterns --- to accommodate the different research questions' emphases.
+
+\begin{table}[htbp]
+\centering
+\caption{Alignment between research questions and study objectives.}
+\label{tab:rq-objectives}
+\begin{tabular}{p{0.08\linewidth} p{0.42\linewidth} p{0.42\linewidth}}
+\toprule
+\textbf{RQ} & \textbf{Research Question} & \textbf{Primary Objective Addressed} \\
+\midrule
+RQ1 & How do software engineering teams use Arch-Stage and ArchHypo when working on a scaled product? & Investigate appropriation and use patterns of Arch-Stage in day-to-day team activities. \\
+\midrule
+RQ2 & Which refinements emerge from the empirical study and how do they address identified challenges? & Derive and implement empirically grounded refinements to Arch-Stage and its usage guidelines. \\
+\midrule
+RQ3 & What types of architectural uncertainties do teams identify, record, and manage using Arch-Stage? & Characterize architectural uncertainties by source, quality attribute, and evolution over time. \\
+\midrule
+RQ4 & What benefits and challenges do team members perceive in using Arch-Stage? & Identify perceived benefits and challenges related to learning curve, usability, and workflow fit. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{Research Contributions}
 
@@ -100,12 +119,40 @@ By answering its set of research questions, this work attempts to make the follo
 
 The remainder of this work is organized as follows.
 
-Chapter~\ref{ch:background} presents the background and related work. It introduces key concepts in software architecture and architectural uncertainty, summarizes the ArchHypo technique and previous empirical studies about it, describes the initial design of the Arch-Stage tool and the undergraduate thesis that developed it, and revisits the main findings from systematic studies on deriving architecture from requirements and on tool support in this area by \cite{souza2019}.
+Chapter~\ref{chap:background} provides the theoretical foundations for the study.
+It introduces key concepts in software architecture and architectural uncertainty;
+presents the ArchHypo technique in detail, including its core concepts, assessment
+model, technical plan strategies, and lifecycle; reviews the two prior empirical
+evaluations of ArchHypo (at Catch Solve and PropSEP/Jetsoft); describes Internal
+Developer Portals and the Backstage platform as the delivery vehicle for Arch-Stage;
+presents the initial Arch-Stage tool developed by \cite{correa2025}; and surveys
+the systematic mapping study by \cite{souza2019} on the gap between architectural
+derivation methods and tool support.
 
-Chapter~\ref{ch:method} details the research design and methods adopted in this dissertation. It describes the industrial context in which the study was conducted, the participating teams and their product, the data collection instruments and procedures, and the analysis methods used to answer the research questions.
+Chapter~\ref{chap:related-work} synthesizes related literature and industry context relevant to tool-supported architectural decision-making and positions this work within that space.
 
-The chapter reporting empirical results presents how teams used Arch-Stage and ArchHypo in practice, the architectural hypotheses and uncertainties they managed, and the perceived benefits and challenges from the perspective of different roles.
+Chapter~\ref{chap:research-design} presents the research design and methods adopted
+in this dissertation. It describes the research strategy (a flexible multiple case study
+with formative evaluation and action research elements), the conceptual research
+framework that organizes the key constructs of the study, the industrial context and
+case selection rationale for the two participating teams (a Product Team and a Platform
+Team), the researcher's dual role as participant observer and facilitator, the data
+collection procedures (participant observation, artifact analysis, and open-ended active
+listening sessions), the thematic coding analysis approach, and the criteria used to
+establish trustworthiness and ethical conduct.
 
-The chapter discussing refinements details the changes made to Arch-Stage and its usage guidelines based on empirical findings. It explains the rationale for the changes, illustrates how they address specific issues observed in the field, and reflects on remaining limitations and opportunities for future improvement.
+Chapter~\ref{chap:results} presents the empirical results and refinements of the study.
+The results section reports how teams used Arch-Stage and ArchHypo in practice: the
+architectural hypotheses and uncertainties they recorded, patterns of tool use and
+non-use, and the benefits and challenges perceived from the perspective of different
+roles. The refinements section is presented as an integral part of the results: each
+refinement is directly linked to an observed difficulty, describes the change implemented
+in Arch-Stage or its usage guidelines, and connects back to the research questions it
+addresses (primarily RQ2). Presenting results and refinements together makes explicit
+how empirical findings drove iterative tool evolution throughout the observation period.
 
-Finally, the conclusion chapter summarizes the main contributions, discusses implications for practitioners and researchers, and outlines directions for future work on tool support for architectural uncertainty management and distributed architecture decision-making.
+Finally, Chapter~\ref{chap:conclusion} summarizes the main contributions of the work
+in response to each research question, discusses implications for practitioners adopting
+hypothesis-engineering tools and for researchers studying tool-mediated architectural
+practices, and outlines directions for future work on Arch-Stage and on broader
+support for distributed architectural decision-making in agile organizations.

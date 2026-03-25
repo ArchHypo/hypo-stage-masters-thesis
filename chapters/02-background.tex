@@ -2,6 +2,8 @@
 
 \chapter{Background}
 \label{cap:background}
+\label{chap:background}
+\label{ch:background}
 
 This chapter establishes the theoretical foundations for the empirical investigation
 carried out in this present work. It begins with an overview of software architecture and
@@ -80,6 +82,23 @@ It is important to distinguish the concept from adjacent concepts:
   made (~\cite{silva2024tse}).
 \end{itemize}
 
+\begin{table}[htbp]
+\centering
+\caption{Distinguishing architectural hypotheses from adjacent concepts \citep{silva2024tse}.}
+\label{tab:hypothesis-concepts}
+\begin{tabular}{p{0.22\linewidth} p{0.35\linewidth} p{0.35\linewidth}}
+\toprule
+\textbf{Concept} & \textbf{Definition} & \textbf{Relation to Architectural Hypothesis} \\
+\midrule
+Risk & A known event with estimable probability and impact. & A hypothesis stems from an \emph{epistemic gap} --- lack of information --- not from a known probability. \\
+\midrule
+Requirement & Specifies what the system must do or how well it must do it. & A requirement may \emph{trigger} a hypothesis when the path to satisfying it is uncertain; they are not the same artifact. \\
+\midrule
+Architectural Decision & Resolves a design choice. & A hypothesis \emph{precedes and informs} a decision; it captures what must be learned before a decision can responsibly be made. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 Hypotheses arise from two principal sources:
 
 \begin{itemize}
@@ -154,6 +173,31 @@ deferred. ArchHypo identifies the following plan strategies as observerd in ~\ci
   inserted without major disruption, regardless of which direction the evidence
   eventually points.
 \end{itemize}
+
+\begin{table}[htbp]
+\centering
+\caption{ArchHypo technical plan strategies and their primary effect \citep{silva2024ieeesw,silva2024tse}.}
+\label{tab:technical-plans}
+\begin{tabular}{p{0.25\linewidth} p{0.35\linewidth} p{0.30\linewidth}}
+\toprule
+\textbf{Strategy} & \textbf{Description} & \textbf{Primary Effect} \\
+\midrule
+Architectural Spike & Time-boxed isolated experiment; produces information, not deliverable functionality. & Reduces uncertainty. \\
+\midrule
+Tracer Bullet & Thin end-to-end implementation in the real system to validate integration or performance. & Reduces uncertainty under realistic conditions. \\
+\midrule
+Software Analytics & Uses existing monitoring or profiling data to gather evidence. & Reduces uncertainty without extra development effort. \\
+\midrule
+Modularity / Flexibility & Restructures the subsystem to reduce coupling or increase replaceability. & Reduces impact (not uncertainty). \\
+\midrule
+Guideline Implementation & Tailors the development process (coding standards, review protocols) to generate evidence as a by-product of normal work. & Reduces uncertainty incrementally; most frequently used \citep{silva2024tse}. \\
+\midrule
+Architectural Trigger & Defers action until a specific observable condition is met. & Manages timing of decision; reduces premature cost. \\
+\midrule
+Agile Landing Zones & Adopts patterns that preserve flexibility for future insertions. & Reduces impact proactively. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 % ------- 2.2.4
 \subsection{Lifecycle}
@@ -247,6 +291,23 @@ Findings ~8 and ~9 directly motivate the tooling contribution of this present wo
 embeds ArchHypo scaffolding in the daily engineering workflow, reducing the cognitive
 overhead of manual application and knowledge transfer.
 
+\begin{table}[htbp]
+\centering
+\caption{Summary of prior empirical evaluations of ArchHypo.}
+\label{tab:archhypo-evaluations}
+\begin{tabular}{p{0.18\linewidth} p{0.18\linewidth} p{0.18\linewidth} p{0.18\linewidth} p{0.18\linewidth}}
+\toprule
+\textbf{Study} & \textbf{Setting} & \textbf{Scope} & \textbf{Key Finding} & \textbf{Limitation} \\
+\midrule
+\citet{silva2024ieeesw} & Catch Solve startup (Italy) & 4 hypotheses, 10 months & Explicit hypothesis tracking changed how team prioritized architectural investments. & Single practitioner; no tool support. \\
+\midrule
+\citet{silva2024tse} & PropSEP / Jetsoft (Brazil) & 10 hypotheses, 6 sprints, 8 participants & ArchHypo distributed architectural work across iterations; all participants found technique hard to learn. & Manual application; expert steering required; no supporting tool. \\
+\midrule
+This work & Large-scale tech organization (Latin America) & Multiple teams, scaled product & To be reported --- first evaluation in a tool-mediated setting via Arch-Stage. & Single organizational context; Backstage dependency. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 % ---------------------------------------------------------------------------
 \section{Internal Developer Portals and Backstage}
 \label{sec:idp-backstage}
@@ -310,6 +371,23 @@ API services, data processing, and storage; and (3)~\emph{External Integrations}
 which backend plugins serve as gateways to external systems and APIs, allowing the
 portal to aggregate data from cloud providers, CI/CD tools, and other
 infrastructure ~\cite{correa2025}.
+
+\begin{table}[htbp]
+\centering
+\caption{Backstage architecture layers and their role \citep{correa2025}.}
+\label{tab:backstage-layers}
+\begin{tabular}{p{0.25\linewidth} p{0.35\linewidth} p{0.32\linewidth}}
+\toprule
+\textbf{Layer} & \textbf{Responsibilities} & \textbf{Relevance to Arch-Stage} \\
+\midrule
+Core Framework & Plugin loader, routing, authentication, error handling. & Provides the lifecycle hooks that Arch-Stage's frontend and backend plugins register into. \\
+\midrule
+Plugin Ecosystem & Frontend plugins (views, UI); backend plugins (API services, data, storage). & Arch-Stage is implemented as a split plugin: the frontend renders hypotheses and assessments; the backend persists data and exposes the API. \\
+\midrule
+External Integrations & Backend plugins as gateways to external systems (cloud, CI/CD, APIs). & Arch-Stage integrates with the Backstage catalog to auto-associate hypotheses with software entities. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 Crucially, the plugin architecture allows organizations to extend the portal's
 functionality by integrating custom tools directly into the developer's daily workflow,
@@ -376,6 +454,27 @@ digitally but did not involve real-time use by a team. Furthermore, the tool lac
 features for collaborative assessment (e.g., multiple raters per hypothesis) and for
 tracking the evolution of assessments over time. These gaps also motivated the empirical
 evaluation and refinement effort promoted in this present work.
+
+\begin{table}[htbp]
+\centering
+\caption{Hypo-Stage initial capabilities and known limitations identified prior to this study \citep{correa2025}.}
+\label{tab:hypostage-capabilities}
+\begin{tabular}{p{0.30\linewidth} p{0.32\linewidth} p{0.30\linewidth}}
+\toprule
+\textbf{Capability} & \textbf{Description} & \textbf{Known Limitation} \\
+\midrule
+Hypothesis management & Create, edit, list, delete hypotheses linked to Backstage catalog entities. & Assumed prior ArchHypo vocabulary familiarity; no onboarding guidance. \\
+\midrule
+Uncertainty \& impact assessment & 5-point Likert scales per dimension with free-text rationale. & No collaborative multi-rater assessment; evolution of assessments not tracked over time. \\
+\midrule
+Technical planning & Attach plan items with action type, description, target date, and outcome. & Action types not enforced or explained in-tool; required expert facilitation to use correctly. \\
+\midrule
+Visualization & Uncertainty-vs-impact scatter plot for prioritization. & Static; not updated reactively as assessments changed. \\
+\midrule
+Status lifecycle & Tracks hypotheses through open $\rightarrow$ validated / invalidated states. & No history of intermediate state transitions preserved. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 % ---------------------------------------------------------------------------
 \section{Deriving Architecture from Requirements: The Tooling Gap}
