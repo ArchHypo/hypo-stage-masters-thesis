@@ -303,7 +303,7 @@ overhead of manual application and knowledge transfer.
 \midrule
 \citet{silva2024tse} & PropSEP / Jetsoft (Brazil) & 10 hypotheses, 6 sprints, 8 participants & ArchHypo distributed architectural work across iterations; all participants found technique hard to learn. & Manual application; expert steering required; no supporting tool. \\
 \midrule
-This work & Large-scale tech organization (Latin America) & Multiple teams, scaled product & To be reported --- first evaluation in a tool-mediated setting via Arch-Stage. & Single organizational context; Backstage dependency. \\
+This work & Large-scale tech organization (Latin America) & Multiple teams, scaled product & To be reported --- first evaluation in a tool-mediated setting via Hypo-Stage. & Single organizational context; Backstage dependency. \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -378,13 +378,13 @@ infrastructure ~\cite{correa2025}.
 \label{tab:backstage-layers}
 \begin{tabular}{p{0.25\linewidth} p{0.35\linewidth} p{0.32\linewidth}}
 \toprule
-\textbf{Layer} & \textbf{Responsibilities} & \textbf{Relevance to Arch-Stage} \\
+\textbf{Layer} & \textbf{Responsibilities} & \textbf{Relevance to Hypo-Stage} \\
 \midrule
-Core Framework & Plugin loader, routing, authentication, error handling. & Provides the lifecycle hooks that Arch-Stage's frontend and backend plugins register into. \\
+Core Framework & Plugin loader, routing, authentication, error handling. & Provides the lifecycle hooks that Hypo-Stage's frontend and backend plugins register into. \\
 \midrule
-Plugin Ecosystem & Frontend plugins (views, UI); backend plugins (API services, data, storage). & Arch-Stage is implemented as a split plugin: the frontend renders hypotheses and assessments; the backend persists data and exposes the API. \\
+Plugin Ecosystem & Frontend plugins (views, UI); backend plugins (API services, data, storage). & Hypo-Stage is implemented as a split plugin: the frontend renders hypotheses and assessments; the backend persists data and exposes the API. \\
 \midrule
-External Integrations & Backend plugins as gateways to external systems (cloud, CI/CD, APIs). & Arch-Stage integrates with the Backstage catalog to auto-associate hypotheses with software entities. \\
+External Integrations & Backend plugins as gateways to external systems (cloud, CI/CD, APIs). & Hypo-Stage integrates with the Backstage catalog to auto-associate hypotheses with software entities. \\
 \bottomrule
 \end{tabular}
 \end{table}

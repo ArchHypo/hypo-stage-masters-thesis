@@ -37,10 +37,10 @@ The same study highlighted gaps in tool support. A significant portion of the me
 The authors called for more automation, better mechanisms to capture and reuse architectural knowledge, and empirical validation of tools in realistic settings. 
 These findings resonate with the observations from ArchHypo studies: while the technique provides a structured way to make architectural uncertainties explicit and to plan actions, applying it in practice is highly demanding without adequate supportting tool.
 
-Grounded in these studies' insights, \cite{correa2025} developed the Arch-Stage, a support tool designed to help teams apply the ArchHypo technique in practice.
-Up to a specific point in its history, the work focused on designing and implementing the core functionality for enabling ArchHypo capabilities, such as representing architectural hypotheses, recording their uncertainty and impact assessments, and managing associated technical plans. \footnote{The first version of Arch-Stage and the corresponding source code history up to commit \texttt{ceee509776508081ebdd473c2c4f710b8ef55947} document the initial design and implementation of Arch-Stage proposed by \cite{correa2025}.} 
+Grounded in these studies' insights, \cite{correa2025} developed the Hypo-Stage, a support tool designed to help teams apply the ArchHypo technique in practice.
+Up to a specific point in its history, the work focused on designing and implementing the core functionality for enabling ArchHypo capabilities, such as representing architectural hypotheses, recording their uncertainty and impact assessments, and managing associated technical plans. \footnote{The first version of Hypo-Stage and the corresponding source code history up to commit \texttt{ceee509776508081ebdd473c2c4f710b8ef55947} document the initial design and implementation of Hypo-Stage proposed by \cite{correa2025}.} 
 The work also discussed initial design decisions and limitations, including usability aspects and open questions about how the tool would fit into different team workflows.
-A more detailed description of Arch-Stage and the contributions by \cite{correa2025} are presented in Chapter~\ref{chap:background}.
+A more detailed description of Hypo-Stage and the contributions by \cite{correa2025} are presented in Chapter~\ref{chap:background}.
 
 \section{Problem Statement}
 
@@ -51,36 +51,36 @@ On the other hand, empirical evidence and systematic mapping studies indicate th
 \begin{itemize}
   \item Methods for deriving and evolving architectures from requirements still depend strongly on architects' tacit knowledge and lack comprehensive tool support as reported in \cite{souza2019}.
   \item ArchHypo offers a promising structure for handling architectural uncertainty, but teams perceive the technique as hard to learn and requiring process changes, especially without specialized support as reported in \cite{silva2024tse,silva2024ieeesw}.
-  \item Arch-Stage provides an initial implementation of tool support for ArchHypo, but its impact on real software engineering teams and the refinements needed for effective use in industry remain unknown as reported in \cite{correa2025}.
+  \item Hypo-Stage provides an initial implementation of tool support for ArchHypo, but its impact on real software engineering teams and the refinements needed for effective use in industry remain unknown as reported in \cite{correa2025}.
 \end{itemize}
 
-In this context, there is a need to understand how software engineering teams, with diversed roles, tenures and responsibilities, interact with a tool like Arch-Stage when working on their products and services. By forging this path, we seek to gain an understanding of what sorts of architectural uncertainties they manage through, and which aspects of the Arch-Stage tool and its integration into the development process still require refinement.
-Addressing these concerns can contribute both to the practical adoption of ArchHypo via Arch-Stage tool and to the broader discussion on how to support teams in sharing architectural responsibilities for accelerating adoption of the socio-technical architecture paradigm mapped in \cite{infoq2024trends}.
+In this context, there is a need to understand how software engineering teams, with diversed roles, tenures and responsibilities, interact with a tool like Hypo-Stage when working on their products and services. By forging this path, we seek to gain an understanding of what sorts of architectural uncertainties they manage through, and which aspects of the Hypo-Stage tool and its integration into the development process still require refinement.
+Addressing these concerns can contribute both to the practical adoption of ArchHypo via Hypo-Stage tool and to the broader discussion on how to support teams in sharing architectural responsibilities for accelerating adoption of the socio-technical architecture paradigm mapped in \cite{infoq2024trends}.
 
 \section{Objectives}
 
-The overall objective of this present work is to empirically evaluate and refine the Arch-Stage tool, a support tool for the ArchHypo technique from \cite{correa2025}, by applying it with diverse software engineering teams in a real-world organization that maintains a scaled software product in Latin America. 
+The overall objective of this present work is to empirically evaluate and refine the Hypo-Stage tool, a support tool for the ArchHypo technique from \cite{correa2025}, by applying it with diverse software engineering teams in a real-world organization that maintains a scaled software product in Latin America. 
 More specifically, this work aims to:
 
 \begin{itemize}
-  \item Investigate how software engineering teams appropriate and use Arch-Stage and ArchHypo in their day-to-day activities when working on an existing, scaled product.
-  \item Derive and implement refinements to Arch-Stage and its usage guidelines based on empirical findings, with the goal of improving its suitability for supporting architectural work in teams.
-  \item Characterize the architectural uncertainties that teams make explicit and manage through Arch-Stage, and how these uncertainties evolve over time.
-  \item Identify benefits and challenges perceived by team members regarding the use of Arch-Stage, including its learning curve, usability, and fit with existing practices.
+  \item Investigate how software engineering teams appropriate and use Hypo-Stage and ArchHypo in their day-to-day activities when working on an existing, scaled product.
+  \item Derive and implement refinements to Hypo-Stage and its usage guidelines based on empirical findings, with the goal of improving its suitability for supporting architectural work in teams.
+  \item Characterize the architectural uncertainties that teams make explicit and manage through Hypo-Stage, and how these uncertainties evolve over time.
+  \item Identify benefits and challenges perceived by team members regarding the use of Hypo-Stage, including its learning curve, usability, and fit with existing practices.
 \end{itemize}
 
 These objectives deliberately build on, rather than replicate, the previous studies' contributions in the ArchHypo research line. 
-While the \cite{correa2025} focused on designing and implementing Arch-Stage, this work treats the tool as an existing artifact and concentrates on its evaluation and evolution in an industrial context.
+While the \cite{correa2025} focused on designing and implementing Hypo-Stage, this work treats the tool as an existing artifact and concentrates on its evaluation and evolution in an industrial context.
 
 \section{Research Questions}
 
 To achieve the above objectives, this work is guided by the following research questions. At this stage, the exact emphasis between tool interaction and uncertainty patterns is still under refinement; therefore, the questions are formulated to accommodate both perspectives, and later chapters will make their final scope explicit.
 
 \begin{description}
-  \item[RQ1:] How do software engineering teams use Arch-Stage and the ArchHypo technique when working on a scaled software product in a real-world organization?
-  \item[RQ2:] Which refinements to Arch-Stage and its usage guidelines emerge from the empirical study, and how do they address the identified challenges?
-  \item[RQ3:] What types of architectural uncertainties do these teams identify, record, and manage using Arch-Stage over the course of their work?
-  \item[RQ4:] What benefits and challenges do team members perceive in using Arch-Stage to support architectural decision-making and uncertainty management?
+  \item[RQ1:] How do software engineering teams use Hypo-Stage and the ArchHypo technique when working on a scaled software product in a real-world organization?
+  \item[RQ2:] Which refinements to Hypo-Stage and its usage guidelines emerge from the empirical study, and how do they address the identified challenges?
+  \item[RQ3:] What types of architectural uncertainties do these teams identify, record, and manage using Hypo-Stage over the course of their work?
+  \item[RQ4:] What benefits and challenges do team members perceive in using Hypo-Stage to support architectural decision-making and uncertainty management?
 \end{description}
 
 As the empirical design is detailed in Chapter~\ref{chap:research-design}, these questions may be operationalized with different emphases --- for example, with RQ1 and RQ3 focusing more strongly on interaction and process, and RQ2 providing a descriptive view of uncertainty patterns --- to accommodate the different research questions' emphases.
@@ -93,13 +93,13 @@ As the empirical design is detailed in Chapter~\ref{chap:research-design}, these
 \toprule
 \textbf{RQ} & \textbf{Research Question} & \textbf{Primary Objective Addressed} \\
 \midrule
-RQ1 & How do software engineering teams use Arch-Stage and ArchHypo when working on a scaled product? & Investigate appropriation and use patterns of Arch-Stage in day-to-day team activities. \\
+RQ1 & How do software engineering teams use Hypo-Stage and ArchHypo when working on a scaled product? & Investigate appropriation and use patterns of Hypo-Stage in day-to-day team activities. \\
 \midrule
-RQ2 & Which refinements emerge from the empirical study and how do they address identified challenges? & Derive and implement empirically grounded refinements to Arch-Stage and its usage guidelines. \\
+RQ2 & Which refinements emerge from the empirical study and how do they address identified challenges? & Derive and implement empirically grounded refinements to Hypo-Stage and its usage guidelines. \\
 \midrule
-RQ3 & What types of architectural uncertainties do teams identify, record, and manage using Arch-Stage? & Characterize architectural uncertainties by source, quality attribute, and evolution over time. \\
+RQ3 & What types of architectural uncertainties do teams identify, record, and manage using Hypo-Stage? & Characterize architectural uncertainties by source, quality attribute, and evolution over time. \\
 \midrule
-RQ4 & What benefits and challenges do team members perceive in using Arch-Stage? & Identify perceived benefits and challenges related to learning curve, usability, and workflow fit. \\
+RQ4 & What benefits and challenges do team members perceive in using Hypo-Stage? & Identify perceived benefits and challenges related to learning curve, usability, and workflow fit. \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -109,9 +109,9 @@ RQ4 & What benefits and challenges do team members perceive in using Arch-Stage?
 By answering its set of research questions, this work attempts to make the following contributions:
 
 \begin{itemize}
-  \item An empirical account of how multiple software engineering teams in a real organization use a tool-supported implementation of ArchHypo (via Arch-Stage tool) while working on a scaled software product, including observed practices, adaptations, and obstacles as reported in \cite{correa2025}.
-  \item A set of empirically grounded refinements to the Arch-Stage tool and its usage guidelines, aimed at reducing the learning curve, improving usability, and better integrating the technique into team workflows as reported in \cite{correa2025}.
-  \item A characterization of architectural uncertainties managed by these teams, describing their sources, quality attributes, and evolution, as captured through Arch-Stage as reported in \cite{correa2025}.
+  \item An empirical account of how multiple software engineering teams in a real organization use a tool-supported implementation of ArchHypo (via Hypo-Stage tool) while working on a scaled software product, including observed practices, adaptations, and obstacles as reported in \cite{correa2025}.
+  \item A set of empirically grounded refinements to the Hypo-Stage tool and its usage guidelines, aimed at reducing the learning curve, improving usability, and better integrating the technique into team workflows as reported in \cite{correa2025}.
+  \item A characterization of architectural uncertainties managed by these teams, describing their sources, quality attributes, and evolution, as captured through Hypo-Stage as reported in \cite{correa2025}.
   \item Reflections on the implications of these findings for supporting distributed architectural work in agile and continuous development settings, connecting the ArchHypo experience to broader concerns about tacit knowledge and tool support in software architecture as reported in \cite{souza2019,infoq2024trends}.
 \end{itemize}
 
@@ -124,8 +124,8 @@ It introduces key concepts in software architecture and architectural uncertaint
 presents the ArchHypo technique in detail, including its core concepts, assessment
 model, technical plan strategies, and lifecycle; reviews the two prior empirical
 evaluations of ArchHypo (at Catch Solve and PropSEP/Jetsoft); describes Internal
-Developer Portals and the Backstage platform as the delivery vehicle for Arch-Stage;
-presents the initial Arch-Stage tool developed by \cite{correa2025}; and surveys
+Developer Portals and the Backstage platform as the delivery vehicle for Hypo-Stage;
+presents the initial Hypo-Stage tool developed by \cite{correa2025}; and surveys
 the systematic mapping study by \cite{souza2019} on the gap between architectural
 derivation methods and tool support.
 
@@ -142,17 +142,17 @@ listening sessions), the thematic coding analysis approach, and the criteria use
 establish trustworthiness and ethical conduct.
 
 Chapter~\ref{chap:results} presents the empirical results and refinements of the study.
-The results section reports how teams used Arch-Stage and ArchHypo in practice: the
+The results section reports how teams used Hypo-Stage and ArchHypo in practice: the
 architectural hypotheses and uncertainties they recorded, patterns of tool use and
 non-use, and the benefits and challenges perceived from the perspective of different
 roles. The refinements section is presented as an integral part of the results: each
 refinement is directly linked to an observed difficulty, describes the change implemented
-in Arch-Stage or its usage guidelines, and connects back to the research questions it
+in Hypo-Stage or its usage guidelines, and connects back to the research questions it
 addresses (primarily RQ2). Presenting results and refinements together makes explicit
 how empirical findings drove iterative tool evolution throughout the observation period.
 
 Finally, Chapter~\ref{chap:conclusion} summarizes the main contributions of the work
 in response to each research question, discusses implications for practitioners adopting
 hypothesis-engineering tools and for researchers studying tool-mediated architectural
-practices, and outlines directions for future work on Arch-Stage and on broader
+practices, and outlines directions for future work on Hypo-Stage and on broader
 support for distributed architectural decision-making in agile organizations.

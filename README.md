@@ -1,4 +1,4 @@
-# Evaluating and Refining Arch-Stage: Supporting Architectural Hypotheses in Software Engineering Teams
+# Evaluating and Refining Hypo-Stage: Supporting Architectural Hypotheses in Software Engineering Teams
 
 Master's thesis in Computer Science at **IME-USP** (Institute of Mathematics and Statistics, University of São Paulo).
 
@@ -18,7 +18,7 @@ Master's thesis in Computer Science at **IME-USP** (Institute of Mathematics and
 
 ## About
 
-This thesis empirically evaluates and refines **[Arch-Stage](https://github.com/ArchHypo/hypo-stage)**, a support tool for the **ArchHypo** technique, by applying it with multiple software engineering teams working on a scaled software product in a real-world organization. The research assesses how Arch-Stage supports managing architectural uncertainty and uses the findings to inform the tool's improvement.
+This thesis empirically evaluates and refines **[Hypo-Stage](https://github.com/ArchHypo/hypo-stage)**, a support tool for the **ArchHypo** technique, by applying it with multiple software engineering teams working on a scaled software product in a real-world organization. The research assesses how Hypo-Stage supports managing architectural uncertainty and uses the findings to inform the tool's improvement.
 
 ## Template
 
@@ -34,9 +34,9 @@ The author's qualification research (December 2024) explored centralization vs. 
 
 The **ArchHypo** technique (Silva et al., [IEEE Software 2024](https://doi.org/10.1109/MS.2024.3383628), [TSE 2025](https://doi.org/10.1109/TSE.2024.3520477)) uses hypotheses engineering to manage software architecture uncertainty. Prior evaluations demonstrated its value but highlighted significant adoption barriers — particularly the learning curve and cognitive load of manual application.
 
-### Arch-Stage Tool
+### Hypo-Stage Tool
 
-**Arch-Stage** (originally HypoStage) was designed and implemented as an undergraduate capstone project by Pedro Henrique Mariano Corrêa, supervised by the author and co-supervised by Prof. Paulo Meirelles. The initial tool is a Backstage Internal Developer Portal plugin, developed up to commit [`ceee509`](https://github.com/ArchHypo/hypo-stage/commit/ceee509776508081ebdd473c2c4f710b8ef55947) in the [`hypo-stage`](https://github.com/ArchHypo/hypo-stage) repository. The [senior thesis](https://github.com/ArchHypo/hypo-stage-senior-thesis) documents its design.
+**Hypo-Stage** was designed and implemented as an undergraduate capstone project by Pedro Henrique Mariano Corrêa, supervised by the author and co-supervised by Prof. Paulo Meirelles. The initial tool is a Backstage Internal Developer Portal plugin, developed up to commit [`ceee509`](https://github.com/ArchHypo/hypo-stage/commit/ceee509776508081ebdd473c2c4f710b8ef55947) in the [`hypo-stage`](https://github.com/ArchHypo/hypo-stage) repository. The [senior thesis](https://github.com/ArchHypo/hypo-stage-senior-thesis) documents its design.
 
 This master's thesis builds on that artifact: commits after `ceee509` reflect refinements from empirical use with real teams. The master's contribution is the empirical evaluation and evidence-driven refinement, not the tool's original design.
 

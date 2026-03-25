@@ -10,7 +10,7 @@ LaTeX will find them automatically via `\graphicspath` — no need to specify th
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.8\textwidth]{arch-stage-screenshot}
-  \caption{The Arch-Stage hypothesis management interface.}
+  \caption{The Hypo-Stage hypothesis management interface.}
   \label{fig:arch-stage-ui}
 \end{figure}
 ```
