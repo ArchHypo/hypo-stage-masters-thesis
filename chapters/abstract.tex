@@ -1,39 +1,32 @@
 %!TeX root=../thesis.tex
 
 % Keywords must be defined before the abstract/resumo commands.
-\keywords{Software Architecture, Architectural Uncertainty, Hypotheses Engineering, ArchHypo, Hypo-Stage, Empirical Evaluation}
+\keywords{Software Architecture, Architectural Uncertainty, Hypotheses Engineering, ArchHypo, Hypo-Stage, Internal Developer Portal, Backstage, Case Study, Empirical Evaluation}
 
-\palavraschave{Arquitetura de Software, Incerteza Arquitetural, Engenharia de Hipóteses, ArchHypo, Hypo-Stage, Avaliação Empírica}
+\palavraschave{Arquitetura de Software, Incerteza Arquitetural, Engenharia de Hipóteses, ArchHypo, Hypo-Stage, Portal do Desenvolvedor Interno, Backstage, Estudo de Caso, Avaliação Empírica}
 
 % English abstract (primary)
 \abstract{
-% TODO: revise after chapters are more mature.
-Software engineering teams frequently face uncertainties related to their systems'
-architecture yet lack adequate methods and tools to manage them explicitly and
-collaboratively. The ArchHypo technique proposes using hypotheses engineering to
-make such uncertainties visible and manageable; however, its manual application
-imposes a significant learning curve. This work empirically evaluates and refines
-Hypo-Stage, a support tool for the ArchHypo technique, by applying it with multiple
-software engineering teams in a real-world organization with a scaled software
-product. The research adopts a mixed-methods design combining analysis of artifacts
-produced in the tool, questionnaires, and interviews with team members. Preliminary
-results indicate how the tool supports the management of architectural uncertainties
-and inform its ongoing improvement.
+Software engineering teams frequently face architectural uncertainty, but lack lightweight, workflow-embedded support to record, prioritize, and learn from it collaboratively.
+The ArchHypo technique applies hypotheses engineering to architectural decisions; its manual application imposes a steep learning curve and depends strongly on expert facilitation.
+This thesis reports the \emph{first empirical account of a tool-mediated application of ArchHypo in an industrial setting}.
+The artifact is \textbf{Hypo-Stage}, an open-source Backstage plugin (\url{https://github.com/ArchHypo/hypo-stage}) deployed on the organization's Internal Developer Portal, where engineers already work.
+The study adopts a flexible, multiple case-study design with formative evaluation and action-research elements, framed by Robson and McCartan's \emph{Real World Research} perspective on flexible designs.
+Two teams---a Product team (twelve engineers) and a Platform team (four engineers)---used Hypo-Stage over two agile sprints (four weeks).
+Evidence was gathered through \emph{participant observation}, \emph{artifact analysis} of Hypo-Stage records, and open-ended \emph{active listening sessions}.
+The work characterizes the types of architectural uncertainties teams made explicit, patterns of tool use and non-use, and perceived benefits and challenges across roles.
+\emph{Refinements} to Hypo-Stage and its usage guidelines are treated as an integral part of the empirical contribution: each change is traced to concrete observations and linked to the research questions---especially RQ2 on empirically grounded improvement of the tool and its adoption.
 }
 
 % Portuguese abstract (required by IME-USP regulations)
 \resumo{
-% TODO: revise after chapters are more mature.
-Equipes de engenharia de software frequentemente enfrentam incertezas relacionadas
-à arquitetura de seus sistemas, mas carecem de métodos e ferramentas adequadas para
-gerenciá-las de forma explícita e colaborativa. A técnica ArchHypo propõe o uso de
-engenharia de hipóteses para tornar essas incertezas visíveis e gerenciáveis, porém
-sua aplicação manual impõe uma curva de aprendizado significativa. Este trabalho
-avalia e refina empiricamente o Hypo-Stage, uma ferramenta de apoio à técnica
-ArchHypo, por meio de sua aplicação com múltiplas equipes de engenharia de
-software em uma organização real com um produto em escala. A pesquisa adota
-um design de métodos mistos, combinando análise de artefatos produzidos na
-ferramenta, questionários e entrevistas com membros das equipes. Os resultados
-preliminares indicam como a ferramenta apoia o gerenciamento de incertezas
-arquiteturais e informam seu aprimoramento contínuo.
+Equipes de engenharia de software enfrentam com frequência incerteza arquitetural, mas dispõem de pouco apoio leve e integrado ao fluxo de trabalho para registrá-la, priorizá-la e aprender com ela de forma colaborativa.
+A técnica ArchHypo emprega engenharia de hipóteses nas decisões arquiteturais; sua aplicação manual impõe curva de aprendizado acentuada e depende fortemente de facilitação especializada.
+Esta dissertação apresenta o \emph{primeiro relato empírico de uma aplicação mediada por ferramenta de ArchHypo em contexto industrial}.
+O artefato é o \textbf{Hypo-Stage}, \emph{plugin} open source para Backstage (\url{https://github.com/ArchHypo/hypo-stage}), implantado no Portal do Desenvolvedor Interno da organização, onde os engenheiros já atuam.
+O estudo adota um desenho flexível de múltiplos estudos de caso, com propósito avaliativo formativo e elementos de pesquisa-ação, alinhado à perspectiva de \emph{Real World Research} de Robson e McCartan sobre desenhos flexíveis.
+Duas equipes---uma equipe de Produto (doze engenheiros) e uma equipe de Plataforma (quatro engenheiros)---utilizaram o Hypo-Stage ao longo de dois \emph{sprints} ágeis (quatro semanas).
+Os dados foram obtidos por meio de \emph{observação participante}, \emph{análise de artefatos} registrados no Hypo-Stage e sessões abertas de \emph{escuta ativa}.
+O trabalho caracteriza os tipos de incertezas arquiteturais que as equipes tornaram explícitas, padrões de uso e não uso da ferramenta, além de benefícios e desafios percebidos pelos diferentes papéis.
+Os \emph{refinamentos} do Hypo-Stage e de suas diretrizes de uso são apresentados como parte integrante do resultado empírico: cada alteração é vinculada a observações concretas e relacionada às questões de pesquisa---em particular à RQ2, que trata dos refinamentos emergentes do estudo e de como eles respondem aos desafios identificados.
 }
