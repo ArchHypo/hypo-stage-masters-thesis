@@ -18,8 +18,8 @@ a tool-mediated setting. This contribution extended the base of the research lin
 
 The results both confirmed and revealed the expectations established by prior work.
 On the side of confirmation: hypothesis registration remained predominantly senior-led
-across both teams, the falsifiability requirement continued to be described as cognitively
-demanding under sprint pressure, and the absence of team-visible ceremonies for reviewing
+across both teams, formulating hypotheses under the study's negative-formulation convention
+continued to be described as cognitively demanding under sprint pressure, and the absence of team-visible ceremonies for reviewing
 the hypothesis backlog emerged as a structural obstacle. These observations are consistent with findings
 from the PropSEP evaluation \citep{silva2024tse}. On the side of novelty: the
 Hypo-Stage tool integrated in the Backstage proved to be a genuinely meaningful enabler rather than merely a
@@ -72,7 +72,7 @@ engineering, condensed into the Group~A patterns:} Participants recognized
 hypothesis management as filling a gap that ADRs leave open, capturing the
 pre-decision state of uncertainty rather than the post-decision rationale; yet
 this perceived value was consistently held hostage to sprint delivery pressure
-and to the cognitive demand of the falsifiability requirement. The four
+and to the cognitive demand of the study's negative-formulation convention. The four
 Group~A patterns (A1--A4) condensed this tension into named organizational
 conditions on which sustainable hypothesis engineering depended: senior
 curation, protected cognitive time, statement-level scaffolding, and
@@ -207,6 +207,21 @@ out, and the absence of a comparison condition means that it is not possible to
 distinguish the effect of the tool from the effect of the structured technique itself, or
 from the effect of the researcher's presence.
 
+\subsection{Deviation from Prescribed Hypothesis Formulation}
+
+A construct-validity limitation concerns how hypotheses were formulated during the
+study. The teams and the researcher adopted a local convention of registering
+hypotheses in a negative formulation---phrased to describe what would prove each
+hypothesis false---rather than following ArchHypo's prescribed practice of writing
+simple, direct, falsifiable statements of the team's current belief
+\citep{silva2024tse}. This convention is a plausible cause of the
+Negative-Formulation Barrier (pattern A4): the cognitive cost that participants
+reported may stem from the study's operationalization rather than from the technique
+as designed. Future replications should adopt the prescribed free-form falsifiable
+statements---optionally aided by interrogative templates such as QUESt
+\citep{melegati2019quest}---to test whether the barrier is intrinsic to ArchHypo or
+an artifact of the convention used here.
+
 \subsection{Future Work Agenda}
 
 The most immediate priority is \textbf{replication in additional organizational contexts} 
@@ -271,9 +286,11 @@ engineering):
     quality under (i)~a periodic architectural-review cadence with protected
     cognitive time versus (ii)~in-sprint ad~hoc registration.
   \item \textbf{A4 --- Negative-Formulation Barrier}
-    (\emph{the falsifiable inversion is persistently cognitively costly to
-    write}): design and test statement templates to measure whether
-    falsifiability correctness improves without prior training.
+    (\emph{the study's negative-formulation convention, not ArchHypo itself, made
+    hypothesis writing persistently cognitively costly}): design and test whether
+    ArchHypo's prescribed free-form falsifiable statements---optionally aided by
+    templates such as QUESt---lower the barrier relative to the negative-formulation
+    convention used here.
 \end{itemize}
 
 For the Group~B patterns (structural archetypes of architectural hypotheses):

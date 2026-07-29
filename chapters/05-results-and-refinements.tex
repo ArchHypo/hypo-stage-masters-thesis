@@ -443,14 +443,22 @@ Chapter~\ref{chap:conclusion} revisits this distinction when discussing implicat
 Three challenges were consistently raised across participants.
 
 \paragraph{Negative-formulation learning curve:}
-The convention of writing hypotheses as falsifiable statements, phrased in a
-form that specifies under which evidence the team would conclude the hypothesis
-is incorrect, was described by all four participants as non-intuitive. Engineers
-are accustomed to stating what they believe to be true. Inverting that belief
-into a falsifiable form that describes what would prove it false requires a
-deliberate cognitive effort that is easy to skip under time pressure. This finding
-replicates the hard learning curve reported in both prior ArchHypo evaluations
-\citep{silva2024tse, silva2024ieeesw}.
+In this study, the teams and the researcher adopted a local convention of
+registering only hypotheses phrased to specify the evidence under which the team
+would conclude the hypothesis is incorrect---an inversion of the team's belief
+into a ``what would prove this false'' form. All four participants described this
+inversion as non-intuitive: engineers are accustomed to stating what they believe
+to be true, and rephrasing that belief into its refutation condition requires a
+deliberate cognitive effort that is easy to skip under time pressure. This
+convention is stricter than what ArchHypo actually prescribes: the technique asks
+only that a hypothesis be \emph{falsifiable}---refutable and testable---and
+recommends writing it as a simple, direct statement of the team's current belief
+\citep{silva2024tse}. The cognitive cost observed here is therefore largely a
+property of the study's negative-formulation convention rather than of ArchHypo's
+guidance. The underlying \emph{learning curve}, however, is consistent with the
+difficulty reported in both prior ArchHypo evaluations \citep{silva2024tse,
+silva2024ieeesw}; Section~\ref{sec:trustworthiness} discusses this deviation as a
+threat to construct validity.
 
 \paragraph{Registration time cost:}
 Both technical leaders described the difficulty of dedicating the focused time
@@ -637,7 +645,7 @@ Figure~\ref{fig:hypothesis-form} shows the improved hypothesis creation form.
   \includegraphics[width=0.75\textwidth]{hypothesis-form}
   \caption{Hypothesis creation form in Hypo-Stage after the usability-oriented form
     refinements in this section: inline contextual guidance adjacent to the
-    Statement field scaffolds the falsifiability inversion required by ArchHypo,
+    Statement field scaffolds the formulation of falsifiable hypotheses,
     reducing the cognitive barrier at the moment of registration.}
   \label{fig:hypothesis-form}
 \end{figure}
@@ -790,16 +798,22 @@ across normal sprint work.
 
 \subsubsection{Negative-Formulation Barrier}
 \label{subsubsec:pattern-a4}
-\textbf{Problem:} The ArchHypo convention of writing hypotheses as falsifiable
-statements represents a cognitive inversion of how engineers typically articulate their beliefs.
-This inversion is a persistent adoption barrier even for practitioners who
-understand the technique conceptually.
+\textbf{Problem:} Under the negative-formulation convention adopted in this study
+---registering hypotheses phrased to describe what would prove them false---writing
+a hypothesis required a cognitive inversion of how engineers typically articulate
+their beliefs. This inversion was a persistent adoption barrier even for
+practitioners who understood the technique conceptually. The barrier is conditioned
+on that convention: it is not an inherent requirement of ArchHypo, which prescribes
+free-form falsifiable statements of the team's current belief \citep{silva2024tse}
+and admits optional interrogative templates such as QUESt \citep{melegati2019quest}.
 
-\textbf{Observed evidence:} All four interviewed participants mentioned that the
-falsifiability requirement is non-intuitive and difficult to apply under time
-pressure. This replicates findings reported in the PropSEP/Jetsoft evaluation
-\citep{silva2025archhypo} and remains unresolved in the current version of
-the technique's guidance materials.
+\textbf{Observed evidence:} All four interviewed participants mentioned that
+formulating hypotheses under this convention was non-intuitive and difficult to
+apply under time pressure. The associated \emph{learning curve} replicates findings
+reported in the PropSEP/Jetsoft evaluation \citep{silva2025archhypo}; the
+\emph{negative-formulation} framing, however, is specific to this study's convention.
+Whether ArchHypo's prescribed free-form falsifiable statements avoid the barrier is
+a hypothesis for future work rather than an established property of the technique.
 
 % ─────────────────────────────────────────────────────────────
 \subsection{Group B — Technical Architectural Patterns for Hypothesis
@@ -988,7 +1002,8 @@ A3 & Team behavior & Registration as a Slack-Dependent Practice
    & Well-formulated hypotheses require protected time, not sprint slack
    & Registration clustering at training and Kafka session \\
 A4 & Team behavior & Negative-Formulation Barrier
-   & Falsifiable inversion is persistently cognitively costly
+   & The study's negative-formulation convention (not ArchHypo itself) makes
+     hypothesis writing cognitively costly
    & All four interviewed participants \\
 \midrule
 B1 & Structural archetype & Hypothesis Cluster
@@ -1067,8 +1082,8 @@ facilitating context-switching, filtering, traceability. Participants
 recognized the intellectual value of hypothesis management. Still, the same two
 questions also show that authorship stayed concentrated in senior engineers,
 who registered hypotheses clustered around protected discussion time rather than
-distributing across sprint work, and that the falsifiability inversion
-remained cognitively costly. The Group~A patterns (A1--A4) name the
+distributing across sprint work, and that hypothesis writing under the study's
+negative-formulation convention remained cognitively costly. The Group~A patterns (A1--A4) name the
 conditions under which those findings hold: adoption breadth is limited by the
 organization structure including senior curation, protected cognitive time,
 statement-level support, and ceremonial touchpoints. These are conditions that a tool alone

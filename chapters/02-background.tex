@@ -61,7 +61,11 @@ workflows where architecture uncertainty is a constant challenge for rapidly-evo
 \subsection{Core Concepts}
 \label{subsec:archhypo-core}
 
-An \emph{architectural hypothesis} is a falsifiable statement that captures an uncertainty relevant to the design of a software architecture. 
+An \emph{architectural hypothesis} is a \emph{falsifiable} statement that captures an uncertainty relevant to the design of a software architecture.
+Here, \emph{falsifiable} means that the possibility of proving the statement false exists---the hypothesis is refutable and testable through evidence---and \emph{not} that the hypothesis must be phrased as something the team expects to be false.
+ArchHypo prescribes that hypotheses be written as simple, direct statements that express the development team's current beliefs, formulated freely to reduce the friction of adopting the technique \citep{silva2024tse}.
+The practice descends from Hypotheses Engineering, first articulated by \citet{melegati2019he}; interrogative or questioning templates such as QUESt \citep{melegati2019quest} are an optional, compatible way to represent hypotheses rather than a requirement of the technique.
+Equating ``falsifiable'' with ``must be phrased as expected to be false'' is therefore a misreading of the prescription.
 It is important to distinguish the concept from adjacent concepts:
 
 \begin{itemize}
