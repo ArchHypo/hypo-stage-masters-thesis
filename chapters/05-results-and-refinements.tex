@@ -925,23 +925,30 @@ In both cases the uncertainty is not about whether to comply — that is a legal
 requirement that must be met — but about whether the current architecture \textit{can} comply and at
 what technical cost.
 
-\subsubsection{Context-Agnostic Restructuring Hypothesis}
+\subsubsection{Service Decomposition Hypothesis}
 \label{subsubsec:pattern-b3}
-\textbf{Context:} A service currently handles multiple responsibilities such as domain
-logic, external integrations, and identity management. The team believes the service could be restructured to serve
-multiple domain contexts, but what a context-agnostic restructuring would entail --- contract boundaries and migration path --- remains unknown.
+\textbf{Context:} A service has grown to handle multiple responsibilities such as domain
+logic, external integrations, and identity management, and the team is
+considering decomposing it into smaller services aligned with distinct domain
+boundaries --- the recurring software-architecture-evolution challenge of
+splitting a coarse-grained service into microservices along business-capability
+or subdomain lines \citep{richardson2018microservices}. What the decomposition
+would entail --- the correct contract boundaries and the migration path ---
+remains unknown.
 
-\textbf{Problem:} Deciding \textit{whether} to pursue context-agnostic restructuring is itself uncertain: the
-team does not know what the correct contract boundary should be, which existing
-flows can be migrated without business-logic changes, and what the downstream
-impact on other teams would be. Committing to that restructuring without this information
-risks a disruptive refactor that delivers less reuse than expected.
+\textbf{Problem:} Deciding \textit{whether} and \textit{how} to decompose the service
+is itself uncertain: the team does not know where the correct service boundary
+should fall, which existing flows can be migrated without business-logic
+changes, and what the downstream impact on other teams would be. As
+\citet{richardson2018microservices} argues, decomposition can proceed by
+business capability or by subdomain, but committing to a boundary without this
+information risks a disruptive refactor that delivers less reuse than expected.
 
-\textbf{Observed evidence:} H05 (credit-bureau context-agnostic restructuring) captures this
+\textbf{Observed evidence:} H05 (credit-bureau service decomposition) captures this
 precisely. The service currently handles identity, bureau integration, and
 confidential document flows using domain-specific entities tied to a single
 business vertical. The hypothesis asks whether these integrations can be
-decoupled into context-agnostic middleware accepting only each provider's minimum
+decoupled into a context-agnostic middleware service accepting only each provider's minimum
 required identifiers, reusable across domains without duplicated cost. At the
 end of the observation period, H05 was the only hypothesis in \textit{In Review}
 status, with a discovery technical plan mapping (i)~the dependency matrix of
@@ -949,20 +956,25 @@ current versus real dependencies per integration, (ii)~an agnostic interface
 contract proposal, and (iii)~a migration plan identifying which flows can isolate
 immediately.
 
-\subsubsection{Load-Validated Hypothesis}
+\subsubsection{Monitored Quality-Attribute Hypothesis}
 \label{subsubsec:pattern-b4}
-\textbf{Context:} A team has proposed a specific algorithmic or implementation
-approach to handle a high-volume data processing challenge. The team has already
-conducted a capacity or volume test at scale, producing evidence that the
-approach works. However, the hypothesis has not been formally closed because
-the implementation is still in progress.
+\textbf{Context:} A hypothesis targets a quality attribute --- such as
+performance or scalability under load --- that is affected by many interacting
+factors (data volume, access patterns, resource limits, runtime behavior). The
+team has proposed a specific algorithmic or implementation approach and has
+already conducted a capacity or volume test at scale, producing evidence that
+the approach satisfies the target. However, the hypothesis has not been formally
+closed because the implementation is still in progress.
 
 \textbf{Problem:} The hypothesis occupies the lowest uncertainty quadrant
 (Very Low) while retaining the highest impact rating (Very High), reflecting a
 situation where the team \textit{knows} the solution works but the architectural
-commitment is still consequential. The hypothesis must be tracked until
-implementation is complete, yet its characterization as "Open" may suggest
-unresolved doubt that no longer exists.
+commitment is still consequential. Because the quality attribute depends on many
+factors that can shift as the system evolves, it must be \textit{continuously
+monitored} even after the uncertainty is validated: the hypothesis must be
+tracked until implementation is complete and the attribute confirmed in
+production, yet its characterization as "Open" may suggest unresolved doubt that
+no longer exists.
 
 \textbf{Observed evidence:} H06 (billing aggregation chunked keyset pagination)
 exemplifies this. The team validated the approach — chunked keyset pagination
@@ -971,24 +983,28 @@ times production scale (45 million rows total, 1.5 million rows per month).
 Profiling confirmed that JPA stream processing caused first-level cache growth,
 and that chunking scopes transactions to approximately ten thousand rows so the
 garbage collector can reclaim memory, producing a healthy sawtooth heap pattern.
-The hypothesis remains Open because the implementation is ongoing, but the
-uncertainty has been effectively resolved.
+The hypothesis remains Open because the implementation is ongoing: the
+uncertainty has been effectively resolved, but the performance quality attribute
+continues to be monitored while the solution is rolled out.
 
-\subsubsection{Shared Resource Governance Hypothesis}
+\subsubsection{Shared-Resource Hypothesis}
 \label{subsubsec:pattern-b5}
 \textbf{Context:} A platform service manages a shared resource such as binary objects,
 credentials, and configuration data, on which multiple product domains depend. New
-business requirements demand that the resource be shared across domain boundaries
-or transferred between owning services, but the governance rules for these
-operations have not been established.
+business requirements demand new ways of accessing that resource across domain
+boundaries, raising interacting consistency, security, and usability concerns
+whose resolution is not yet known --- of which governance (ownership,
+cross-domain read/write, and transfer between owning services) is one prominent
+facet.
 
 \textbf{Problem:} The team must decide how to model cross-domain access to the
-shared resource — specifically, which service "owns" the resource at any given
-point, who may read or write it, and under what conditions ownership can be
-transferred. These questions have significant security, consistency, and usability
-implications. Without explicit governance decisions, different product teams will
-adopt incompatible access patterns, creating consistency violations that are
-difficult to detect and remedy.
+shared resource in a way that keeps it consistent, secure, and usable across
+domains. One central facet is governance --- specifically, which service "owns"
+the resource at any given point, who may read or write it, and under what
+conditions ownership can be transferred --- but these decisions interact with
+broader consistency, security, and usability concerns. Without explicit
+decisions, different product teams will adopt incompatible access patterns,
+creating consistency violations that are difficult to detect and remedy.
 
 \textbf{Observed evidence:} H07 (blob ownership transfer across service domains)
 and H08 (blob cross-client sharing governance) are two instances of this pattern
@@ -1039,15 +1055,17 @@ B2 & Structural pattern & Regulatory Trigger Hypothesis
    & External compliance obligation surfaces as tracked architectural
      uncertainty
    & H03, H04 \\
-B3 & Structural pattern & Context-Agnostic Restructuring Hypothesis
-   & Uncertainty about whether and how to restructure toward context-agnostic boundaries
-   & H05 (credit-bureau context-agnostic restructuring) \\
-B4 & Structural pattern & Load-Validated Hypothesis
-   & Very-low uncertainty, very-high impact: solution empirically validated
-     but implementation open
+B3 & Structural pattern & Service Decomposition Hypothesis
+   & Uncertainty about whether and how to decompose a service into microservices
+     along domain boundaries
+   & H05 (credit-bureau service decomposition) \\
+B4 & Structural pattern & Monitored Quality-Attribute Hypothesis
+   & Very-low uncertainty, very-high impact: quality attribute empirically
+     validated but continuously monitored while implementation is open
    & H06 (billing aggregation) \\
-B5 & Structural pattern & Shared Resource Governance Hypothesis
-   & Cross-domain access and ownership rules for a shared platform resource
+B5 & Structural pattern & Shared-Resource Hypothesis
+   & Cross-domain consistency, security, and usability concerns --- including
+     ownership governance --- for a shared platform resource
    & H07, H08 \\
 \bottomrule
 \end{tabular}

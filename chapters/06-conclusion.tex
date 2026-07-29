@@ -56,9 +56,9 @@ of the senior engineers.
 
 \paragraph{RQ2 --- A first empirically grounded vocabulary for the content of
 architectural hypotheses:} The five Structural Hypothesis Patterns --- \textit{Hypothesis
-Cluster}, \textit{Regulatory Trigger Hypothesis}, \textit{Context-Agnostic Restructuring
-Hypothesis}, \textit{Load-Validated Hypothesis}, and \textit{Shared Resource
-Governance Hypothesis} --- named recurring shapes that architectural
+Cluster}, \textit{Regulatory Trigger Hypothesis}, \textit{Service Decomposition
+Hypothesis}, \textit{Monitored Quality-Attribute Hypothesis}, and \textit{Shared-Resource
+Hypothesis} --- named recurring shapes that architectural
 hypotheses took when ArchHypo was applied in a regulated, platform-heavy
 professional context. They complemented the mechanics-focused patterns of the
 existing ArchHypo pattern language \citep{silva2024patterns}: the existing
@@ -307,21 +307,23 @@ For the Structural Hypothesis Patterns (structural archetypes of architectural h
     obligations as tracked hypotheses, with explicit falsification criteria
     against the current architecture, improves regulated-domain outcomes
     compared with implicit compliance assumptions.
-  \item \textbf{B3 --- Context-Agnostic Restructuring Hypothesis}
-    (\emph{uncertainty about whether and how to restructure toward
-    context-agnostic boundaries}): investigate whether requiring a discovery phase before a team
-    commits to that restructuring produces measurably better outcomes than committing
+  \item \textbf{B3 --- Service Decomposition Hypothesis}
+    (\emph{uncertainty about whether and how to decompose a service into
+    microservices along domain boundaries}): investigate whether requiring a discovery phase before a team
+    commits to a decomposition produces measurably better outcomes than committing
     directly to the refactor.
-  \item \textbf{B4 --- Load-Validated Hypothesis}
-    (\emph{a solution empirically validated under load but with implementation
-    still open}): define and empirically test lifecycle states that
+  \item \textbf{B4 --- Monitored Quality-Attribute Hypothesis}
+    (\emph{a quality attribute empirically validated under load but continuously
+    monitored while implementation is still open}): define and empirically test lifecycle states that
     distinguish ``empirically validated but not yet implemented'' from
     ``Open with unresolved uncertainty,'' and evaluate reviewer comprehension
     across the two.
-  \item \textbf{B5 --- Shared Resource Governance Hypothesis}
-    (\emph{cross-domain access and ownership rules for a shared platform
-    resource}): investigate how such governance rules (ownership,
-    cross-domain read and write, transfer) can be expressed and tracked as
+  \item \textbf{B5 --- Shared-Resource Hypothesis}
+    (\emph{cross-domain consistency, security, and usability concerns ---
+    including ownership governance --- for a shared platform
+    resource}): investigate how such concerns (consistency, security,
+    usability, and governance facets such as ownership,
+    cross-domain read and write, and transfer) can be expressed and tracked as
     architectural hypotheses, and measure the downstream effect on
     consistency violations.
 \end{itemize}
