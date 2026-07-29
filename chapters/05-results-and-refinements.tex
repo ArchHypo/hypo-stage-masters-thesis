@@ -780,20 +780,29 @@ a common trait: they concerned architectural uncertainties whose consequences wo
 weeks or months in the future, making them invisible to typical sprint-scope
 review practices.
 
-\subsubsection{Fast-Resolution Blind Spot}
+\subsubsection{Long-Horizon Registration Priority}
 \label{subsubsec:pattern-a2}
 
 \textbf{Problem:} Many architectural micro-decisions are made and resolved within
-hours or a single day. Their speed makes them feel too transient to register, yet
-their cumulative architectural effect may only become visible, as a drift or an
-inconsistency, long after the original decision context is forgotten.
+hours or a single day. Rather than treating their speed as a blind spot to be
+closed, the actionable observation is the inverse: fast-resolved micro-decisions
+rarely repay the cost of registration, whereas the uncertainties genuinely worth
+registering are the slow, high-consequence ones whose architectural effects only
+materialize weeks or months later. Registration effort is therefore best
+concentrated on long-horizon uncertainties rather than spread evenly across every
+transient decision.
 
 \textbf{Observed evidence:} Both technical leaders reported that the majority of
 architectural decisions encountered day-to-day were resolved before a hypothesis
-could be written. This speed made registration feel retrospectively unnecessary.
-Yet both also described recurring situations where the same question re-surfaced
-in a new context, requiring the team to reconstruct reasoning that had previously
-been resolved informally and in a rapid pace.
+could be written, and that registration felt retrospectively unnecessary for them.
+Notably, these fast-resolved decisions were not captured as Architecture Decision
+Records (ADRs) either, so their absence from Hypo-Stage reflects a genuine
+registration threshold rather than a tool-specific gap. Yet both also described
+recurring situations where the same question re-surfaced in a new context,
+requiring the team to reconstruct reasoning that had previously been resolved
+informally and in a rapid pace --- a residual cost the leaders judged acceptable
+relative to the effort of registering every micro-decision, which reinforces that
+the payoff of registration concentrates in the slow, high-consequence uncertainties.
 
 \subsubsection{Registration as a Slack-Dependent Practice}
 \label{subsubsec:pattern-a3}
@@ -1009,9 +1018,10 @@ A1 & Adoption candidate & Senior-Curated Hypothesis Backlog
    & Mid-/long-horizon uncertainties stay visible because senior engineers
      author them
    & 12 of 13 hypotheses senior-authored \\
-A2 & Adoption candidate & Fast-Resolution Blind Spot
-   & Architectural micro-decisions resolve before registration, risking
-     cumulative drift
+A2 & Adoption candidate & Long-Horizon Registration Priority
+   & Registration value concentrates in slow, high-consequence uncertainties;
+     fast-resolved micro-decisions rarely repay the cost (and are absent from
+     ADRs too)
    & Both technical leaders' testimony \\
 A3 & Adoption candidate & Registration as a Slack-Dependent Practice
    & Well-formulated hypotheses require protected time, not sprint slack
