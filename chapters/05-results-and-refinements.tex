@@ -42,9 +42,11 @@ The evidence draws on the three data sources specified in
 Section~\ref{sec:data-collection}: participant observation, artifact analysis,
 and open-ended active-listening sessions. The quantitative summaries in
 Sections~\ref{sec:rq2-results} and~\ref{subsec:refinement-summary} are derived
-exclusively from the Hypo-Stage artifact records, and literal statements from
-the active-listening sessions are reported only when they add evidence beyond
-the recorded artifacts.
+exclusively from the Hypo-Stage artifact records. As explained in
+Section~\ref{subsec:active-listening}, the active-listening sessions were not
+recorded; paraphrased, role-attributed observations drawn from the researcher's
+reconstructed notes are reported only when they add evidence beyond the
+recorded artifacts.
 
 These data were analyzed with the three-stage thematic coding procedure defined
 in Section~\ref{sec:data-analysis}. Table~\ref{tab:code-traceability} provides
@@ -72,17 +74,17 @@ is developed.
   & \ref{sec:group-a-patterns}~(A1) \\
 \midrule
 \textit{registration-barrier-time-pressure}
-  & Perceived challenges
+  & Perceived challenges (registration time cost)
   & RQ3
   & \ref{subsec:challenges} \\
 \midrule
 \textit{tool-positive-catalog-integration}
-  & Perceived benefits
+  & Perceived benefits (catalog / Backstage integration)
   & RQ3
   & \ref{subsec:benefits} \\
 \midrule
 \textit{falsifiability-confusion}
-  & Perceived challenges; Candidate refinements
+  & Perceived challenges (negative-formulation learning curve); Candidate refinements
   & RQ3; RQ4
   & \ref{subsec:challenges}, \ref{sec:refinements} \\
 \bottomrule
@@ -381,6 +383,14 @@ concerns that teams do not expect to resolve within a single sprint cycle.
 Active listening sessions with all four interviewed participants (the two
 technical leaders from each team) converged on three recurring themes regarding
 the perceived value of using Hypo-Stage.
+Because the sessions were not recorded
+(Section~\ref{subsec:active-listening}), the attributions below are the
+researcher's paraphrased reconstructions from dated field notes and
+post-session written recollection---not verbatim quotations. The coding basis
+for the RQ3 themes appears in Table~\ref{tab:code-traceability}
+(\textit{tool-positive-catalog-integration},
+\textit{registration-barrier-time-pressure}, and
+\textit{falsifiability-confusion}).
 
 \paragraph{Externalization of tacit architectural knowledge:}
 Both teams described the act of registering a hypothesis as valuable in itself.
@@ -393,10 +403,10 @@ in the original discussion.
 The \textit{Where to Focus} panel of the Hypo-Stage dashboard, distinguishing
 hypotheses that \textit{Need Attention} (high uncertainty and high impact) from
 those that \textit{Can Postpone} (low impact), was described by both technical
-leaders as a useful input in architectural conversations. One participant noted that
-the "Can Postpone" category in particular gave them a way to explain
-to other engineers outside of the team why a known concern was being deliberately deferred rather
-than being ignored.
+leaders as a useful input in architectural conversations. One technical leader
+recalled that the ``Can Postpone'' category in particular gave them a way to
+explain to other engineers outside of the team why a known concern was being
+deliberately deferred rather than being ignored.
 
 \paragraph{Collective memory for architectural decisions:}
 Both teams observed that the hypothesis backlog served a documentation function
@@ -406,12 +416,22 @@ captures an open question before a decision is available. Participants described
 this as filling a gap in their current toolchain: they had good mechanisms for
 recording what was decided but poor mechanisms for recording what was still
 unknown.
+The related open code
+\textit{tool-positive-catalog-integration} captures participants' positive
+appraisal of surfacing Hypo-Stage within their existing Backstage catalog
+workflow, which Section~\ref{subsec:refinement-backstage} later operationalizes
+as a refinement.
 Chapter~\ref{chap:conclusion} revisits this distinction when discussing implications for practice.
 
 \subsection{Perceived Challenges}
 \label{subsec:challenges}
 
-Three challenges were consistently raised across participants.
+Three challenges were consistently raised across participants. As with the
+benefits above, these are reconstructed, role-attributed observations rather
+than verbatim quotations; their open-code anchors are
+\textit{falsifiability-confusion} and
+\textit{registration-barrier-time-pressure}
+(Table~\ref{tab:code-traceability}).
 
 \paragraph{Negative-formulation learning curve:}
 In this study, the teams and the researcher adopted a local convention of
@@ -430,7 +450,8 @@ property of the study's negative-formulation convention rather than of ArchHypo'
 guidance. The underlying \emph{learning curve}, however, is consistent with the
 difficulty reported in both prior ArchHypo evaluations \citep{silva2024tse,
 silva2024ieeesw}; Section~\ref{sec:trustworthiness} discusses this deviation as a
-threat to construct validity.
+threat to construct validity. The open code
+\textit{falsifiability-confusion} labels this reconstructed theme.
 
 \paragraph{Registration time cost:}
 Both technical leaders described the difficulty of dedicating the focused time
@@ -439,7 +460,8 @@ usually resolved within a day or less, were rarely registered because, by the ti
 hypothesis could be written, the question had already been answered informally.
 This creates a systematic under-representation of short-lifecycle uncertainties
 in the hypothesis backlog, which may be consequential when the same question
-re-emerges in a future context.
+re-emerges in a future context. The open code
+\textit{registration-barrier-time-pressure} labels this reconstructed theme.
 
 \paragraph{Absence of team-visible ceremonies:}
 Neither team had established a recurring ceremony, such as an architectural
@@ -677,7 +699,7 @@ Toast notifications
 % ─────────────────────────────────────────────────────────────
 
 Beyond the direct answers to RQ1–RQ4, thematic analysis of observation notes,
-active listening transcripts, and the combined hypothesis data produced two
+reconstructed active-listening notes, and the combined hypothesis data produced two
 families of emerging findings. The \textbf{Adoption-Condition Candidates}
 describe team-behavior conditions that shape whether hypothesis engineering
 becomes a sustainable practice; they are candidate conditions rather than
