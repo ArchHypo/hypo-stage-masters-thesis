@@ -563,9 +563,9 @@ Credibility & Internal validity; do findings accurately represent participants' 
 \midrule
 Transferability & Degree to which findings may inform other settings. & Thick description of context; analytic (not statistical) generalization claimed. \\
 \midrule
-Dependability & Reliability and consistency of the research process. & Audit trail: dated field notes, systematic artifact extraction, commits linked to each refinement. \\
+Dependability & Reliability and consistency of the research process. & Audit trail: dated written field notes (not recordings); Hypo-Stage artifact exports at end of window; each refinement linked to commit \texttt{ceee509}--\texttt{3a53d4e}. \\
 \midrule
-Confirmability & Degree to which findings reflect data rather than researcher bias. & Explicit role separation; active search for disconfirming evidence; all claims grounded in specific observations or artifacts. \\
+Confirmability & Degree to which findings reflect data rather than researcher bias. & Role separation maintained via typed support logs; disconfirming evidence coded alongside difficulties; claims traceable to dated notes, artifacts, or reconstructions (Table~\ref{tab:code-traceability}). \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -593,18 +593,48 @@ account that researchers and practitioners can assess for relevance to their own
 contexts.
 
 \textbf{Dependability} --- the reliability of the research process --- was addressed
-by maintaining an audit trail: field notes were dated and linked to specific events,
-artifact data were extracted and stored systematically, and each tool refinement was
-documented with its triggering observation and the corresponding commit in the
-Hypo-Stage repository.
+by maintaining an audit trail of three linked record types, consistent with the
+transparency choices documented in Section~\ref{subsec:active-listening}.
+First, \textbf{dated written field notes}---not audio or video recordings---were
+kept in a private research journal as close as practicable to each observed event
+(Section~\ref{subsec:participant-observation}); each entry was timestamped and
+tagged to a specific team, sprint, or ritual. Second, at the end of the observation
+window, \textbf{artifact records were exported} from the Hypo-Stage database
+(hypothesis bodies, assessments, technical plans, and lifecycle timestamps) and
+archived alongside the notes for independent re-inspection
+(Appendix~\ref{app:hypotheses-data}). Third, each tool refinement deployed during
+the study was \textbf{linked to its triggering observation} and to the corresponding
+commit in the public Hypo-Stage repository, spanning revision \texttt{ceee509}
+through \texttt{3a53d4e} (Section~\ref{sec:refinements}). Together, these records
+constitute the dependability audit trail that Table~\ref{tab:code-traceability}
+extends into the thematic structure of Chapter~\ref{chap:results}.
 
 \textbf{Confirmability} --- the degree to which findings reflect the data rather
 than researcher bias --- was addressed by: 
 
 \begin{itemize}
-  \item[(i)] Explicitly distinguishing between the researcher's facilitation role (which involved helping teams understand the technique) and his investigator role (which required non-directive observation of how they used it);
-  \item[(ii)] Seeking disconfirming evidence, that is, noting instances where teams found value in the tool or the technique as readily as instances of difficulty;
-  \item[(iii)] Grounding all claims in specific observations, artifacts, or conversation excerpts, reported in Chapter~\ref{chap:results} (including Section~\ref{sec:refinements} where refinements are documented).
+  \item[(i)] \textbf{Explicit role separation in practice.} Support interactions
+    were classified at the time of logging as either \emph{conceptual support}
+    (clarifying ArchHypo) or \emph{tool support} (addressing Hypo-Stage friction),
+    matching the two support types in Phase~2
+    (Section~\ref{sec:procedure}). Facilitation entries were labeled accordingly in
+    the field notes; during team rituals and unprompted usage, the researcher
+    recorded what teams did without steering subsequent behavior, keeping
+    investigator observations separable from facilitation actions.
+  \item[(ii)] \textbf{Active logging of disconfirming evidence.} The researcher
+    applied a standing analytic rule during note-taking and open coding: for each
+    logged difficulty or barrier, the notes also captured counter-instances where
+    teams derived value from the technique or tool. Positive instances received
+    descriptive codes on the same footing as challenge codes---for example,
+    \textit{tool-positive-catalog-integration} alongside
+    \textit{registration-barrier-time-pressure} in
+    Table~\ref{tab:code-traceability}.
+  \item[(iii)] \textbf{Claims grounded in specific observations.} Every empirical
+    claim in Chapter~\ref{chap:results}---including Section~\ref{sec:refinements}---
+    is traceable to a Hypo-Stage artifact identifier, a dated field-note entry, or a
+    paraphrased reconstruction from active-listening notes (not a verbatim quotation;
+    Section~\ref{subsec:active-listening}). Table~\ref{tab:code-traceability} maps
+    each reported theme to its source codes and chapter section.
 \end{itemize}
 
 \textbf{Construct validity.} One deviation from prescribed practice warrants
