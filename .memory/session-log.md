@@ -22,3 +22,10 @@ Entries are chronological. Newest at bottom.
 ## 2026-05-11 (agent instructions filename)
 
 - Renamed **`.cursor/agents/AGENTS.md`** to **`hypo-stage-masters-thesis-agent-instructions.md`** and aligned the document title with the Hypo-Stage / IME-USP scope; refreshed all repo pointers.
+
+## 2026-07-29
+
+- **Defense held:** 11 June 2026 (presencial, 09:00); committee roster unchanged (see `defense-and-committee.md`).
+- **Feedback sources:** (A) structured text review `revisao hypostage.txt` — 36 items (Register A); (B) annotated PDF — 61 Melegati annotations (Register B); (C) author defense note on falsifiability vs negative-formulation convention (C1).
+- **Corrected version:** produced on branch `fix/versao-corrigida-committee-feedback` per `docs/thesis-corrections/2026-07-04-committee-feedback-plan.md`; `definitiva` enabled; deposit snapshots `archive/thesis-deposit-corrected-20260729.pdf` and `archive/thesis-deposit-original-20260729.pdf`; disposition audit in `docs/thesis-corrections/CHANGELOG-versao-corrigida.md`.
+- **Skipped:** T28 (initial-tool screenshot — asset blocked); T44 (manual USP upload).

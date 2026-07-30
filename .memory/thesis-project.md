@@ -29,9 +29,13 @@ This work studies **Hypo-Stage**, an open-source **Backstage** plugin developed 
 
 ## Current state
 
-- The **original / deposited** manuscript was submitted to the examining committee; the committee-facing PDF snapshot taken at deposit time is preserved in **git history** (see `session-log.md` for dated filenames).
-- Next milestones: **defense**, then **versão corrigida** and upload to Biblioteca Digital USP within the institutional deadline (see `ime-workflow.md`).
+- **Defense completed** 11 June 2026. Committee feedback addressed on branch `fix/versao-corrigida-committee-feedback`.
+- **Versão corrigida** built with `\tipotese{..., definitiva, ...}` and `\correctedversiontrue` (committee block on title page).
+- **Deposit snapshots (2026-07-29):** `archive/thesis-deposit-corrected-20260729.pdf` (corrected version for Biblioteca Digital USP); `archive/thesis-deposit-original-20260729.pdf` (canonical tracked deposit aligned with current `thesis.pdf`).
+- **Audit trail:** `docs/thesis-corrections/CHANGELOG-versao-corrigida.md` maps feedback IDs A1–A36, M1–M61, C1 → commits.
+- **Remaining:** manual upload to Biblioteca Digital USP / Janus (deadline ≈ 10 Aug 2026; see `ime-workflow.md`).
 
-## Deposit artifact name (reference)
+## Deposit artifact names (reference)
 
-The deposit snapshot that accompanied committee submission was archived as **`thesis-deposit-original-20260503.pdf`** (3 May 2026). Later repository refreshes may introduce a newer `thesis-deposit-original-*.pdf` with a different date suffix while sources evolve; compare with `git log -- archive/` when needed.
+- Pre-defense committee submission: **`thesis-deposit-original-20260503.pdf`** (3 May 2026; git history).
+- Corrected-version refresh: **`thesis-deposit-corrected-20260729.pdf`** and **`thesis-deposit-original-20260729.pdf`** (29 July 2026).
