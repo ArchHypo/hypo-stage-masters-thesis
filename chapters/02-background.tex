@@ -322,7 +322,7 @@ practices such as Team Topologies have created significant complexity in the dai
 workflow of software engineering teams. In response, the industry has converged around the
 concept of \emph{Internal Developer Portals} (IDPs) as a platform-engineering
 discipline aimed at reducing this complexity while preserving team
-independence ~\citep{correa2025}.
+independence ~\citep{anjum2026idp}.
 
 % ------- 2.3.1
 \subsection{The Role of Internal Developer Portals (IDPs)}
@@ -331,10 +331,10 @@ independence ~\citep{correa2025}.
 An Internal Developer Portal serves as the primary interface between developers and the
 underlying platform infrastructure. Unlike a simple wiki or a project-management tool,
 an IDP is an operational hub that aggregates tools, services, documentation, and data
-into a unified ``pane of glass'' ~\citep{correa2025, anjum2026idp}. Its primary goal is to reduce
+into a unified ``pane of glass'' ~\citep{anjum2026idp}. Its primary goal is to reduce
 \emph{cognitive load}: by abstracting the complexity of infrastructure and standardizing
 workflows, IDPs enable what practitioners call \emph{Golden Paths} -- recommended,
-supported, and automated paths for building and deploying software ~\citep{correa2025}.
+supported, and automated paths for building and deploying software ~\citep{anjum2026idp}.
 
 This goal aligns directly with the theory of autonomous stream-aligned teams summarized in Team Topologies guidance \citep{skelton2019}: if teams are to own full slices of a product
 without depending on a central gatekeeper, the platform must lower the barriers to
@@ -374,11 +374,11 @@ where frontend plugins handle views and UI components while backend plugins mana
 API services, data processing, and storage; and (3)~\emph{External Integrations}, through
 which backend plugins serve as gateways to external systems and APIs, allowing the
 portal to aggregate data from cloud providers, CI/CD tools, and other
-infrastructure ~\citep{correa2025}.
+infrastructure ~\citep{backstage2024}.
 
 \begin{table}[htbp]
 \centering
-\caption{Backstage architecture layers and their role \citep{correa2025}.}
+\caption{Backstage architecture layers and their role \citep{backstage2024}.}
 \label{tab:backstage-layers}
 \begin{tabular}{p{0.25\linewidth} p{0.35\linewidth} p{0.32\linewidth}}
 \toprule
@@ -399,7 +399,7 @@ without forcing context-switching. It is precisely this extensibility that makes
 the appropriate delivery vehicle for the Hypo-Stage tool: a plugin can introduce a new class of
 first-class object -- the architectural hypothesis -- into the same environment where a
 developer already inspects service health, reviews documentation, and triggers CI/CD
-runs \citep{correa2025}.
+runs \citep{backstage2024}.
 
 \citet{correa2025} demonstrated the technical feasibility of building such a plugin
 and validated the integration approach. That work established the initial version of
