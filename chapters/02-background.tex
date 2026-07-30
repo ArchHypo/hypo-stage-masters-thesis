@@ -44,18 +44,25 @@ This is where Hypotheses Engineering may be used to play a key role in the archi
 \section{Hypotheses Engineering and ArchHypo}
 \label{sec:archhypo}
 
-Hypotheses engineering is an approach to managing technical uncertainty by formulating
-architectural decisions as testable hypotheses rather than settled facts. Instead of
-asserting that a particular technology or pattern \emph{will} satisfy a quality
-requirement, teams state that it \emph{might} do so and then design experiments to
-gather evidence to validate or invalidate the hypothesis.
+Hypotheses engineering is a general approach to managing uncertainty in software
+development, first articulated by \citet{melegati2019he}. Its core idea is to treat
+uncertain decisions as testable hypotheses rather than settled facts: instead of
+asserting that a particular choice \emph{will} produce a desired outcome, teams state
+that it \emph{might} do so and then design experiments to gather evidence that
+validates or invalidates the hypothesis. Although it originated in the broader context
+of software startups and product development under uncertainty, the same discipline of
+making assumptions explicit and evidence-driven can be applied wherever teams must
+act despite incomplete information.
 
-The ArchHypo technique, proposed by \citet{silva2024tse}, operationalized this idea for
-software architecture. Grounded in Design Science Research (DSR)
-and evolved from a body of patterns for agile architecture first disseminated at
-conferences and through corporate training reported in~\citep{silva2024ieeesw}, ArchHypo provides
-a structured vocabulary and a set of practices that fit within iterative development
-workflows where architecture uncertainty is a constant challenge for rapidly-evolving software systems.
+The ArchHypo technique, proposed by \citet{silva2024tse}, is the architecture-specific
+adaptation of hypotheses engineering: it operationalizes this idea for software
+architecture, where a particular technology or pattern is treated as a hypothesis about
+whether it will satisfy a quality requirement rather than an assumed fact. Grounded in
+Design Science Research (DSR) and evolved from a body of patterns for agile architecture
+first disseminated at conferences and through corporate training
+\citep{silva2024patterns,silva2024ieeesw}, ArchHypo provides a structured vocabulary and
+a set of practices that fit within iterative development workflows where architecture
+uncertainty is a constant challenge for rapidly-evolving software systems.
 
 % ------- 2.2.1
 \subsection{Core Concepts}
@@ -66,7 +73,8 @@ Here, \emph{falsifiable} means that the possibility of proving the statement fal
 ArchHypo prescribes that hypotheses be written as simple, direct statements that express the development team's current beliefs, formulated freely to reduce the friction of adopting the technique \citep{silva2024tse}.
 The practice descends from Hypotheses Engineering, first articulated by \citet{melegati2019he}; interrogative or questioning templates such as QUESt \citep{melegati2019quest} are an optional, compatible way to represent hypotheses rather than a requirement of the technique.
 Equating ``falsifiable'' with ``must be phrased as expected to be false'' is therefore a misreading of the prescription.
-It is important to distinguish the concept from adjacent concepts:
+In this sense, an architectural hypothesis is fundamentally \emph{a way of recording and registering an item of architectural uncertainty}: each hypothesis pairs one uncertainty with an explicit, testable statement about it, turning otherwise implicit assumptions into first-class artifacts that can be assessed, tracked, and revisited as evidence accumulates \citep{silva2024tse}.
+It is this hypothesis\,$\leftrightarrow$\,uncertainty pairing that distinguishes the concept from adjacent concepts:
 
 \begin{itemize}
   \item \textbf{Hypothesis versus\ Risk:} A risk involves a known event with estimable
@@ -166,10 +174,11 @@ deferred. ArchHypo identifies the following plan strategies as observed in \cite
   normal work. This was the most frequently used strategy in the evaluation reported by \citet{silva2024tse}.
 
   \item \textbf{Architectural Trigger.} A condition-based deferral in which the team
-  agrees to act on the hypothesis only when a specific observable event occurs (e.g.,
-  when the number of concurrent users exceeds a threshold, or when a performance
-  regression appears in monitoring). Until the trigger fires, the hypothesis is
-  deliberately deferred.
+  agrees to resolve the hypothesis---that is, to take or deliberately defer the
+  associated architectural decision---only when a specific observable event occurs
+  (e.g., when the number of concurrent users exceeds a threshold, or when a performance
+  regression appears in monitoring). Until the trigger fires, the decision is
+  deliberately deferred rather than made prematurely.
 
   \item \textbf{Agile Landing Zones.} Adopting architectural patterns that explicitly
   preserve flexibility, creating ``landing zones'' into which future decisions can be
