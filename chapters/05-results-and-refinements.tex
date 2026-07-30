@@ -381,16 +381,15 @@ concerns that teams do not expect to resolve within a single sprint cycle.
 \label{subsec:benefits}
 
 Active listening sessions with all four interviewed participants (the two
-technical leaders from each team) converged on three recurring themes regarding
+technical leaders from each team) converged on four recurring themes regarding
 the perceived value of using Hypo-Stage.
 Because the sessions were not recorded
 (Section~\ref{subsec:active-listening}), the attributions below are the
 researcher's paraphrased reconstructions from dated field notes and
 post-session written recollection---not verbatim quotations. The coding basis
-for the RQ3 themes appears in Table~\ref{tab:code-traceability}
-(\textit{tool-positive-catalog-integration},
-\textit{registration-barrier-time-pressure}, and
-\textit{falsifiability-confusion}).
+for the perceived-benefit theme appears in Table~\ref{tab:code-traceability}
+(\textit{tool-positive-catalog-integration}); challenge themes are developed in
+Section~\ref{subsec:challenges}.
 
 \paragraph{Externalization of tacit architectural knowledge:}
 Both teams described the act of registering a hypothesis as valuable in itself.
@@ -416,12 +415,20 @@ captures an open question before a decision is available. Participants described
 this as filling a gap in their current toolchain: they had good mechanisms for
 recording what was decided but poor mechanisms for recording what was still
 unknown.
-The related open code
-\textit{tool-positive-catalog-integration} captures participants' positive
-appraisal of surfacing Hypo-Stage within their existing Backstage catalog
-workflow, which Section~\ref{subsec:refinement-backstage} later operationalizes
-as a refinement.
 Chapter~\ref{chap:conclusion} revisits this distinction when discussing implications for practice.
+
+\paragraph{Catalog and Backstage workflow integration:}
+Both teams described surfacing Hypo-Stage within the Backstage Internal Developer
+Portal as a perceived benefit rather than merely an adoption convenience.
+Because Backstage already served as the daily entry point for service catalog,
+documentation, and CI/CD status, engineers could review and register hypotheses
+without navigating to a separate tool or breaking out of the component context
+they were already working in. Both technical leaders recalled that the
+EntityHypothesesTab, which lists only hypotheses linked to the catalog component
+currently being viewed, reduced the cognitive cost of context-switching into
+hypothesis management. The open code \textit{tool-positive-catalog-integration}
+labels this reconstructed theme; Section~\ref{subsec:refinement-backstage}
+later describes how the study operationalized it as a refinement.
 
 \subsection{Perceived Challenges}
 \label{subsec:challenges}
