@@ -140,14 +140,17 @@ governance without sacrificing coherence.
 Along with the author's exploratory research, several tools and platforms have been proposed to support architectural decision-making:
 
 \begin{itemize}
-  \item \textbf{ADR tools} (e.g., adr-tools, Log4brains) focus on recording and
-  versioning Architecture Decision Records (ADRs). They capture the \emph{what} and
+  \item \textbf{ADR tools} (e.g., adr-tools, Log4brains), documented in
+  practitioner and gray-literature sources \citep{nygard2011adr, adrtools2024, log4brains2024},
+  focus on recording and versioning Architecture Decision Records (ADRs).
+  They capture the \emph{what} and
   \emph{why} of decisions but do not model uncertainty, impact, or technical plans for
   hypotheses that are not yet decisions. ADRs document settled choices; they are not
   designed to manage the pre-decision state of uncertainty that ArchHypo addresses.
 
   \item \textbf{Architecture analysis tools} (e.g., ATAM-based workshops, trade-off
-  analysis methods) provide structured evaluation of architectural alternatives but are
+  analysis methods) \citep{kazman1998atam} provide structured evaluation of
+  architectural alternatives but are
   typically heavyweight, workshop-based activities rather than continuous,
   team-embedded processes. Their value lies in one-shot or periodic analysis sessions,
   not in the ongoing, iterative management of uncertainty throughout a product's
@@ -201,10 +204,11 @@ compared with tool proposals and method descriptions. Among the most relevant:
   with no tool support. This work introduces the first evaluation of ArchHypo in a
   tool-mediated setting.
 
-  \item Studies on architectural governance in agile organizations (e.g., the work on
-  SAFe and Spotify-model variants) document how companies structure roles and
-  ceremonies for architecture, but rarely examine explicit uncertainty-management
-  techniques.
+  \item Studies on architectural governance in agile organizations, including
+  tailored Spotify-model variants \citep{salameh2021architecture} and architecture
+  groups in multi-team agile settings \citep{deDiana2011arch}, document how
+  companies structure roles and ceremonies for architecture, but rarely examine
+  explicit uncertainty-management techniques.
 
   \item The multivocal review conducted during the author's exploratory research surfaced
   practitioner reports (blog posts, conference talks, white papers) describing ad-hoc
