@@ -530,8 +530,40 @@ yet the methods for handling quality attributes — precisely the domain where a
 uncertainty is most consequential — were among the least well supported by tools or
 empirical evidence \citep{souza2019}.
 
-These findings reinforce the motivation for this work on two fronts. First, they confirm
-the existence of a ``tooling void'' in which architectural management remains
-disconnected from the daily engineering workflow. Second, they underscore the need for
-empirical evaluations with real teams -- precisely the kind of evaluation this work aims
-to provide for the Hypo-Stage tool and ArchHypo.
+These findings characterize the state of architectural derivation methods at the time of
+the mapping: reliant on tacit expertise, weakly tooled, and thinly evaluated in
+production settings.
+
+% ---------------------------------------------------------------------------
+\section{Summary: State of the Literature for This Work}
+\label{sec:background-summary}
+
+Taken together, the strands surveyed in this chapter frame architectural work as an
+exercise in managing uncertainty. Hypotheses Engineering \citep{melegati2019he} and its
+architecture-specific realization, ArchHypo \citep{silva2024tse}, provide the conceptual
+machinery: each architectural hypothesis records one item of uncertainty as an explicit,
+testable statement, which is then assessed for epistemic gap and priority and worked
+through a technical plan until enough evidence accumulates to resolve it. This turns
+otherwise implicit assumptions into first-class artifacts that a team can track and
+revisit as a project evolves.
+
+The empirical picture, however, exposes a persistent limitation. The evaluations of
+ArchHypo reported to date \citep{silva2024ieeesw,silva2024tse} showed real value in
+distributing architectural reasoning across iterations, but they were conducted through
+manual application, depended on expert steering, and offered no supporting tool—leaving
+participants finding the technique hard to learn and its bookkeeping disconnected from
+daily delivery. Internal Developer Portals, and Backstage in particular
+\citep{anjum2026idp,backstage2024}, suggest a natural delivery vehicle: a single platform
+already woven into the engineering workflow through which such a technique could be
+operationalized. The Hypo-Stage prototype \citep{correa2025} took a first step in that
+direction but remained a feasibility demonstration rather than a workflow-ready tool.
+
+This gap is not incidental. The systematic mapping study \citep{souza2019} confirms a
+broader ``tooling void'' in which methods for deriving and managing architecture remain
+disconnected from the daily engineering workflow, weakly supported by tools, and rarely
+validated with real teams in production. The opening this thesis addresses follows
+directly: to close the distance between a promising but manual technique and the platform
+where engineering work actually happens, and to subject the result to the kind of
+empirical evaluation the literature has lacked. The next chapter situates this
+contribution against related efforts and positions it within the surrounding body of
+work.
