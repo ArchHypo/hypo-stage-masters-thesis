@@ -350,11 +350,13 @@ application illustrates how the Tracer Bullet differs from an Architectural Spik
 an isolated experiment, the Tracer Bullet plan exercises the full production consumer path
 under representative conditions \citep{silva2024agilepatterns}.
 
-Six hypotheses had no technical plan at the end of the study. Three of these
-(H01, H04, H02) were registered but not yet acted upon; two (H07, H08) had
-been validated through planning actions that predated the observation window and
-whose plans were registered retrospectively; and one (H05) was under active
-discovery but the plan document was still being prepared.
+Six hypotheses had no technical plan created within the observation window. Three
+of these (H01, H04, H02) were registered but not yet acted upon; two (H07, H08)
+were validated by planning actions taken \textit{before} the observation window
+began, and their technical plans were entered into Hypo-Stage only afterward, as
+a record of decisions already made rather than plans that guided work during the
+study; and one (H05) was under active discovery, with its plan document still
+being prepared.
 
 \subsection{Lifecycle and Status}
 \label{subsec:lifecycle-status}
@@ -975,7 +977,9 @@ and H08 (blob cross-client sharing governance) are two instances of this pattern
 in the secure blob storage domain. H08 was driven by a concrete usage scenario
 in which a customer-facing channel receives documents that are later routed to
 support tooling; the support team needs read access without breaking the blob's ownership invariants. 
-Both hypotheses were validated through a Guideline technical plan — an alignment session that produced a governance decision enabling
+Both hypotheses were validated through a Guideline technical plan — an alignment
+session held before the observation window and registered in Hypo-Stage retrospectively —
+that produced a governance decision enabling
 prioritization of the transfer and sharing implementation work.
 
 \begin{table}[htbp]
