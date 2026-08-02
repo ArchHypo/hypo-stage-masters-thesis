@@ -63,7 +63,7 @@ Sources: Register A (`revisao hypostage.txt`, 36 items), Register B (PDF annotat
 | M16 | `c5fbd0d` | Stray `*` in quote |
 | M17 | `c5fbd0d` | Stray `*` in quote |
 | M18 | `8584d40` | IDP reference |
-| M19 | *(pending commit)* | T28: initial Hypo-Stage dashboard figure in §2.4 |
+| M19 | `9274646` | T28: initial Hypo-Stage dashboard figure in §2.4 |
 | M20 | `35beb5c` | Condense Souza methodology |
 | M21 | `65751b4` | Ch2 gap vs related work |
 | M22 | `93bce37` | Exploratory work scope |
