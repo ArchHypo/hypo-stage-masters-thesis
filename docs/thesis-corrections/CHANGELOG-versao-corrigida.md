@@ -48,7 +48,7 @@ Sources: Register A (`revisao hypostage.txt`, 36 items), Register B (PDF annotat
 | M1 | `5249c16` | Abstract punctuation |
 | M2 | `5249c16` | Abstract punctuation |
 | M3 | `5249c16` | Define product/platform teams |
-| M4 | `101ca99`, *(pending)* | Broaden HE citations; replace bogus `melegati2019`/HYPEX mash-up with `olsson2014hypex` |
+| M4 | `101ca99`, `3e4f16b` | Broaden HE citations; replace bogus `melegati2019`/HYPEX mash-up with `olsson2014hypex` |
 | M5 | `101ca99` | Verify start-up report citation |
 | M6 | `2b3e988` | Intro copy-edit |
 | M7 | `2b3e988` | Clarify A3 label |
