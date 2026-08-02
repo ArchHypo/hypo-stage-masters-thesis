@@ -3,7 +3,7 @@
 Branch: `fix/versao-corrigida-committee-feedback`  
 Base commit: `095a75a`  
 Defense: 11 June 2026  
-Deposit date token: **20260729**
+Deposit date token: **20260802** (was 20260729 before T28)
 
 Sources: Register A (`revisao hypostage.txt`, 36 items), Register B (PDF annotations, 61 items), Register C (author defense note). Plan: `docs/thesis-corrections/2026-07-04-committee-feedback-plan.md`.
 
@@ -63,7 +63,7 @@ Sources: Register A (`revisao hypostage.txt`, 36 items), Register B (PDF annotat
 | M16 | `c5fbd0d` | Stray `*` in quote |
 | M17 | `c5fbd0d` | Stray `*` in quote |
 | M18 | `8584d40` | IDP reference |
-| M19 | — | T28 skipped (screenshot blocked) |
+| M19 | *(pending commit)* | T28: initial Hypo-Stage dashboard figure in §2.4 |
 | M20 | `35beb5c` | Condense Souza methodology |
 | M21 | `65751b4` | Ch2 gap vs related work |
 | M22 | `93bce37` | Exploratory work scope |

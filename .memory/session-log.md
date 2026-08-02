@@ -29,3 +29,7 @@ Entries are chronological. Newest at bottom.
 - **Feedback sources:** (A) structured text review `revisao hypostage.txt` — 36 items (Register A); (B) annotated PDF — 61 Melegati annotations (Register B); (C) author defense note on falsifiability vs negative-formulation convention (C1).
 - **Corrected version:** produced on branch `fix/versao-corrigida-committee-feedback` per `docs/thesis-corrections/2026-07-04-committee-feedback-plan.md`; `definitiva` enabled; deposit snapshots `archive/thesis-deposit-corrected-20260729.pdf` and `archive/thesis-deposit-original-20260729.pdf`; disposition audit in `docs/thesis-corrections/CHANGELOG-versao-corrigida.md`.
 - **Skipped:** T28 (initial-tool screenshot — asset blocked); T44 (manual USP upload).
+
+## 2026-08-02
+
+- **T28 unblocked:** added `figures/initial-hypostage-dashboard.png` (initial Hypo-Stage hypotheses dashboard) and figure `fig:initial-hypostage-dashboard` in §2.4 (`chapters/02-background.tex`), captioned as the `correa2025` / `ceee509` baseline. Deposit snapshots refreshed to `archive/thesis-deposit-*-20260802.pdf`. T44 (manual USP upload) remains.
