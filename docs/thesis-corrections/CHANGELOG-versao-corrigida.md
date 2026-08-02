@@ -99,7 +99,7 @@ Sources: Register A (`revisao hypostage.txt`, 36 items), Register B (PDF annotat
 | M52 | `5385815` | Word choice |
 | M53 | `5385815` | Workflow → process |
 | M54 | T39 | Verified: 35 entries, all cited, no warnings |
-| M55 | `eae235e`, *(pending)* | borowa2023 DOI `10.1007/978-3-031-42592-9_21` |
+| M55 | `eae235e`, `c088746` | borowa2023 DOI `10.1007/978-3-031-42592-9_21` |
 | M56 | `eae235e` | silveiraNeto2025 DOI |
 | M57 | `eae235e` | dasanayake2017 DOI |
 | M58 | `eae235e` | razavian2019 authors/DOI |
