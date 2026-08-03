@@ -69,12 +69,11 @@ uncertainty is a constant challenge for rapidly-evolving software systems.
 \label{subsec:archhypo-core}
 
 An \emph{architectural hypothesis} is a \emph{falsifiable} statement that captures an uncertainty relevant to the design of a software architecture.
-Here, \emph{falsifiable} means that the possibility of proving the statement false exists---the hypothesis is refutable and testable through evidence---and \emph{not} that the hypothesis must be phrased as something the team expects to be false.
-ArchHypo prescribes that hypotheses be written as simple, direct statements that express the development team's current beliefs, formulated freely to reduce the friction of adopting the technique \citep{silva2024tse}.
+In this context, \emph{falsifiable} means that the possibility of proving the statement false exists. This means that the hypothesis is refutable and testable through evidence, and \emph{not} that the hypothesis must be phrased as something the team expects to be false.
+ArchHypo prescribes that hypotheses be written as simple, direct statements that express the team's current beliefs, formulated freely to reduce the friction of adopting the technique \citep{silva2024tse}.
 The practice descends from Hypotheses Engineering, first articulated by \citet{melegati2019he}; interrogative or questioning templates such as QUESt \citep{melegati2019quest} are an optional, compatible way to represent hypotheses rather than a requirement of the technique.
-Equating ``falsifiable'' with ``must be phrased as expected to be false'' is therefore a misreading of the prescription.
 In this sense, an architectural hypothesis is fundamentally \emph{a way of recording and registering an item of architectural uncertainty}: each hypothesis pairs one uncertainty with an explicit, testable statement about it, turning otherwise implicit assumptions into first-class artifacts that can be assessed, tracked, and revisited as evidence accumulates \citep{silva2024tse}.
-It is this hypothesis\,$\leftrightarrow$\,uncertainty pairing that distinguishes the concept from adjacent concepts:
+It is this hypothesis and uncertainty pairing that distinguishes the concept from adjacent concepts:
 
 \begin{itemize}
   \item \textbf{Hypothesis versus\ Risk:} A risk involves a known event with estimable
@@ -174,8 +173,7 @@ deferred. ArchHypo identifies the following plan strategies as observed in \cite
   normal work. This was the most frequently used strategy in the evaluation reported by \citet{silva2024tse}.
 
   \item \textbf{Architectural Trigger.} A condition-based deferral in which the team
-  agrees to resolve the hypothesis---that is, to take or deliberately defer the
-  associated architectural decision---only when a specific observable event occurs
+  agrees to resolve the hypothesis only when a specific observable event occurs
   (e.g., when the number of concurrent users exceeds a threshold, or when a performance
   regression appears in monitoring). Until the trigger fires, the decision is
   deliberately deferred rather than made prematurely.
@@ -543,32 +541,30 @@ production settings.
 \section{Summary: State of the Literature for This Work}
 \label{sec:background-summary}
 
-Taken together, the strands surveyed in this chapter frame architectural work as an
+Taken together, the background surveyed in this chapter frame architectural work as an
 exercise in managing uncertainty. Hypotheses Engineering \citep{melegati2019he} and its
 architecture-specific realization, ArchHypo \citep{silva2024tse}, provide the conceptual
-machinery: each architectural hypothesis records one item of uncertainty as an explicit,
+basis: each architectural hypothesis records one item of uncertainty as an explicit,
 testable statement, which is then assessed for epistemic gap and priority and worked
 through a technical plan until enough evidence accumulates to resolve it. This turns
 otherwise implicit assumptions into first-class artifacts that a team can track and
 revisit as a project evolves.
 
-The empirical picture, however, exposes a persistent limitation. The evaluations of
+However, the empirical picture exposes a persistent limitation. The evaluations of
 ArchHypo reported to date \citep{silva2024ieeesw,silva2024tse} showed real value in
 distributing architectural reasoning across iterations, but they were conducted through
-manual application, depended on expert steering, and offered no supporting tool—leaving
-participants finding the technique hard to learn and its bookkeeping disconnected from
-daily delivery. Internal Developer Portals, and Backstage in particular
-\citep{anjum2026idp,backstage2024}, suggest a natural delivery vehicle: a single platform
-already woven into the engineering workflow through which such a technique could be
-operationalized. The Hypo-Stage prototype \citep{correa2025} took a first step in that
-direction but remained a feasibility demonstration rather than a workflow-ready tool.
+manual application, depended on expert team members, and offered no supporting tooling, leading
+participants to find the technique hard to learn and its practice disconnected from
+daily delivery. Additionally, the concept of Internal Developer Portals, and Backstage in particular
+\citep{anjum2026idp,backstage2024}, suggested a single platform
+for engineering workflows through which the techniques, such as ArchHypo, could be
+operationalized. The Hypo-Stage prototype \citep{correa2025} took that first step, but it remained a feasibility demonstration rather than a workflow-ready tool.
 
-This gap is not incidental. The systematic mapping study \citep{souza2019} confirms a
+The systematic mapping study \citep{souza2019} also confirms a
 broader ``tooling void'' in which methods for deriving and managing architecture remain
 disconnected from the daily engineering workflow, weakly supported by tools, and rarely
-validated with real teams in production. The opening this thesis addresses follows
-directly: to close the distance between a promising but manual technique and the platform
-where engineering work actually happens, and to subject the result to the kind of
-empirical evaluation the literature has lacked. The next chapter situates this
-contribution against related efforts and positions it within the surrounding body of
-work.
+validated with real teams in production.
+
+Grounded in these findings, this work takes Hypo-Stage as a starting artifact and asks how
+real engineering teams appropriate ArchHypo in a production setting. Chapter~\ref{chap:related-work}
+connects this agenda to the adjacent research on architectural decision-making, tool support, and hypotheses-driven practice.
