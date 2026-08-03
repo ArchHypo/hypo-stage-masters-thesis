@@ -3,7 +3,7 @@
 Branch: `fix/versao-corrigida-committee-feedback`  
 Base commit: `095a75a`  
 Defense: 11 June 2026  
-Deposit date token: **20260802** (was 20260729 before T28)
+Corrected deposit: **`archive/thesis-deposit-corrected-20260802.pdf`**. Original deposit **`archive/thesis-deposit-original-20260511.pdf`** remains unchanged from `main`.
 
 Sources: Register A (`revisao hypostage.txt`, 36 items), Register B (PDF annotations, 61 items), Register C (author defense note). Plan: `docs/thesis-corrections/2026-07-04-committee-feedback-plan.md`.
 
