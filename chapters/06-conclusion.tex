@@ -18,8 +18,8 @@ a tool-mediated setting. This contribution extended the base of the research lin
 
 The results both confirmed and revealed the expectations established by prior work.
 On the side of confirmation: hypothesis registration remained predominantly senior-led
-across both teams, the falsifiability requirement continued to be described as cognitively
-demanding under sprint pressure, and the absence of team-visible ceremonies for reviewing
+across both teams, formulating hypotheses under the study's negative-formulation convention
+continued to be described as cognitively demanding under sprint pressure, and the absence of team-visible ceremonies for reviewing
 the hypothesis backlog emerged as a structural obstacle. These observations are consistent with findings
 from the PropSEP evaluation \citep{silva2024tse}. On the side of novelty: the
 Hypo-Stage tool integrated in the Backstage proved to be a genuinely meaningful enabler rather than merely a
@@ -34,7 +34,7 @@ mechanics themselves.
 
 The four research questions of this work produced four contributions that,
 taken together, described what a tool-mediated instantiation of ArchHypo can
-deliver in a professional team setting. The contributions were empirical (RQ1, RQ2, RQ3) and methodological (RQ4); each
+deliver in a professional team setting. The contributions were empirical (RQ1, RQ2, RQ3) and an engineering/design contribution (RQ4)---a worked instance of formative evaluation for hypothesis-engineering tools; each
 was supported by the thirteen-hypothesis dataset and the field-study evidence
 reported in Chapter~\ref{chap:results}.
 
@@ -55,25 +55,25 @@ even with tool support in place, the usage depended on the persistent efforts
 of the senior engineers.
 
 \paragraph{RQ2 --- A first empirically grounded vocabulary for the content of
-architectural hypotheses:} The five Group~B patterns --- \textit{Hypothesis
-Cluster}, \textit{Regulatory Trigger Hypothesis}, \textit{Context-Agnostic Restructuring
-Hypothesis}, \textit{Load-Validated Hypothesis}, and \textit{Shared Resource
-Governance Hypothesis} --- named recurring shapes that architectural
+architectural hypotheses:} The five Structural Hypothesis Patterns --- \textit{Hypothesis
+Cluster}, \textit{Regulatory Trigger Hypothesis}, \textit{Service Decomposition
+Hypothesis}, \textit{Monitored Quality-Attribute Hypothesis}, and \textit{Shared-Resource
+Hypothesis} --- named recurring shapes that architectural
 hypotheses took when ArchHypo was applied in a regulated, platform-heavy
 professional context. They complemented the mechanics-focused patterns of the
 existing ArchHypo pattern language \citep{silva2024patterns}: the existing
 patterns addressed \emph{how} hypotheses were assessed and deferred; the
-Group~B patterns addressed \emph{what kind} of hypothesis was being
+Structural Hypothesis Patterns addressed \emph{what kind} of hypothesis was being
 assessed. The contribution was nominative and was explicitly bounded by
 the dataset size, with no frequency claims being made.
 
 \paragraph{RQ3 --- A benefit-cost characterization of tool-mediated hypothesis
-engineering, condensed into the Group~A patterns:} Participants recognized
+engineering, condensed into the Adoption-Condition Candidates:} Participants recognized
 hypothesis management as filling a gap that ADRs leave open, capturing the
 pre-decision state of uncertainty rather than the post-decision rationale; yet
 this perceived value was consistently held hostage to sprint delivery pressure
-and to the cognitive demand of the falsifiability requirement. The four
-Group~A patterns (A1--A4) condensed this tension into named organizational
+and to the cognitive demand of the study's negative-formulation convention. The four
+Adoption-Condition Candidates (A1--A4) condensed this tension into named organizational
 conditions on which sustainable hypothesis engineering depended: senior
 curation, protected cognitive time, statement-level scaffolding, and
 ceremonial touchpoints. The contribution was the explicit observation that
@@ -97,7 +97,7 @@ had the intended effect.
 single bounded claim: tool-mediated ArchHypo succeeded at the integration and
 traceability layer (RQ1, RQ4) and produced a usable vocabulary for the
 content of architectural hypotheses (RQ2), while the limitations on its use are 
-dictated by the organization itself (RQ3). The Group~A organizational patterns therefore
+dictated by the organization itself (RQ3). The Adoption-Condition Candidates therefore
 functioned as this work's principal hand-off to the future-work agenda
 (Section~\ref{sec:future-work}), where they are read as open empirical
 problems rather than as actionable guidelines.
@@ -128,8 +128,8 @@ engineers even with tool support in place --- suggests that organizations intend
 use ArchHypo to operationalize the socio-technical architecture paradigm described by
 \citet{infoq2024trends} should combine tool deployment with three complementary investments:
 protected time for architectural sessions separate from sprint ceremonies
-(Group~A pattern A3); applied guided templates to the hypothesis registration to minimize the difficulty of creating 
-falsifiable statements (Group~A pattern A4, actualized in the Hypo-Stage
+(adoption-condition candidate A3); applied guided templates to the hypothesis registration to minimize the difficulty of creating 
+falsifiable statements (adoption-condition candidate A4, actualized in the Hypo-Stage
 form improvements); and at least one recurring team-visible ceremony where the
 hypothesis backlog is reviewed collectively. Without these conditions, the tool risks
 reinforcing the senior dependency it was designed to dissolve.
@@ -146,7 +146,7 @@ verifiable benchmark to ground observational interpretations. Third, we demonstr
 in naturalistic settings can identify meaningful structural patterns. This supports the view that flexible case-study designs can produce theoretically
 generative findings even when the dataset is limited in scale \citep{robson2016}.
 
-More broadly, this study contributed to the conversation about what it means to
+More broadly, this study contributed to ongoing research on what it means to
 support distributed architectural decision-making with tools. The vision of a
 socio-technical architecture \citep{infoq2024trends, infoq2025empowering, infoq2025decentralized} in which
 architecture work is shared across teams rather than centralized in a dedicated function
@@ -187,7 +187,7 @@ below.
 
 Thirteen hypotheses produced by two teams over approximately nine calendar weeks is a dataset appropriate for
 initial conceptual characterization but insufficient for statistical or frequency claims.
-The Group~A organizational patterns and Group~B structural patterns should be read
+The Adoption-Condition Candidates and Structural Hypothesis Patterns should be read
 as emerging propositions rather than as consolidated findings. Their value at
 this stage is nominative: they provide a vocabulary for recognition that can be tested and
 refined in future studies. That observation window was also too short to observe
@@ -207,14 +207,48 @@ out, and the absence of a comparison condition means that it is not possible to
 distinguish the effect of the tool from the effect of the structured technique itself, or
 from the effect of the researcher's presence.
 
+A related methodological limitation follows from the active-listening data-collection
+choice (Section~\ref{subsec:active-listening}): the sessions were
+not audio-recorded or transcribed verbatim, so the RQ3 attributions rest on the
+researcher's dated field notes and post-session written recollection. That absence
+of a verbatim record is a threat to confirmability---an independent auditor cannot
+re-inspect the original utterances---and future work should address it with
+recorded and transcribed sessions (or equivalently auditable contemporaneous
+notes reviewed by participants).
+
+\subsection{Deviation from Prescribed Hypothesis Formulation}
+
+A construct-validity limitation concerns how hypotheses were formulated during the
+study. The teams and the researcher adopted a local convention of registering
+hypotheses in a negative formulation---phrased to describe what would prove each
+hypothesis false---rather than following ArchHypo's prescribed practice of writing
+simple, direct, falsifiable statements of the team's current belief
+\citep{silva2024tse}. This convention is a plausible cause of the
+Negative-Formulation Barrier (pattern A4): the cognitive cost that participants
+reported may stem from the study's operationalization rather than from the technique
+as designed. Future replications should adopt the prescribed free-form falsifiable
+statements---optionally aided by interrogative templates such as QUESt
+\citep{melegati2019quest}---to test whether the barrier is intrinsic to ArchHypo or
+an artifact of the convention used here.
+
 \subsection{Future Work Agenda}
 
 The most immediate priority is \textbf{replication in additional organizational contexts} 
 with teams of varying size, domain, and tenure profile, and ideally with a researcher who does not hold a
-pre-existing relationship with the tool. Replication studies could allow the Group~A and
-Group~B patterns to be tested against new hypothesis datasets, providing the basis for
+pre-existing relationship with the tool. Replication studies could allow the
+Adoption-Condition Candidates and Structural Hypothesis Patterns to be tested against new hypothesis datasets, providing the basis for
 either consolidating them into the ArchHypo pattern language \citep{silva2024patterns}
 or revising them in light of disconfirming evidence.
+
+A \textbf{retrospective classification of prior ArchHypo datasets} would test the
+reach and coverage of the Structural Hypothesis Patterns beyond the
+thirteen-hypothesis corpus of this study. The four hypotheses from the Catch Solve
+start-up evaluation \citep{silva2024ieeesw} and the ten from the PropSEP
+mission-critical project \citep{silva2024tse} constitute a natural extension
+corpus: applying the Structural Hypothesis Patterns vocabulary to these published
+hypotheses would reveal whether the archetypes generalize across organizational
+contexts and whether the vocabulary captures structural shapes not represented in
+the present dataset.
 
 A \textbf{longitudinal design} spanning multiple development cycles within the same
 organization would address the lifecycle limitation directly. Such a study could allow
@@ -238,19 +272,19 @@ remains the most consequential open problem in the ArchHypo adoption research ag
 The findings of this study, and of the two prior ArchHypo evaluations, consistently
 point to a pattern in which the technique's conceptual value is recognized but its
 practice remains concentrated in the hands of those who already possess architectural
-fluency. Intervention studies that test whether guided hypothesis templates, asynchronous
-review workflows, or explicit architectural hygiene ceremonies can measurably increase
-registration breadth. This would provide the empirical basis for translating the Group~A
-organizational patterns from emerging propositions into actionable adoption guidelines.
+fluency. Intervention studies that test whether guided hypothesis templates, changes
+to the team's review processes, or explicit architectural hygiene ceremonies can measurably increase
+registration breadth. This would provide the empirical basis for translating the
+Adoption-Condition Candidates from emerging propositions into actionable adoption guidelines.
 
-Beyond the four strategic directions above, the nine emerging patterns summarized
-in Table~\ref{tab:emerging-patterns} open a concrete, pattern-anchored research
-agenda. Chapter~\ref{chap:results} deliberately leaves each pattern
+Beyond the five strategic directions above, the nine emerging findings summarized
+in Table~\ref{tab:emerging-patterns} open a concrete, empirically anchored research
+agenda. Chapter~\ref{chap:results} deliberately leaves each item
 in descriptive form, without prescribing a solution; the studies outlined below
 sketch the empirical work that would be required before any such prescription
 could be justified.
 
-For the Group~A patterns (team-behavior conditions for sustainable hypothesis
+For the Adoption-Condition Candidates (team-behavior conditions for sustainable hypothesis
 engineering):
 
 \begin{itemize}
@@ -259,24 +293,26 @@ engineering):
     senior engineers author them}): investigate whether review models can shift
     authorship distribution across all sorts of experience levels without degrading
     hypothesis quality.
-  \item \textbf{A2 --- Fast-Resolution Blind Spot}
-    (\emph{architectural micro-decisions resolve before they reach the
-    backlog, risking cumulative drift}): design and evaluate a lightweight
-    end-of-sprint or retroactive registration workflow that captures
-    micro-decisions whose cumulative effect only becomes visible after the
-    fact.
+  \item \textbf{A2 --- Long-Horizon Registration Priority}
+    (\emph{registration effort is best concentrated on slow, high-consequence
+    uncertainties; fast-resolved micro-decisions rarely repay the cost and are
+    not captured as ADRs either}): design and evaluate lightweight triage cues
+    that help teams distinguish long-horizon uncertainties worth registering
+    from transient micro-decisions that are not.
   \item \textbf{A3 --- Registration as a Slack-Dependent Practice}
     (\emph{well-formulated registration depends on protected time, not on
     sprint slack}): compare sustained registration rate and hypothesis
     quality under (i)~a periodic architectural-review cadence with protected
     cognitive time versus (ii)~in-sprint ad~hoc registration.
   \item \textbf{A4 --- Negative-Formulation Barrier}
-    (\emph{the falsifiable inversion is persistently cognitively costly to
-    write}): design and test statement templates to measure whether
-    falsifiability correctness improves without prior training.
+    (\emph{the study's negative-formulation convention, not ArchHypo itself, made
+    hypothesis writing persistently cognitively costly}): design and test whether
+    ArchHypo's prescribed free-form falsifiable statements---optionally aided by
+    templates such as QUESt---lower the barrier relative to the negative-formulation
+    convention used here.
 \end{itemize}
 
-For the Group~B patterns (structural archetypes of architectural hypotheses):
+For the Structural Hypothesis Patterns (structural archetypes of architectural hypotheses):
 
 \begin{itemize}
   \item \textbf{B1 --- Hypothesis Cluster}
@@ -290,21 +326,23 @@ For the Group~B patterns (structural archetypes of architectural hypotheses):
     obligations as tracked hypotheses, with explicit falsification criteria
     against the current architecture, improves regulated-domain outcomes
     compared with implicit compliance assumptions.
-  \item \textbf{B3 --- Context-Agnostic Restructuring Hypothesis}
-    (\emph{uncertainty about whether and how to restructure toward
-    context-agnostic boundaries}): investigate whether requiring a discovery phase before a team
-    commits to that restructuring produces measurably better outcomes than committing
+  \item \textbf{B3 --- Service Decomposition Hypothesis}
+    (\emph{uncertainty about whether and how to decompose a service into
+    microservices along domain boundaries}): investigate whether requiring a discovery phase before a team
+    commits to a decomposition produces measurably better outcomes than committing
     directly to the refactor.
-  \item \textbf{B4 --- Load-Validated Hypothesis}
-    (\emph{a solution empirically validated under load but with implementation
-    still open}): define and empirically test lifecycle states that
+  \item \textbf{B4 --- Monitored Quality-Attribute Hypothesis}
+    (\emph{a quality attribute empirically validated under load but continuously
+    monitored while implementation is still open}): define and empirically test lifecycle states that
     distinguish ``empirically validated but not yet implemented'' from
     ``Open with unresolved uncertainty,'' and evaluate reviewer comprehension
     across the two.
-  \item \textbf{B5 --- Shared Resource Governance Hypothesis}
-    (\emph{cross-domain access and ownership rules for a shared platform
-    resource}): investigate how such governance rules (ownership,
-    cross-domain read and write, transfer) can be expressed and tracked as
+  \item \textbf{B5 --- Shared-Resource Hypothesis}
+    (\emph{cross-domain consistency, security, and usability concerns ---
+    including ownership governance --- for a shared platform
+    resource}): investigate how such concerns (consistency, security,
+    usability, and governance facets such as ownership,
+    cross-domain read and write, and transfer) can be expressed and tracked as
     architectural hypotheses, and measure the downstream effect on
     consistency violations.
 \end{itemize}

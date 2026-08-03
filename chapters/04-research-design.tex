@@ -11,6 +11,7 @@ The chapter concludes with notes on the ethical considerations that governed the
 
 % ---------------------------------------------------------------------------
 \section{Research Strategy}
+\label{sec:research-strategy}
 % ---------------------------------------------------------------------------
 
 The objective of this work was to empirically evaluate and refine Hypo-Stage,
@@ -126,9 +127,9 @@ population.
 interpretations derived by the researcher are returned to the participants
 whose behavior or statements produced them, so that the participants may
 verify, correct, or elaborate on the researcher's reading~\citep{robson2016}.
-Section~\ref{sec:trustworthiness} describes how member checking was
-operationalized in this study through the active-listening debriefs with each
-team's technical leader.
+Section~\ref{subsec:active-listening} describes how member checking was
+operationalized in this study; Section~\ref{sec:trustworthiness} addresses it
+under credibility.
 
 These concepts recur throughout Sections~\ref{sec:research-context},
 \ref{sec:data-collection}, and~\ref{sec:data-analysis}, and frame the claims
@@ -186,17 +187,27 @@ Two teams were selected as cases. Following methodological guidance on purposive
 to be statistically representative of a population of teams, but to provide
 \emph{complementary contrast}: teams with different compositions, scopes, and
 relationships to the broader system, so that differences and similarities in tool use
-can be analytically compared.
+can be analytically compared. There are exactly two cases in this study and each is treated as a single, holistic unit of analysis. The design
+does not embed sub-units (such as individual engineers) as separate units within a
+case; observations at the level of individuals are read as evidence about the team as
+a whole.
+
+A second, pragmatic criterion also governed the selection: both teams were chosen
+because the researcher, as an employee of the organization, had insider access to
+them. This access was not merely an enabling condition but an explicit
+selection factor that made it possible to conduct close-range observation of architectural decision-making that this study requires.
+The accepted trade-off is that such access facilitates the research while introducing a risk of insider bias. Such risk is acknowledged and addressed
+through the trustworthiness measures described in Section~\ref{sec:trustworthiness}.
 
 \begin{description}
-  \item[Team~1 --- Product Team.] A team of 12 software engineers (5 senior,
+  \item[Team~1 --- Product Team.] A feature-delivery (Product) team of 12 software engineers (5 senior,
     7 mid-level) responsible for developing new product features with direct
     impact on the company's business objectives and end-user experience. This team
     works on a bounded product domain, with close proximity to business requirements
     and user feedback. Its architectural concerns are primarily about supporting new
     features reliably and at scale while preserving existing quality attributes.
 
-  \item[Team~2 --- Platform Team.] A team of 4 software engineers (2 senior,
+  \item[Team~2 --- Platform Team.] An internal-tooling (Platform) team of 4 software engineers (2 senior,
     2 mid-level) responsible for developing and maintaining broad-scope internal
     tooling that supports software development across the entire organization. This
     team's architectural decisions affect how all engineers in the company build,
@@ -216,12 +227,12 @@ predicted to produce contrasting findings; divergence along the predicted
 direction strengthens the theoretical account of \emph{why} the intervention
 behaves differently across conditions.
 
-The two cases represent a \emph{literal replication} in so far as both teams face
-the same intervention (use of Hypo-Stage and ArchHypo) and a \emph{theoretical
-replication} in that their different scopes and compositions should, theoretically,
-lead to different experiences of architectural uncertainty and different challenges
-in adopting a hypothesis-driven approach \citep{robson2016,yin2009}. This contrast
-strengthens the analytic basis for identifying which findings are context-independent and which are conditioned by team type.
+Although the two teams of this study are exposed to the same intervention (use of Hypo-Stage and ArchHypo),
+their contrasting scopes and compositions are expected to produce theoretically predicted
+differences in how architectural uncertainty is experienced and in the challenges of
+adopting a hypothesis-driven approach. \citet{robson2016} suggests that such divergence is analytically informative in its own right.
+Therefore, as this study's design predicts divergence, any convergence observed across
+the two cases despite their configurational differences was still considered analytically informative for the research questions.
 
 \begin{table}[htbp]
 \centering
@@ -238,10 +249,14 @@ Scope & Bounded product domain; new features with direct business and user impac
 Architectural concerns & Supporting new features reliably at scale; preserving existing quality attributes. & Horizontal decisions affecting build, deploy, and operate practices organization-wide. \\
 \midrule
 Uncertainty profile (expected) & Moderate uncertainty, high proximity to user feedback. & Higher uncertainty about usage patterns; high cross-team impact of decisions. \\
-\midrule
-Replication logic & Literal replication --- same intervention (Hypo-Stage + ArchHypo). & Theoretical replication --- different scope and composition expected to surface different challenges. \\
 \bottomrule
 \end{tabular}
+
+\vspace{0.5em}
+{\footnotesize\emph{Replication logic (case pair):} the two cases together form a
+\emph{theoretical replication} --- under the same intervention, their contrasting
+scopes and compositions are expected to surface different challenges. Replication is
+a property of the case pair, not of either team individually.\par}
 \end{table}
 
 % ---------------------------------------------------------------------------
@@ -272,7 +287,20 @@ their own judgments and priorities.
 \label{sec:procedure}
 % ---------------------------------------------------------------------------
 
-\subsection{Training and Introduction}
+The study procedure unfolded in three sequential phases. In \textbf{Phase~1
+(Training and Introduction)}, each team was introduced to the ArchHypo technique
+and to Hypo-Stage through a dedicated training session. In \textbf{Phase~2
+(Observation and Iterative Refinement)}, the teams used Hypo-Stage in their
+regular development work while the researcher observed tool use, supported the
+teams on request, and refined the tool in response to the difficulties that
+emerged --- the plan--act--observe--reflect loop introduced in
+Section~\ref{sec:research-strategy}. Finally, in \textbf{Phase~3 (Active
+Listening and Wrap-up)}, the researcher held brief reflective sessions with team
+members to capture their overall experience. The remainder of this section
+describes each phase in turn; the specific instruments used to capture data
+during them are detailed in Section~\ref{sec:data-collection}.
+
+\subsection{Phase 1 --- Training and Introduction}
 
 Before the observation period began, each team participated in a one-hour training
 session led by the researcher. The session covered:
@@ -293,11 +321,15 @@ session led by the researcher. The session covered:
   \label{fig:archhypo-overview}
 \end{figure}
 
-\subsection{Observation Period}
+\subsection{Phase 2 --- Observation and Iterative Refinement}
 
 Following the training session, each team entered an observation period during which they were invited to use Hypo-Stage to
 register and manage any architectural uncertainties that arose in the course of their
-regular development work. The organization operates on two-week agile sprints. The initial participant communication (Appendix~\ref{apx:training-communication}) described a four-week horizon; in practice, teams continued to use the tool voluntarily beyond that window.
+regular development work. The term \emph{observation} is used here in the
+action-research sense of the plan--act--observe--reflect cycle
+(Section~\ref{sec:research-strategy}) rather than in the sense of passive
+watching: the researcher actively supported the teams and iteratively refined the
+tool throughout this phase, as detailed below. The organization operates on two-week agile sprints. The initial participant communication (Appendix~\ref{apx:training-communication}) described a four-week horizon; in practice, teams continued to use the tool voluntarily beyond that window.
 
 The empirical window for hypothesis creation is anchored in Hypo-Stage registration timestamps. As documented in Appendix~\ref{app:hypotheses-data}, the thirteen hypotheses were created between 11~February~2026 and 12~April~2026: an interval of 61~calendar days (approximately nine weeks), spanning five consecutive two-week sprint periods from the earliest to the latest registration. No constraints were imposed on the type, number, or
 formulation of hypotheses, nor on when to create them during the sprints. It is intrisic to the nature of the organization in which the experience was conducted that the teams are free to adjust their agile practices to their own needs. Therefore, in contrast to the PropSEP evaluation setting \citep{silva2024tse}, the teams were not required to create hypotheses during the sprints, but rather to use the tools whenever they deemed necessary.
@@ -325,8 +357,25 @@ request. Support was of two distinct types:
 
 This second type of support operationalizes the \emph{action research cycle} within
 the study: difficulty observed $\rightarrow$ refinement designed $\rightarrow$
-updated tool deployed $\rightarrow$ use and observation resumed. Each refinement
-cycle is documented in Section~\ref{sec:refinements}.
+updated tool deployed $\rightarrow$ use and observation resumed. Refinements were
+deployed in near real time: whenever tool friction was logged, the researcher
+implemented and deployed an updated Hypo-Stage version as quickly as practicable,
+then resumed observation. The resulting changes span commit \texttt{ceee509}
+(the baseline artifact boundary established by \citealt{correa2025}) through
+commit \texttt{3a53d4e} over the observation window; each refinement cycle is
+documented in Section~\ref{sec:refinements}. Empirical findings for RQ1--RQ3
+reported in Chapter~\ref{chap:results} describe that window cumulatively rather
+than the pre-refinement tool state alone; see Section~\ref{sec:rq1-results}.
+
+\subsection{Phase 3 --- Active Listening and Wrap-up}
+
+At the end of the observation period, the procedure concluded with a wrap-up
+phase in which the researcher held open-ended active-listening sessions with
+the senior technical leader of each team, inviting them to reflect on their
+overall experience of using Hypo-Stage and ArchHypo. These sessions served as
+the primary reflective moment of the study; their format and the data they
+produced are described as a data collection instrument in
+Section~\ref{subsec:active-listening}.
 
 % ---------------------------------------------------------------------------
 \section{Data Collection}
@@ -341,7 +390,7 @@ cycle is documented in Section~\ref{sec:refinements}.
 \toprule
 \textbf{Instrument} & \textbf{Data Produced} & \textbf{Collection Timing} & \textbf{RQs Addressed} \\
 \midrule
-Participant observation (field notes) & Reactions, use patterns, informal commentary, support requests. & Continuous during observation period. & RQ1, RQ3 \\
+Participant observation (field notes) & Reactions, when and by whom Hypo-Stage was opened, created in, or left unused, informal commentary from team rituals, support requests. & Continuous during observation period. & RQ1, RQ3 \\
 \midrule
 Artifact analysis (Hypo-Stage records) & Hypotheses, assessments, technical plans, lifecycle transitions. & End of observation period. & RQ1, RQ2 \\
 \midrule
@@ -362,9 +411,9 @@ covered:
 \begin{itemize}
   \item[(i)] Team members' reactions and difficulties during and after the training
   session;
-  \item[(ii)] Patterns of use (or non-use) of Hypo-Stage during the sprint;
+  \item[(ii)] When and by whom Hypo-Stage was opened, had artifacts created in it, or was left unused during the sprints;
   \item[(iii)] Interactions in which team members requested conceptual or tool support;
-  \item[(iv)] Informal commentary about the fit of ArchHypo with existing practices.
+  \item[(iv)] Informal commentary about the fit of ArchHypo with existing practices, gathered during the observed team rituals---daily standups, sprint planning, backlog refinement, retrospectives, and dedicated architecture and technical discussions (e.g.\ the Kafka session)---as well as through informal hallway, Slack, and asynchronous interaction; these observations were subsequently corroborated via team feedback.
 \end{itemize}
 
 Following established guidance on participant observation in flexible designs \citep{robson2016}, field notes were recorded as close as possible in time to the observed events, and the researcher maintained a reflexive awareness of his dual role as insider and investigator.
@@ -384,15 +433,20 @@ characterize:
   \item[(iv)] How hypotheses evolved (created, refined, or closed) across the observation period (five two-week sprints spanned by registration timestamps; Appendix~\ref{app:hypotheses-data}).
 \end{itemize}
 
-The content analysis of documentary record is a recognized data collection method in flexible case study designs \citep{robson2016}.
+The content analysis of documentary record is a recognized data collection method in flexible case study designs \citep{robson2016}. In particular, the objective attributes captured in items~(i) and~(ii) --- counts of hypotheses, quality attributes, sources of uncertainty, and technical-plan strategies --- are treated \emph{quantitatively} through descriptive statistics, complementing the qualitative thematic coding applied to the remaining data (see Section~\ref{sec:data-analysis}).
 
 \subsection{Open-Ended Active Listening Sessions}
 \label{subsec:active-listening}
 
 In addition to informal interactions arising from support requests, the researcher
-conducted brief open-ended active listening sessions with team members at the end of the
-observation period, inviting them to reflect on their experience of using Hypo-Stage
-and ArchHypo. These conversations followed a semi-structured format, covering the
+conducted open-ended active-listening sessions with the senior technical leader of
+each team at the end of the observation period---one session per team, two in
+total---inviting them to reflect on their experience of using Hypo-Stage
+and ArchHypo. Each session lasted approximately 20--30 minutes, consistent with
+the duration communicated in the participant invitation
+(Appendix~\ref{apx:training-communication}). These conversations followed a
+semi-structured format guided by the thematic scaffold in
+Appendix~\ref{sec:listening-guide}, covering the
 perceived usefulness of the technique, the difficulties encountered, the changes they
 would suggest to the tool or its integration into their workflow, and their overall
 assessment of the value of making architectural uncertainties explicit in this way.
@@ -400,6 +454,22 @@ Semi-structured or focused interviews are a central method for flexible design
 research and are particularly appropriate when the researcher seeks to capture
 participants' perspectives and interpretations rather than confirming predetermined
 hypotheses as described for flexible qualitative designs \citep{robson2016}.
+
+During each session, the researcher also surfaced interpretations
+formed during the observation period---for instance, inferences about when and
+why hypotheses were registered---and invited the team leader to confirm, correct, or
+elaborate on those readings. This \emph{member-checking} step strengthened the
+credibility of subsequent thematic analysis (Section~\ref{sec:trustworthiness}).
+
+The sessions were genuinely open-ended and were \emph{not} audio-recorded or
+transcribed verbatim. The researcher reconstructed participants' perspectives
+from dated field notes and post-session written recollection. This was a
+deliberate, low-friction choice appropriate to insider research in a live
+delivery setting. It avoided the formality and consent overhead of recording
+colleagues during ordinary work conversations, but it carries a methodological
+cost: the RQ3 account rests on the researcher's own notes and
+memory recall rather than on a verbatim transcript that an independent auditor could
+re-inspect.
 
 % ---------------------------------------------------------------------------
 \section{Data Analysis}
@@ -423,8 +493,9 @@ In line with established guidance on flexible designs \citep{robson2016}, the an
 through three stages, each answering a distinct analytical question.
 
 \paragraph{Stage 1 --- Inductive open coding:} All field notes, extracted
-Hypo-Stage artifact records, and active-listening transcripts were reviewed
-line-by-line. A short descriptive \emph{code} was assigned to each segment that carried
+Hypo-Stage artifact records, and the reconstructed active-listening notes
+(Section~\ref{subsec:active-listening}) were reviewed line-by-line. A short
+descriptive \emph{code} was assigned to each segment that carried
 analytical weight, capturing a recurring observation, a reported experience,
 or a notable silence. Codes at this stage are descriptive, not interpretive:
 the aim is faithful, low-inference labeling of what is present in the data.
@@ -448,8 +519,8 @@ examined across the two cases (Product Team and Platform Team) to identify
 findings common to both teams and findings that were specific to one.
 Similarities are reported as shared observations in
 Chapter~\ref{chap:results}; differences are attributed to the distinct scopes
-and compositions of product versus platform work, following the logic of
-literal and theoretical replication set out in
+and compositions of product versus platform work, following the theoretical
+replication logic set out in
 Section~\ref{sec:case-selection}.
 
 The complete mapping from representative open codes to axial categories,
@@ -483,9 +554,9 @@ Credibility & Internal validity; do findings accurately represent participants' 
 \midrule
 Transferability & Degree to which findings may inform other settings. & Thick description of context; analytic (not statistical) generalization claimed. \\
 \midrule
-Dependability & Reliability and consistency of the research process. & Audit trail: dated field notes, systematic artifact extraction, commits linked to each refinement. \\
+Dependability & Reliability and consistency of the research process. & Audit trail: dated written field notes (not recordings); Hypo-Stage artifact exports at end of window; each refinement linked to commit \texttt{ceee509}--\texttt{3a53d4e}. \\
 \midrule
-Confirmability & Degree to which findings reflect data rather than researcher bias. & Explicit role separation; active search for disconfirming evidence; all claims grounded in specific observations or artifacts. \\
+Confirmability & Degree to which findings reflect data rather than researcher bias. & Role separation maintained via typed support logs; disconfirming evidence coded alongside difficulties; claims traceable to dated notes, artifacts, or reconstructions (Table~\ref{tab:code-traceability}). \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -499,15 +570,8 @@ through:
 \begin{itemize}
   \item[(i)] Prolonged engagement with both teams over approximately nine calendar weeks of real work in their natural environment (Hypo-Stage registrations span five consecutive two-week sprints; Appendix~\ref{app:hypotheses-data});
   \item[(ii)] Multiple data sources (observation, artifact analysis, active listening sessions), providing triangulation of evidence;
-  \item[(iii)] \textbf{Member checking.} Interpretations that the researcher
-    formed during the observation period --- for instance, the inference that
-    hypothesis registration clustered around protected discussion time ---
-    were surfaced back to each team's senior technical leader during the
-    active-listening sessions described in
-    Section~\ref{subsec:active-listening}. Each leader was explicitly invited
-    to confirm, correct, or elaborate on the researcher's reading. This
-    operationalizes the member-checking procedure recommended as a core credibility control for flexible qualitative
-    designs \citep{robson2016}.
+  \item[(iii)] \textbf{Member checking} (Section~\ref{subsec:active-listening}): during the end-of-period active-listening sessions, interpretations that the researcher formed during the observation period were surfaced back to each team's senior technical leader for confirmation, correction, or elaboration, operationalizing the member-checking procedure recommended as a core credibility control for flexible qualitative
+    designs by \citet{robson2016}.
 \end{itemize}
 
 \textbf{Transferability} --- the degree to which the findings may inform other
@@ -520,19 +584,63 @@ account that researchers and practitioners can assess for relevance to their own
 contexts.
 
 \textbf{Dependability} --- the reliability of the research process --- was addressed
-by maintaining an audit trail: field notes were dated and linked to specific events,
-artifact data were extracted and stored systematically, and each tool refinement was
-documented with its triggering observation and the corresponding commit in the
-Hypo-Stage repository.
+by maintaining an audit trail of three linked record types, consistent with the
+transparency choices documented in Section~\ref{subsec:active-listening}.
+First, \textbf{written field notes} were
+kept in a private research journal as close as practicable to each observed event
+(Section~\ref{subsec:participant-observation}); each entry was timestamped and
+tagged to a specific team, sprint, or ritual. Second, at the end of the observation
+window, \textbf{artifact records were exported} from the Hypo-Stage database
+(hypothesis bodies, assessments, technical plans, and lifecycle timestamps) and
+archived alongside the notes for independent re-inspection
+(Appendix~\ref{app:hypotheses-data}). Third, each tool refinement deployed during
+the study was \textbf{linked to its triggering observation} and to the corresponding
+commit in the public Hypo-Stage repository, spanning revision \texttt{ceee509}
+through \texttt{3a53d4e} (Section~\ref{sec:refinements}). Together, these records
+constitute the dependability audit trail that Table~\ref{tab:code-traceability}
+extends into the thematic structure of Chapter~\ref{chap:results}.
 
 \textbf{Confirmability} --- the degree to which findings reflect the data rather
 than researcher bias --- was addressed by: 
 
 \begin{itemize}
-  \item[(i)] Explicitly distinguishing between the researcher's facilitation role (which involved helping teams understand the technique) and his investigator role (which required non-directive observation of how they used it);
-  \item[(ii)] Seeking disconfirming evidence, that is, noting instances where teams found value in the tool or the technique as readily as instances of difficulty;
-  \item[(iii)] Grounding all claims in specific observations, artifacts, or conversation excerpts, reported in Chapter~\ref{chap:results} (including Section~\ref{sec:refinements} where refinements are documented).
+  \item[(i)] \textbf{Explicit role separation in practice.} Support interactions
+    were classified at the time of logging as either \emph{conceptual support}
+    (clarifying ArchHypo) or \emph{tool support} (addressing Hypo-Stage friction),
+    matching the two support types in Phase~2
+    (Section~\ref{sec:procedure}). Facilitation entries were labeled accordingly in
+    the field notes; during team rituals and unprompted usage, the researcher
+    recorded what teams did without steering subsequent behavior, keeping
+    investigator observations separable from facilitation actions.
+  \item[(ii)] \textbf{Active logging of disconfirming evidence.} The researcher
+    applied a standing analytic rule during note-taking and open coding: for each
+    logged difficulty or barrier, the notes also captured counter-instances where
+    teams derived value from the technique or tool. Positive instances received
+    descriptive codes on the same footing as challenge codes---for example,
+    \textit{tool-positive-catalog-integration} alongside
+    \textit{registration-barrier-time-pressure} in
+    Table~\ref{tab:code-traceability}.
+  \item[(iii)] \textbf{Claims grounded in specific observations.} Every empirical
+    claim in Chapter~\ref{chap:results}---including Section~\ref{sec:refinements}---
+    is traceable to a Hypo-Stage artifact identifier, a dated field-note entry, or a
+    paraphrased reconstruction from active-listening notes (not a verbatim quotation;
+    Section~\ref{subsec:active-listening}). Table~\ref{tab:code-traceability} maps
+    each reported theme to its source codes and chapter section.
 \end{itemize}
+
+\textbf{Construct validity.} One deviation from prescribed practice warrants
+explicit disclosure. During the study, the teams and the researcher adopted a local
+convention of registering hypotheses only in a \emph{negative formulation}, phrased
+to describe the evidence under which each hypothesis would be considered false.
+ArchHypo does not require this: it prescribes that hypotheses be \emph{falsifiable}
+(refutable and testable) and recommends writing them as simple, direct statements of
+the team's current belief \citep{silva2024tse}. This convention is therefore a
+plausible cause of the Negative-Formulation finding reported in
+Chapter~\ref{chap:results} (Section~\ref{subsec:challenges} and pattern~A4,
+Section~\ref{subsubsec:pattern-a4}), and the associated cognitive cost may reflect
+the study's operationalization rather than the technique itself. Future studies
+should follow ArchHypo's prescribed free-form falsifiable statements to
+test whether the barrier persists.
 
 % ---------------------------------------------------------------------------
 \section{Ethical Considerations}

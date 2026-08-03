@@ -3,7 +3,7 @@
 % =============================================================================
 
 @article{silva2024tse,
-  author    = {Silva, Eduardo and Melegati, Jorge and Silveira, Moises and Guerra, Eduardo and Wang, Xiaofeng and Meirelles, Paulo},
+  author    = {Silva, Kelson and Melegati, Jorge and Silveira, F{\'a}bio and Wang, Xiaofeng and Ferreira, Maur{\'i}cio and Guerra, Eduardo},
   title     = {{ArchHypo}: Managing Software Architecture Uncertainty Using Hypotheses Engineering},
   journal   = {IEEE Transactions on Software Engineering},
   year      = {2025},
@@ -15,14 +15,15 @@
 }
 
 @article{silva2024ieeesw,
-  author    = {Silva, Eduardo and Melegati, Jorge and Wang, Xiaofeng and Meirelles, Paulo},
+  author    = {Silva, Kelson and Melegati, Jorge and Wang, Xiaofeng and Ferreira, Maur{\'i}cio and Guerra, Eduardo},
   title     = {Using Hypotheses to Manage Technical Uncertainty and Architecture Evolution in a Software Start-up},
   journal   = {IEEE Software},
   year      = {2024},
   volume    = {41},
   number    = {4},
-  pages     = {78--87},
+  pages     = {7--13},
   doi       = {10.1109/MS.2024.3383628},
+  url       = {https://dl.acm.org/doi/abs/10.1109/MS.2024.3383628},
   ids       = {silva2024archhypo},
 }
 
@@ -44,6 +45,16 @@
   note      = {Supervised by José G. Lima Neto; co-supervised by Paulo Meirelles},
 }
 
+@article{anjum2026idp,
+  author    = {Anjum, Mateen Ali},
+  title     = {Platform Engineering and Internal Developer Portals: A Multivocal Literature Review},
+  journal   = {Frontiers in Computer Science},
+  year      = {2026},
+  volume    = {8},
+  pages     = {1814498},
+  doi       = {10.3389/fcomp.2026.1814498},
+}
+
 @article{footeYoder1999,
   author    = {Foote, Brian and Yoder, Joseph},
   title     = {Big Ball of Mud},
@@ -51,6 +62,7 @@
   year      = {1999},
   volume    = {4},
   pages     = {654--692},
+  url       = {https://www.laputan.org/mud/mud.html},
 }
 
 @book{bass2021,
@@ -69,10 +81,12 @@
 }
 
 @inproceedings{silva2024patterns,
-  author    = {Silva, Eduardo and others},
+  author    = {Silva, Kelson and Adolfo, Luciane Baratto and Coppe, Antonio and Silveira, F{\'a}bio Fagundes and Ferreira, Maur{\'i}cio and Guerra, Eduardo},
   title     = {Patterns for Using Hypothesis Engineering to Manage Architectural Uncertainty},
-  booktitle = {Proceedings of the Latin American Conference on Pattern Languages of Programming (SugarLoafPLoP)},
+  booktitle = {Proceedings of the 29th European Conference on Pattern Languages of Programs, People, and Practices (EuroPLoP 2024)},
+  address   = {Irsee, Germany},
   year      = {2024},
+  publisher = {ACM},
   doi       = {10.1145/3698322.3698333},
   ids       = {silva2023initialpatterns},
 }
@@ -83,6 +97,14 @@
   publisher = {O'Reilly Media},
   year      = {2020},
   isbn      = {9781492043454},
+}
+
+@book{richardson2018microservices,
+  author    = {Richardson, Chris},
+  title     = {Microservices Patterns: With Examples in Java},
+  publisher = {Manning Publications},
+  year      = {2018},
+  isbn      = {9781617294549}
 }
 
 @article{perryWolf1992,
@@ -96,14 +118,44 @@
   doi       = {10.1145/141874.141884},
 }
 
-@article{melegati2019,
-  author    = {Melegati, Jorge and Goldman, Alfredo and Kon, Fabio and Wang, Xiaofeng},
-  title     = {A Hypotheses-Driven Process Model for Lean Startup: The {HYPEX} Model},
-  journal   = {Information and Software Technology},
+@incollection{olsson2014hypex,
+  author    = {Olsson, Helena Holmstr{\"o}m and Bosch, Jan},
+  title     = {The {HYPEX} Model: From Opinions to Data-Driven Software Development},
+  booktitle = {Continuous Software Engineering},
+  editor    = {Bosch, Jan},
+  publisher = {Springer},
+  address   = {Cham},
+  year      = {2014},
+  pages     = {155--164},
+  doi       = {10.1007/978-3-319-11283-1_13},
+}
+
+@inproceedings{melegati2019quest,
+  author    = {Melegati, Jorge and Wang, Xiaofeng},
+  title     = {{QUESt}: New Practices to Represent Hypotheses in Experiment-Driven Software Development},
+  booktitle = {Proceedings of the 2nd ACM SIGSOFT International Workshop on Software-Intensive Business: Start-ups, Platforms, and Ecosystems (IWSiB)},
   year      = {2019},
-  volume    = {114},
-  pages     = {116--128},
-  doi       = {10.1016/j.infsof.2019.06.012},
+  pages     = {13--18},
+  doi       = {10.1145/3340481.3342732}
+}
+
+@inproceedings{melegati2019he,
+  author    = {Melegati, Jorge and Wang, Xiaofeng and Abrahamsson, Pekka},
+  title     = {Hypotheses Engineering: First Essential Steps of Experiment-Driven Software Development},
+  booktitle = {IEEE/ACM Joint 4th International Workshop on Rapid Continuous Software Engineering and 1st International Workshop on Data-Driven Decisions, Experimentation and Evolution (RCoSE/DDrEE)},
+  year      = {2019},
+  pages     = {16--19},
+  doi       = {10.1109/RCoSE/DDrEE.2019.00011}
+}
+
+@article{fagerholm2017,
+  author    = {Fagerholm, Fabian and Guinea, Alejandro Sanchez and M{\"a}enp{\"a}{\"a}, Hanna and M{\"u}nch, J{\"u}rgen},
+  title     = {The {RIGHT} Model for Continuous Experimentation},
+  journal   = {Journal of Systems and Software},
+  year      = {2017},
+  volume    = {123},
+  pages     = {292--305},
+  doi       = {10.1016/j.jss.2016.03.034}
 }
 
 @misc{infoq2024trends,
@@ -201,7 +253,7 @@
                Components, Architectures, and Reuse (SBCARS)},
   year      = {2025},
   publisher = {SBC},
-  doi       = {10.5753/sbcars.2025.4769}
+  doi       = {10.5753/sbcars.2025.11890}
 }
 
 @inproceedings{dasanayake2017collaborative,
@@ -209,11 +261,13 @@
                Sanja Aaramaa and Markku Oivo},
   title     = {An Empirical Study on Collaborative Architecture Decision Making
                in Software Teams},
-  booktitle = {Proceedings of the 11th European Conference on Software Architecture
-               (ECSA) Companion},
-  year      = {2017},
+  booktitle = {Software Architecture: 10th European Conference, ECSA 2016,
+               Copenhagen, Denmark, November 28--December 2, 2016, Proceedings},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {9839},
+  year      = {2016},
   publisher = {Springer},
-  url       = {https://arxiv.org/pdf/1707.00107.pdf}
+  doi       = {10.1007/978-3-319-48992-6_18}
 }
 
 @inproceedings{tang2017human,
@@ -225,18 +279,18 @@
   year      = {2017},
   pages     = {107--116},
   publisher = {IEEE},
-  doi       = {10.1109/ICSA.2017.27}
+  doi       = {10.1109/ICSA.2017.15}
 }
 
 @article{razavian2019empirical,
-  author    = {Maryam Razavian},
+  author    = {Razavian, Maryam and Paech, Barbara and Tang, Antony},
   title     = {Empirical Research for Software Architecture Decision Making:
                An Analysis},
   journal   = {Journal of Systems and Software},
   year      = {2019},
   volume    = {149},
   pages     = {360--381},
-  doi       = {10.1016/j.jss.2018.12.013}
+  doi       = {10.1016/j.jss.2018.12.003}
 }
 
 @inproceedings{herbsleb1999splitting,
@@ -256,9 +310,50 @@
                and Patryk Stradomski and Andrzej Zalewski},
   title     = {What Rationales Drive Architectural Decisions?
                An Empirical Inquiry},
-  booktitle = {Proceedings of the 17th European Conference on
-               Software Architecture (ECSA)},
+  booktitle = {Software Architecture: 17th European Conference on Software
+               Architecture, ECSA 2023, Istanbul, Turkey, September 18--22, 2023,
+               Proceedings},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {14212},
+  pages     = {303--318},
   year      = {2023},
   publisher = {Springer},
-  url       = {https://arxiv.org/pdf/2309.14164.pdf}
+  doi       = {10.1007/978-3-031-42592-9_21}
+}
+
+@misc{nygard2011adr,
+  author       = {Nygard, Michael},
+  title        = {Documenting Architecture Decisions},
+  howpublished = {\url{https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions}},
+  year         = {2011},
+  month        = {November},
+  note         = {Grey literature --- practitioner blog post introducing Architecture Decision Records}
+}
+
+@misc{adrtools2024,
+  author       = {Pryce, Nat},
+  title        = {adr-tools: Command-Line Tools for Working with Architecture Decision Records},
+  howpublished = {\url{https://github.com/npryce/adr-tools}},
+  year         = {2024},
+  note         = {Grey literature --- open-source project documentation}
+}
+
+@misc{log4brains2024,
+  author       = {Vaillant, Thomas},
+  title        = {Log4brains: Architecture Decision Records Management and Publication Tool},
+  howpublished = {\url{https://github.com/thomvaill/log4brains}},
+  year         = {2024},
+  note         = {Grey literature --- open-source project documentation}
+}
+
+@inproceedings{kazman1998atam,
+  author    = {Kazman, Rick and Klein, Mark and Barbacci, Mario and
+               Longstaff, Thomas and Lipson, Howard and Carriere, Jeromy},
+  title     = {The Architecture Tradeoff Analysis Method},
+  booktitle = {Proceedings of the Fourth International Conference on
+               Engineering of Complex Computer Systems (ICECCS)},
+  year      = {1998},
+  pages     = {68--78},
+  publisher = {IEEE},
+  doi       = {10.1109/ICECCS.1998.706657}
 }

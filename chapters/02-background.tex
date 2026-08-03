@@ -44,25 +44,36 @@ This is where Hypotheses Engineering may be used to play a key role in the archi
 \section{Hypotheses Engineering and ArchHypo}
 \label{sec:archhypo}
 
-Hypotheses engineering is an approach to managing technical uncertainty by formulating
-architectural decisions as testable hypotheses rather than settled facts. Instead of
-asserting that a particular technology or pattern \emph{will} satisfy a quality
-requirement, teams state that it \emph{might} do so and then design experiments to
-gather evidence to validate or invalidate the hypothesis.
+Hypotheses engineering is a general approach to managing uncertainty in software
+development, first articulated by \citet{melegati2019he}. Its core idea is to treat
+uncertain decisions as testable hypotheses rather than settled facts: instead of
+asserting that a particular choice \emph{will} produce a desired outcome, teams state
+that it \emph{might} do so and then design experiments to gather evidence that
+validates or invalidates the hypothesis. Although it originated in the broader context
+of software startups and product development under uncertainty, the same discipline of
+making assumptions explicit and evidence-driven can be applied wherever teams must
+act despite incomplete information.
 
-The ArchHypo technique, proposed by \citet{silva2024tse}, operationalized this idea for
-software architecture. Grounded in Design Science Research (DSR)
-and evolved from a body of patterns for agile architecture first disseminated at
-conferences and through corporate training reported in~\citep{silva2024ieeesw}, ArchHypo provides
-a structured vocabulary and a set of practices that fit within iterative development
-workflows where architecture uncertainty is a constant challenge for rapidly-evolving software systems.
+The ArchHypo technique, proposed by \citet{silva2024tse}, is the architecture-specific
+adaptation of hypotheses engineering: it operationalizes this idea for software
+architecture, where a particular technology or pattern is treated as a hypothesis about
+whether it will satisfy a quality requirement rather than an assumed fact. Grounded in
+Design Science Research (DSR) and evolved from a body of patterns for agile architecture
+first disseminated at conferences and through corporate training
+\citep{silva2024patterns,silva2024ieeesw}, ArchHypo provides a structured vocabulary and
+a set of practices that fit within iterative development workflows where architecture
+uncertainty is a constant challenge for rapidly-evolving software systems.
 
 % ------- 2.2.1
 \subsection{Core Concepts}
 \label{subsec:archhypo-core}
 
-An \emph{architectural hypothesis} is a falsifiable statement that captures an uncertainty relevant to the design of a software architecture. 
-It is important to distinguish the concept from adjacent concepts:
+An \emph{architectural hypothesis} is a \emph{falsifiable} statement that captures an uncertainty relevant to the design of a software architecture.
+In this context, \emph{falsifiable} means that the possibility of proving the statement false exists. This means that the hypothesis is refutable and testable through evidence, and \emph{not} that the hypothesis must be phrased as something the team expects to be false.
+ArchHypo prescribes that hypotheses be written as simple, direct statements that express the team's current beliefs, formulated freely to reduce the friction of adopting the technique \citep{silva2024tse}.
+The practice descends from Hypotheses Engineering, first articulated by \citet{melegati2019he}; interrogative or questioning templates such as QUESt \citep{melegati2019quest} are an optional, compatible way to represent hypotheses rather than a requirement of the technique.
+In this sense, an architectural hypothesis is fundamentally \emph{a way of recording and registering an item of architectural uncertainty}: each hypothesis pairs one uncertainty with an explicit, testable statement about it, turning otherwise implicit assumptions into first-class artifacts that can be assessed, tracked, and revisited as evidence accumulates \citep{silva2024tse}.
+It is this hypothesis and uncertainty pairing that distinguishes the concept from adjacent concepts:
 
 \begin{itemize}
   \item \textbf{Hypothesis versus\ Risk:} A risk involves a known event with estimable
@@ -162,10 +173,10 @@ deferred. ArchHypo identifies the following plan strategies as observed in \cite
   normal work. This was the most frequently used strategy in the evaluation reported by \citet{silva2024tse}.
 
   \item \textbf{Architectural Trigger.} A condition-based deferral in which the team
-  agrees to act on the hypothesis only when a specific observable event occurs (e.g.,
-  when the number of concurrent users exceeds a threshold, or when a performance
-  regression appears in monitoring). Until the trigger fires, the hypothesis is
-  deliberately deferred.
+  agrees to resolve the hypothesis only when a specific observable event occurs
+  (e.g., when the number of concurrent users exceeds a threshold, or when a performance
+  regression appears in monitoring). Until the trigger fires, the decision is
+  deliberately deferred rather than made prematurely.
 
   \item \textbf{Agile Landing Zones.} Adopting architectural patterns that explicitly
   preserve flexibility, creating ``landing zones'' into which future decisions can be
@@ -213,7 +224,7 @@ so late that deferral would create unnecessary risk.
 \subsection{Empirical Evaluations}
 \label{subsec:archhypo-evaluations}
 
-\paragraph{IEEE Software evaluation (Catch Solve startup).}
+\paragraph{Start-up evaluation (Catch Solve).}
 The first evaluation of ArchHypo in a real operating environment was reported in an
 IEEE Software article in \citet{silva2024ieeesw}. The setting was Catch
 Solve, a startup offering web testing and monitoring services based in Italy's South
@@ -232,7 +243,7 @@ changed how the team prioritized technical work: rather than treating architectu
 uncertainty as urgent and tacit, it became visible, assessed, and deliberately managed
 within a defined lifecycle.
 
-\paragraph{TSE evaluation (PropSEP at Jetsoft).}
+\paragraph{Mission-critical evaluation (PropSEP at Jetsoft).}
 The larger and more controlled evaluation, published in the IEEE Transactions on
 Software Engineering ~\citep{silva2024tse}, examined the application of ArchHypo within
 Jetsoft, a Brazilian software development company, on the PropSEP project---the budget
@@ -283,7 +294,7 @@ The study produced nine key findings:
   behind a hypothesis, and understanding hypotheses as the primary driver of
   architectural action. No participant felt prepared to apply ArchHypo without
   continued expert support after the initial workshop ~\citep{silva2024tse}. 
-  One participant explicitly stated that *''more training would make the team less dependent on the team of architects''* (P3) ~\citep{silva2024tse}. 
+  One participant explicitly stated that \emph{``more training would make the team less dependent on the team of architects''} (P3) ~\citep{silva2024tse}. 
   The authors themselves acknowledge this structural dependency in their discussion. 
   The absence of a supporting tool that encodes this knowledge into the workflow risks ArchHypo to remain a technique that only functions when an experienced architect is actively steering its application.
 \end{enumerate}
@@ -318,7 +329,7 @@ practices such as Team Topologies have created significant complexity in the dai
 workflow of software engineering teams. In response, the industry has converged around the
 concept of \emph{Internal Developer Portals} (IDPs) as a platform-engineering
 discipline aimed at reducing this complexity while preserving team
-independence ~\citep{correa2025}.
+independence ~\citep{anjum2026idp}.
 
 % ------- 2.3.1
 \subsection{The Role of Internal Developer Portals (IDPs)}
@@ -327,10 +338,10 @@ independence ~\citep{correa2025}.
 An Internal Developer Portal serves as the primary interface between developers and the
 underlying platform infrastructure. Unlike a simple wiki or a project-management tool,
 an IDP is an operational hub that aggregates tools, services, documentation, and data
-into a unified ``pane of glass'' ~\citep{correa2025}. Its primary goal is to reduce
+into a unified ``pane of glass'' ~\citep{anjum2026idp}. Its primary goal is to reduce
 \emph{cognitive load}: by abstracting the complexity of infrastructure and standardizing
 workflows, IDPs enable what practitioners call \emph{Golden Paths} -- recommended,
-supported, and automated paths for building and deploying software ~\citep{correa2025}.
+supported, and automated paths for building and deploying software ~\citep{anjum2026idp}.
 
 This goal aligns directly with the theory of autonomous stream-aligned teams summarized in Team Topologies guidance \citep{skelton2019}: if teams are to own full slices of a product
 without depending on a central gatekeeper, the platform must lower the barriers to
@@ -370,11 +381,11 @@ where frontend plugins handle views and UI components while backend plugins mana
 API services, data processing, and storage; and (3)~\emph{External Integrations}, through
 which backend plugins serve as gateways to external systems and APIs, allowing the
 portal to aggregate data from cloud providers, CI/CD tools, and other
-infrastructure ~\citep{correa2025}.
+infrastructure ~\citep{backstage2024}.
 
 \begin{table}[htbp]
 \centering
-\caption{Backstage architecture layers and their role \citep{correa2025}.}
+\caption{Backstage architecture layers and their role \citep{backstage2024}.}
 \label{tab:backstage-layers}
 \begin{tabular}{p{0.25\linewidth} p{0.35\linewidth} p{0.32\linewidth}}
 \toprule
@@ -395,7 +406,7 @@ without forcing context-switching. It is precisely this extensibility that makes
 the appropriate delivery vehicle for the Hypo-Stage tool: a plugin can introduce a new class of
 first-class object -- the architectural hypothesis -- into the same environment where a
 developer already inspects service health, reviews documentation, and triggers CI/CD
-runs \citep{correa2025}.
+runs \citep{backstage2024}.
 
 \citet{correa2025} demonstrated the technical feasibility of building such a plugin
 and validated the integration approach. That work established the initial version of
@@ -409,6 +420,16 @@ Hypo-Stage is an open-source Backstage plugin developed
 as an undergraduate capstone project by Pedro Henrique Mariano Corrêa, supervised by
 the author of this work and co-supervised by Prof.\ Paulo
 Meirelles \citep{correa2025}. Its purpose is to operationalize ArchHypo within the Spotify's IDP Backstage, embedding hypothesis management into the engineering platform workflow.
+Figure~\ref{fig:initial-hypostage-dashboard} shows the main hypotheses dashboard of that initial version.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.95\textwidth]{initial-hypostage-dashboard}
+  \caption{Initial Hypo-Stage hypotheses dashboard (Backstage plugin), corresponding to the
+    \citealt{correa2025} baseline at commit~\texttt{ceee509}. The listing exposes each
+    hypothesis with uncertainty, impact, status, source type, and creation date.}
+  \label{fig:initial-hypostage-dashboard}
+\end{figure}
 
 The initial version of Hypo-Stage, corresponding to the code up to commit
 \texttt{ceee509776508081ebdd473c2c4f710b8ef55947} in the \texttt{hypo-stage}
@@ -480,14 +501,9 @@ Status lifecycle & Tracks hypotheses through open $\rightarrow$ validated / inva
 \section{Deriving Architecture from Requirements: The Tooling Gap}
 \label{sec:tooling-gap}
 
-The systematic mapping study \citep{souza2019} examined
-the existing body of work on methods for deriving architectural models from requirements
-specifications. Starting from 2,575 candidate papers, the authors applied a PICOC
-(Population, Intervention, Comparison, Outcome, Context) search structure and a quality
-assessment checklist -- composed of general criteria (weighted at 25\%) and
-method-specific criteria (weighted at 75\%) -- to select 39 high-quality primary studies
-for detailed analysis. Their analysis employed the NIMSAD (Normative Information Model-based Systems Analysis and Design) framework to characterize the
-structure of each reviewed method.
+The systematic mapping study \citep{souza2019} examined methods for deriving
+architectural models from requirements specifications, analyzing 39 high-quality primary
+studies selected from a broader literature search.
 
 Among their key findings, these were directly relevant to this work:
 
@@ -517,8 +533,38 @@ yet the methods for handling quality attributes — precisely the domain where a
 uncertainty is most consequential — were among the least well supported by tools or
 empirical evidence \citep{souza2019}.
 
-These findings reinforce the motivation for this work on two fronts. First, they confirm
-the existence of a ``tooling void'' in which architectural management remains
-disconnected from the daily engineering workflow. Second, they underscore the need for
-empirical evaluations with real teams -- precisely the kind of evaluation this work aims
-to provide for the Hypo-Stage tool and ArchHypo.
+These findings characterize the state of architectural derivation methods at the time of
+the mapping: reliant on tacit expertise, weakly tooled, and thinly evaluated in
+production settings.
+
+% ---------------------------------------------------------------------------
+\section{Summary: State of the Literature for This Work}
+\label{sec:background-summary}
+
+Taken together, the background surveyed in this chapter frame architectural work as an
+exercise in managing uncertainty. Hypotheses Engineering \citep{melegati2019he} and its
+architecture-specific realization, ArchHypo \citep{silva2024tse}, provide the conceptual
+basis: each architectural hypothesis records one item of uncertainty as an explicit,
+testable statement, which is then assessed for epistemic gap and priority and worked
+through a technical plan until enough evidence accumulates to resolve it. This turns
+otherwise implicit assumptions into first-class artifacts that a team can track and
+revisit as a project evolves.
+
+However, the empirical picture exposes a persistent limitation. The evaluations of
+ArchHypo reported to date \citep{silva2024ieeesw,silva2024tse} showed real value in
+distributing architectural reasoning across iterations, but they were conducted through
+manual application, depended on expert team members, and offered no supporting tooling, leading
+participants to find the technique hard to learn and its practice disconnected from
+daily delivery. Additionally, the concept of Internal Developer Portals, and Backstage in particular
+\citep{anjum2026idp,backstage2024}, suggested a single platform
+for engineering workflows through which the techniques, such as ArchHypo, could be
+operationalized. The Hypo-Stage prototype \citep{correa2025} took that first step, but it remained a feasibility demonstration rather than a workflow-ready tool.
+
+The systematic mapping study \citep{souza2019} also confirms a
+broader ``tooling void'' in which methods for deriving and managing architecture remain
+disconnected from the daily engineering workflow, weakly supported by tools, and rarely
+validated with real teams in production.
+
+Grounded in these findings, this work takes Hypo-Stage as a starting artifact and asks how
+real engineering teams appropriate ArchHypo in a production setting. Chapter~\ref{chap:related-work}
+connects this agenda to the adjacent research on architectural decision-making, tool support, and hypotheses-driven practice.

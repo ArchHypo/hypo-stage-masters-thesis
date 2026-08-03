@@ -1,15 +1,26 @@
 %!TeX root=../thesis.tex
 
-\chapter{Related Work}
+\chapter{Literature Context and Positioning}
 \label{cap:related-work}
 \label{chap:related-work}
 
+This chapter positions the present work within the existing literature rather than
+performing a classic approach-versus-approach comparison of competing techniques.
+Because the contribution of this thesis is the empirical, tool-mediated evaluation of a
+single well-defined technique rather than a new method competing with alternatives, the surrounding literature is best treated as
+context that situates and motivates the study. A feature-level comparison of existing tools against Hypo-Stage is consolidated in
+Table~\ref{tab:tools-comparison} in Section~\ref{sec:tool-support}.
+
 This chapter synthesizes the literature relevant to the empirical evaluation of Hypo-Stage. 
-Rather than presenting a standalone systematic review, it draws on the author's earlier exploratory work --- which included a tertiary systematic
+Rather than presenting a standalone systematic review, it exposes the author's earlier exploratory work, which included a tertiary systematic
 mapping study on software architecture for startups and a multivocal literature review
-on centralization and decentralization of architectural decision-making --- and
-repositions those findings as narrative context for this work. The chapter also
-incorporates references from the gray literature. Such sources
+on centralization and decentralization of architectural decision-making. The full tertiary mapping study and multivocal review are intentionally not reproduced as
+standalone chapters. This is a deliberate scope decision, so this work is not broadened beyond its focus on the
+tool-mediated evaluation of ArchHypo. Therefore, this literature context is summarized here as it motivated and framed that evaluation, keeping the
+work centered on how software engineering teams appropriate and refine Hypo-Stage in
+practice. 
+
+This chapter also incorporates references from the gray literature. Such sources
 are explicitly identified as relevant, despite having weaker evidential
 weight than peer-reviewed publications, because they often capture industry trends and real
 organizational experience more rapidly than academic publication cycles allow.
@@ -125,14 +136,17 @@ governance without sacrificing coherence.
 Along with the author's exploratory research, several tools and platforms have been proposed to support architectural decision-making:
 
 \begin{itemize}
-  \item \textbf{ADR tools} (e.g., adr-tools, Log4brains) focus on recording and
-  versioning Architecture Decision Records (ADRs). They capture the \emph{what} and
+  \item \textbf{ADR tools} (e.g., adr-tools, Log4brains), documented in
+  practitioner and gray-literature sources \citep{nygard2011adr, adrtools2024, log4brains2024},
+  focus on recording and versioning Architecture Decision Records (ADRs).
+  They capture the \emph{what} and
   \emph{why} of decisions but do not model uncertainty, impact, or technical plans for
   hypotheses that are not yet decisions. ADRs document settled choices; they are not
   designed to manage the pre-decision state of uncertainty that ArchHypo addresses.
 
   \item \textbf{Architecture analysis tools} (e.g., ATAM-based workshops, trade-off
-  analysis methods) provide structured evaluation of architectural alternatives but are
+  analysis methods) \citep{kazman1998atam} provide structured evaluation of
+  architectural alternatives but are
   typically heavyweight, workshop-based activities rather than continuous,
   team-embedded processes. Their value lies in one-shot or periodic analysis sessions,
   not in the ongoing, iterative management of uncertainty throughout a product's
@@ -186,10 +200,11 @@ compared with tool proposals and method descriptions. Among the most relevant:
   with no tool support. This work introduces the first evaluation of ArchHypo in a
   tool-mediated setting.
 
-  \item Studies on architectural governance in agile organizations (e.g., the work on
-  SAFe and Spotify-model variants) document how companies structure roles and
-  ceremonies for architecture, but rarely examine explicit uncertainty-management
-  techniques.
+  \item Studies on architectural governance in agile organizations, including
+  tailored Spotify-model variants \citep{salameh2021architecture} and architecture
+  groups in multi-team agile settings \citep{deDiana2011arch}, document how
+  companies structure roles and ceremonies for architecture, but rarely examine
+  explicit uncertainty-management techniques.
 
   \item The multivocal review conducted during the author's exploratory research surfaced
   practitioner reports (blog posts, conference talks, white papers) describing ad-hoc
