@@ -32,4 +32,4 @@ Entries are chronological. Newest at bottom.
 
 ## 2026-08-02
 
-- **T28 unblocked:** added `figures/initial-hypostage-dashboard.png` (initial Hypo-Stage hypotheses dashboard) and figure `fig:initial-hypostage-dashboard` in §2.4 (`chapters/02-background.tex`), captioned as the `correa2025` / `ceee509` baseline. Corrected deposit refreshed to `archive/thesis-deposit-corrected-20260802.pdf`; original deposit `archive/thesis-deposit-original-20260511.pdf` left untouched. T44 (manual USP upload) remains.
+- **T28 unblocked:** added `figures/initial-hypostage-dashboard.png` (initial Hypo-Stage hypotheses dashboard) and figure `fig:initial-hypostage-dashboard` in §2.4 (`chapters/02-background.tex`), captioned as the `correa2025` / `ceee509` baseline. Corrected deposit tracked as `archive/thesis-deposit-corrected.pdf`; original deposit `archive/thesis-deposit-original-20260511.pdf` left untouched. T44 (manual USP upload) remains.

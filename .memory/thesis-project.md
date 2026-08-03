@@ -31,11 +31,11 @@ This work studies **Hypo-Stage**, an open-source **Backstage** plugin developed 
 
 - **Defense completed** 11 June 2026. Committee feedback addressed on branch `fix/versao-corrigida-committee-feedback`.
 - **Versão corrigida** built with `\tipotese{..., definitiva, ...}` and `\correctedversiontrue` (committee block on title page).
-- **Deposit snapshots:** `archive/thesis-deposit-original-20260511.pdf` (pre-defense / deposited original — leave untouched on the versão-corrigida branch); `archive/thesis-deposit-corrected-20260802.pdf` (corrected version for Biblioteca Digital USP, aligned with current `thesis.pdf`).
+- **Deposit snapshots:** `archive/thesis-deposit-original-20260511.pdf` (pre-defense / deposited original — leave untouched on the versão-corrigida branch); `archive/thesis-deposit-corrected.pdf` (corrected version for Biblioteca Digital USP, aligned with current `thesis.pdf`).
 - **Audit trail:** `docs/thesis-corrections/CHANGELOG-versao-corrigida.md` maps feedback IDs A1–A36, M1–M61, C1 → commits.
 - **Remaining:** manual upload to Biblioteca Digital USP / Janus (deadline ≈ 10 Aug 2026; see `ime-workflow.md`).
 
 ## Deposit artifact names (reference)
 
 - Pre-defense committee submission: **`thesis-deposit-original-20260503.pdf`** (3 May 2026; git history).
-- Corrected-version refresh: **`thesis-deposit-corrected-20260802.pdf`** (2 August 2026; includes T28 initial-tool screenshot). Original deposit remains **`thesis-deposit-original-20260511.pdf`**.
+- Corrected-version refresh: **`thesis-deposit-corrected.pdf`** (aligned with current `thesis.pdf`; includes T28 initial-tool screenshot). Original deposit remains **`thesis-deposit-original-20260511.pdf`**.
